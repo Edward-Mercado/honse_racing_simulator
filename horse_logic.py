@@ -81,3 +81,17 @@ class Horse:
         if pygame.Rect(self.rect).colliderect(carrot):
             print(f"WINNER: {self.name}")
             quit()
+            
+    def get_vector_movement(self, vector_name):
+        vector_movements = {
+            "RIGHT" : ["X", 1],
+            "LEFT" : ["X", -1],
+            "UP": ["Y", -1],
+            "DOWN": ["Y", 1]
+        }
+        if vector_movements[vector_name][0] == "X":
+            attribute = self.location_x
+        elif vector_movements[vector_name][0] == "Y":
+            attribute = self.location_y
+            
+        return attribute, vector_movements[vector_name][1]

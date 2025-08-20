@@ -7,7 +7,6 @@ def get_opposite_direction(direction):
         "LEFT" : "RIGHT",
         "RIGHT" : "LEFT",
     }
-    
     try:
         return opposite_directions[direction]
     except KeyError:
