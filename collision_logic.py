@@ -16,8 +16,7 @@ def handle_wall_collision(horse, fields, direction):
     horse_hit_wall = True
     for field in fields:
         if pygame.Rect((field)).colliderect(horse.rect):
-            horse_hit_wall = False
-            
+            horse_hit_wall = False    
     
 def handle_horse_collision(horse, horses, direction):
     pass
