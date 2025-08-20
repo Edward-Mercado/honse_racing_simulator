@@ -2,8 +2,8 @@ import pygame, random
 from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction
 
 class Horse:
-    def __init__(self, speed, width, height, location_x, location_y, image_url):
-        self.name = self
+    def __init__(self, name, speed, width, height, location_x, location_y, image_url):
+        self.name = name
         self.speed = speed
         self.width = width
         self.height = height
@@ -44,8 +44,6 @@ class Horse:
                 vector = random.randint(1, 6) * self.speed
         
     def movement_steps(self, walls, horses, direction):
-        
-        
         handle_wall_collision(self, walls, direction)
         handle_horse_collision(self, horses, direction)
         
