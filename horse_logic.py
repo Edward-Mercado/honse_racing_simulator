@@ -11,6 +11,7 @@ class Horse:
         self.location_x = location_x
         self.location_y = location_y
         self.rect = (location_x, location_y, width, height)
+        self.past_directions = []
         
         self.vector_up = {
             "vector_name" : "UP",
@@ -127,10 +128,6 @@ class Horse:
                 break
         if horse_hit_wall == True:
             self.location_y -= (self.vector_up["vector_measurement"] - int(self.vector_up["vector_measurement"]))
-        
-        if pygame.Rect(self.rect).colliderect(carrot):
-            print(f"WINNER: {self.name}")
-            quit()
             
     def get_vector_movement(self, vector_name):
         vector_movements = {
@@ -143,9 +140,42 @@ class Horse:
     
     def fix_vector_pair(self, type, vector_one, vector_two):
         if sum([vector_one, vector_two]) == 0:
+            past_directions_reversed = self.past_directions[::-1]
+        
             if type == "horizontal":
-                self.vector_left["vector_measurement"] = random.randint(1, 5)
-                self.fit_movement_vectors()
+                for previous_direction in past_directions_reversed:
+                    if previous_direction == "LEFT":
+                        self.vector_left["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                        break
+                    elif previous_direction == "RIGHT":
+                        self.vector_right["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                        break
+                    
+                if "LEFT" not in past_directions_reversed and "RIGHT" not in past_directions_reversed:
+                    if random.choice(["LEFT, RIGHT"]) == "LEFT":
+                        self.vector_left["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                    else:
+                        self.vector_right["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                        
             elif type == "vertical":
-                self.vector_up["vector_measurement"] = random.randint(1, 5)
-                self.fit_movement_vectors()
+                for previous_direction in past_directions_reversed:
+                    if previous_direction == "UP":
+                        self.vector_up["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                        break
+                    elif previous_direction == "DOWN":
+                        self.vector_down["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                        break
+                    
+                if "UP" not in past_directions_reversed and "DOWN" not in past_directions_reversed:
+                    if random.choice(["UP", "DOWN"]) == "UP":
+                        self.vector_up["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()
+                    else:
+                        self.vector_down["vector_measurement"] = random.randint(1, 5)
+                        self.fit_movement_vectors()

@@ -13,13 +13,15 @@ def get_opposite_direction(direction):
         return "INVALID"
 
 def handle_wall_collision(horse, field_hitboxes, direction):
-    horse_hit_wall = False
+    horse_hit_hitbox = False
     
     for field_hitbox in field_hitboxes:
         if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(field_hitbox):
-            horse_hit_wall = True  
+            horse_hit_hitbox = True  
             
-    if horse_hit_wall == False:
+    if horse_hit_hitbox == False:
+        horse.past_directions.append(direction)
+        
         if direction == "UP":
             horse.location_y += 8 * horse.speed
             horse.vector_down["vector_measurement"] = horse.vector_up["vector_measurement"]
@@ -40,10 +42,58 @@ def handle_wall_collision(horse, field_hitboxes, direction):
             horse.vector_left["vector_measurement"] = horse.vector_right["vector_measurement"]
             horse.vector_right["vector_measurement"] = 0
         
-    return horse_hit_wall
+    return horse_hit_hitbox
 
 def handle_horse_collision(horse, horses, direction):
-    pass
+    other_horses = horses
+
+    for other_horse in other_horses:
+        if horse.name != other_horse.name:
+            horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
+            other_horse_rect = pygame.Rect(other_horse.location_x, other_horse.location_y, other_horse.width, other_horse.height)
+            
+            if horse_rect.colliderect(other_horse_rect):
+                if direction == "UP":
+                    horse.location_y += 7
+                    horse.vector_down["vector_measurement"] = horse.vector_up["vector_measurement"]
+                    horse.vector_up["vector_measurement"] = 0
+                    
+                    other_horse.location_y -=  7
+                    if other_horse.vector_down["vector_measurement"] != 0:
+                        other_horse.vector_up["vector_measurement"] = other_horse.vector_down["vector_measurement"]
+                        other_horse.vector_down["vector_measurement"] = 0
+                        
+                elif direction == "DOWN":
+                    horse.location_y -= 7
+                    horse.vector_up["vector_measurement"] = horse.vector_down["vector_measurement"]
+                    horse.vector_down["vector_measurement"] = 0
+                    
+                    other_horse.location_y += 7
+                    if other_horse.vector_up["vector_measurement"] != 0:
+                        other_horse.vector_down["vector_measurement"] = other_horse.vector_up["vector_measurement"]
+                        other_horse.vector_up["vector_measurement"] = 0
+
+                elif direction == "LEFT":
+                    horse.location_x += 7
+                    horse.vector_right["vector_measurement"] = horse.vector_left["vector_measurement"]
+                    horse.vector_left["vector_measurement"] = 0
+                    
+                    other_horse.location_x -= 7
+                    if other_horse.vector_right["vector_measurement"] != 0:
+                        other_horse.vector_left["vector_measurement"] = other_horse.vector_right["vector_measurement"]
+                        other_horse.vector_right["vector_measurement"] = 0
+                        
+                elif direction == "RIGHT":
+                    horse.location_x -= 7
+                    horse.vector_left["vector_measurement"] = horse.vector_right["vector_measurement"]
+                    horse.vector_right["vector_measurement"] = 0
+                    
+                    other_horse.location_x += 7
+                    if other_horse.vector_left["vector_measurement"] != 0:
+                        other_horse.vector_right["vector_measurement"] = other_horse.vector_left["vector_measurement"]
+                        other_horse.vector_left["vector_measurement"] = 0
+                    
+                break
 
 def get_horse_start_pos(horses, map):
     return 400, 400
