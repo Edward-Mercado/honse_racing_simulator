@@ -51,7 +51,8 @@ class Map:
         return color_values[special_rect_type]
     
     def get_single_start_pos(self, horse):
-        horse.location_x, horse.location_y = self.first_horse_starting_pos[0], self.first_horse_starting_pos[1]
+        spawn_number = random.randint(1, self.wrap_after)
+        horse.location_x, horse.location_y = self.first_horse_starting_pos[0] + spawn_number*self.spacing, self.first_horse_starting_pos[1]
         return horse
     
     def handle_special_collision(self, horse, direction):

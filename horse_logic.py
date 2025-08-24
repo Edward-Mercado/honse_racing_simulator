@@ -95,7 +95,7 @@ class Horse:
             horse.vector_left = 0
         
     def horse_move(self, field_hitboxes, horses, map):
-        if self.consecutive_wall_hits > 2:
+        if self.consecutive_wall_hits > 1:
             map.get_single_start_pos(self)
             self.consecutive_wall_hits = 0
         

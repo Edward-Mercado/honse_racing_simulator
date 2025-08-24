@@ -1164,5 +1164,378 @@
         "goal_x": 1400,
         "goal_y": 400,
         "spacing": 60
+    }, {
+        "name" : "Plinko Purgatory",
+        "map_fields" : [[250, 30, 970, 760]],
+        "special_rects" : [{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [235, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [345, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [455, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [565, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [675, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [785, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [895, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1005, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1115, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1225, 600, 1, 220]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [300, 120],
+            "radius": 15,
+            "base_radius": 15
+        }, {
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [400, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [500, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [600, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [700, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [800, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [900, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1000, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1100, 120],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1200, 120],
+            "radius": 15,
+            "base_radius": 15
+        }, {
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [300, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [400, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [500, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [600, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [700, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [800, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [900, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1000, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1100, 320],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1200, 320],
+            "radius": 15,
+            "base_radius": 15
+        }, {
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [300, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [400, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [500, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [600, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [700, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [800, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [900, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1000, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1100, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1200, 500],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [350, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [450, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [550, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [650, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [750, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [850, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [950, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1050, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1150, 220],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [350, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [450, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [550, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [650, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [750, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [850, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [950, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1050, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [1150, 420],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [270, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [380, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [490, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [600, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [820, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [930, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [1040, 790, 40, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [1150, 790, 40, 1]
+        }],
+        "this_is_a_wall" : ["TUPLE"],
+        "max_horses": 9,
+        "wrap_after" : 9, 
+        "first_horse_start_pos" : [270, 40],
+        "background_color" : [10, 10, 10],
+        "field_color" : [50, 50, 50],
+        "goal_x": 720,
+        "goal_y": 750,
+        "spacing": 110
     }
 ]
