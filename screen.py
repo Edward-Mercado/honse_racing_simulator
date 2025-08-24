@@ -77,6 +77,7 @@ class Screen:
     
     def game(participating_horses, map_name):
         map = Screen.map_init(map_name)
+        pygame.display.set_caption(f'Honse Racing Simulator: {map_name}')
         running = True
         game_done = False
         field_hitboxes = []
@@ -105,9 +106,12 @@ class Screen:
                 if special_rect["type"] != "WALL":
                     special_rect_color = map.get_special_rect_color(special_rect["type"])
                 srv = special_rect["rect_value"] # shorthand purposes
-                pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+        
                 if special_rect["type"] == "MOVING":
                     map.move_moving_wall(special_rect)
+                    pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
+                else:
+                    pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
             
             file_path = os.path.join("images", "carrot.png")
             image = pygame.image.load(file_path)
@@ -155,4 +159,4 @@ class Screen:
             
             
 participating_horses = ["John Horse", "Aquamarine Gambit", "Jovial Merryment", "Slow 'n' Steady", "Hopeless Endeavor", "Maiden O'Luck", "The Sweetest Treat"]
-Screen.game(participating_horses, "The Wall-y West")
+Screen.game(participating_horses, "The Stanky Leg")
