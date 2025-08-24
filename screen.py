@@ -1,4 +1,4 @@
-import pygame, json, os, time
+import pygame, json, os, time, math, random
 from horse_logic import Horse
 from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction
 from map_logic import Map
@@ -11,6 +11,32 @@ pygame.display.set_caption('Python Honse Racing Simulator')
 running = True
 
 class Screen:
+    def move_starting_in_rect(start_rect):
+        rect = start_rect["rect"]
+        directions = start_rect["directions"]
+        if "UP" in directions:
+            rect[1] -= 5
+        if "DOWN" in directions:
+            rect[1] += 5
+        if "LEFT" in directions: 
+            rect[0] -= 5
+        if "RIGHT" in directions:
+            rect[0] += 5
+        
+        if rect[1] < 0:
+            start_rect["directions"].remove("UP")
+            start_rect["directions"].append("DOWN")
+        elif rect[1] > 620:
+            start_rect["directions"].remove("DOWN")
+            start_rect["directions"].append("UP")
+        
+        if rect[0] < 0:
+            start_rect["directions"].remove("LEFT")
+            start_rect["directions"].append("RIGHT")
+        elif rect[0] > 1070:
+            start_rect["directions"].remove("RIGHT")
+            start_rect["directions"].append("LEFT")
+        
     def map_init(map_name):
         with open("maps.json") as file:
             maps_json = json.load(file)
@@ -72,10 +98,16 @@ class Screen:
         counter_1 = 0
         game_start_time, current_time = time.time(), time.time()
         
+
+        start_rect = {
+            "rect": [random.randint(0, 1270), random.randint(0, 620), 400, 200],
+            "directions": [random.choice(["UP", "DOWN"]), random.choice(["LEFT", "RIGHT"])]
+        }
+        
         for map_rect in map.map_fields:
             field_hitboxes.append(map_rect)
 
-        while current_time - game_start_time < 5:
+        while current_time - game_start_time < 10:
             clock = pygame.time.Clock()
             clock.tick(24)
             current_time = time.time()
@@ -105,7 +137,7 @@ class Screen:
                     pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
                     if special_rect["radius"] != special_rect["base_radius"]:
                         special_rect["radius"] -= 1
-                
+              
             file_path = os.path.join("images", "carrot.png")
             image = pygame.image.load(file_path)
             scaled_image = pygame.transform.scale(image, (20, 20))
@@ -135,6 +167,19 @@ class Screen:
             else:
                 wall_surface = wall_text.get_rect(center=this_is_a_wall.center)
                 screen.blit(wall_text, wall_surface)
+            
+            start_rect_value = pygame.Rect(start_rect["rect"][0], start_rect["rect"][1], start_rect["rect"][2], start_rect["rect"][3])
+            pygame.draw.rect(screen, (220, 0, 0), (start_rect["rect"][0]-10, start_rect["rect"][1]-10, start_rect["rect"][2]+20, start_rect["rect"][3]+20))
+            pygame.draw.rect(screen, (255, 10, 10), start_rect_value)
+            
+            start_font = pygame.font.SysFont(None, 80, bold=True, italic=True)
+            start_text_1 = start_font.render("STARTING IN", True, (255, 255, 255))
+            start_text_2 = start_font.render(f"{math.ceil(10 - (current_time - game_start_time))} SECONDS...", True, (255, 255, 255))
+            start_surface_1 = start_text_1.get_rect(centerx=start_rect_value.centerx, centery=start_rect_value.centery-40)
+            start_surface_2 = start_text_2.get_rect(centerx=start_rect_value.centerx, centery=start_rect_value.centery+40)
+            screen.blit(start_text_1, start_surface_1)
+            screen.blit(start_text_2, start_surface_2)
+            Screen.move_starting_in_rect(start_rect)
             
             pygame.display.update()
         
