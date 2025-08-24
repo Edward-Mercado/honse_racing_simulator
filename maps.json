@@ -1531,7 +1531,7 @@
         "this_is_a_wall" : ["TUPLE"],
         "max_horses": 9,
         "wrap_after" : 9, 
-        "first_horse_start_pos" : [270, 40],
+        "first_horse_start_pos" : [270, 20],
         "background_color" : [10, 10, 10],
         "field_color" : [50, 50, 50],
         "goal_x": 720,

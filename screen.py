@@ -87,10 +87,56 @@ class Screen:
         horse_objects = all_horse_objects[:(map.max_horses)]
         goal = pygame.Rect(map.goal_x, map.goal_y, 20, 20)
         counter_1 = 0
+        game_start_time, current_time = time.time(), time.time()
         
         for map_rect in map.map_fields:
             field_hitboxes.append(map_rect)
+
+        while current_time - game_start_time < 5:
+            current_time = time.time()
+            events = pygame.event.get()
+            screen.fill(map.background_color) 
+            for event in events:
+                if event.type == pygame.QUIT:
+                    quit()
             
+            for hitbox in field_hitboxes:
+                pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
+            
+            for special_rect in map.special_rects:
+                special_rect_color = map.background_color
+                if special_rect["type"] != "WALL":
+                    special_rect_color = map.get_special_rect_color(special_rect["type"])
+                if special_rect["shape"] == "RECT":
+                    srv = special_rect["rect_value"] # shorthand purposes
+            
+                    if special_rect["type"] == "MOVING":
+                        map.move_moving_wall(special_rect)
+                        pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
+                    else:
+                        pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                
+                elif special_rect["shape"] == "CIRCLE":
+                    pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
+                    if special_rect["radius"] != special_rect["base_radius"]:
+                        special_rect["radius"] -= 1
+                
+            file_path = os.path.join("images", "carrot.png")
+            image = pygame.image.load(file_path)
+            scaled_image = pygame.transform.scale(image, (20, 20))
+            screen.blit(scaled_image, (map.goal_x, map.goal_y)) 
+            
+            for horse in horse_objects:
+                if isinstance(horse, Horse):
+                    file_path = os.path.join("images", horse.image_url)
+                    image = pygame.image.load(file_path)
+                    scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
+                    screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
+                    if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
+                        horse = map.get_single_start_pos(horse)
+            
+            pygame.display.update()
+        
         while running:
             clock = pygame.time.Clock()
             clock.tick(24)
