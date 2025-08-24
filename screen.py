@@ -10,23 +10,6 @@ screen = pygame.display.set_mode((1470, 820))
 pygame.display.set_caption('Python Honse Racing Simulator')
 running = True
 
-mover = {
-    "type": "MOVING",
-    "rect_value": [300, 50, 10, 100],
-    "movement_direction": "VERTICAL", # or horizontal
-    "max": 300,
-    "min": 50,
-    "animation_direction": "max", # or min, working towards the max value or the min value
-    "distance_per_frame": 2
-}
-teleporter = {
-    "type": "TELEPORT",
-    "rect_value" : [0, 0, 0, 0],
-    "teleport_id": 0,
-    "pair_id": "A", # or b
-    "teleport_sides": ["UP", "RIGHT"],
-}
-
 class Screen:
     def map_init(map_name):
         with open("maps.json") as file:
@@ -93,6 +76,8 @@ class Screen:
             field_hitboxes.append(map_rect)
 
         while current_time - game_start_time < 5:
+            clock = pygame.time.Clock()
+            clock.tick(24)
             current_time = time.time()
             events = pygame.event.get()
             screen.fill(map.background_color) 
@@ -134,6 +119,22 @@ class Screen:
                     screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
                         horse = map.get_single_start_pos(horse)
+            
+            pygame.draw.rect(screen, (0, 0, 0), map.this_is_a_wall)
+            
+            this_is_a_wall = pygame.Rect(map.this_is_a_wall[0],map.this_is_a_wall[1],map.this_is_a_wall[2],map.this_is_a_wall[3])
+            
+            axis = min(this_is_a_wall[2], this_is_a_wall[3])
+            wall_font = pygame.font.SysFont(None, axis - 4, bold=True, italic=True)
+            wall_text = wall_font.render("THIS IS A WALL", True, (255, 255, 255))
+            
+            if axis == this_is_a_wall[2]:
+                sideways_wall_text = pygame.transform.rotate(wall_text, 90)
+                wall_surface = sideways_wall_text.get_rect(center=this_is_a_wall.center)
+                screen.blit(sideways_wall_text, wall_surface)
+            else:
+                wall_surface = wall_text.get_rect(center=this_is_a_wall.center)
+                screen.blit(wall_text, wall_surface)
             
             pygame.display.update()
         
