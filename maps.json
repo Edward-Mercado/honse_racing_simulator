@@ -319,242 +319,314 @@
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [300, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [550, 60],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [650, 60],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [850, 60],
+            "radius": 15,
+            "base_radius": 15
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [950, 60],
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [400, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [500, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [600, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [700, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [800, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [900, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1000, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1100, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1200, 120],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         }, {
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [300, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [400, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [500, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [600, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [700, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [800, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [900, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1000, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1100, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1200, 320],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         }, {
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [300, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [400, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [500, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [600, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [700, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [800, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [900, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1000, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1100, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1200, 500],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [350, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [450, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [550, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [650, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [750, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [850, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [950, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1050, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1150, 220],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [350, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [450, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [550, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [650, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [750, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [850, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [950, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1050, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",
             "center": [1150, 420],
-            "radius": 15
+            "radius": 15,
+            "base_radius": 15
         }],
         "this_is_a_wall" : ["TUPLE"],
         "max_horses": 9,
@@ -562,7 +634,7 @@
         "first_horse_start_pos" : [270, 740],
         "background_color" : [10, 10, 10],
         "field_color" : [50, 50, 50],
-        "goal_x": 725,
+        "goal_x": 740,
         "goal_y": 50,
         "spacing": 110
     }

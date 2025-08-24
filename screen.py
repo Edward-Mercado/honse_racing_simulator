@@ -117,9 +117,9 @@ class Screen:
                         pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
                 
                 elif special_rect["shape"] == "CIRCLE":
-                    circle_hitboxes = get_circle_hitboxes(special_rect["center"], special_rect["radius"])
-                    for circle_hitbox in circle_hitboxes:
-                        pygame.draw.rect(screen, special_rect_color, circle_hitbox)
+                    pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
+                    if special_rect["radius"] != special_rect["base_radius"]:
+                        special_rect["radius"] -= 1
                 
             file_path = os.path.join("images", "carrot.png")
             image = pygame.image.load(file_path)
