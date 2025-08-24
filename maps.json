@@ -637,5 +637,18 @@
         "goal_x": 740,
         "goal_y": 50,
         "spacing": 110
+    }, {
+        "name" : "Teleporting Mess",
+        "map_fields" : [[30, 320, 180, 120], [210, 30, 1220, 760]],
+        "special_rects" : [],
+        "this_is_a_wall" : ["TUPLE"],
+        "max_horses": 6,
+        "wrap_after" : 3, 
+        "first_horse_start_pos" : [40, 330],
+        "background_color" : [10, 10, 10],
+        "field_color" : [50, 50, 50],
+        "goal_x": 780,
+        "goal_y": 400,
+        "spacing": 50
     }
 ]

@@ -167,4 +167,4 @@ class Screen:
             
             
 participating_horses = ["John Horse", "Aquamarine Gambit", "Jovial Merryment", "Slow 'n' Steady", "Hopeless Endeavor", "Maiden O'Luck", "The Sweetest Treat", "Cherry Jubilee", "Ellsee Reins"]
-Screen.game(participating_horses, "Plinko Paradise")
+Screen.game(participating_horses, "Teleporting Mess")
