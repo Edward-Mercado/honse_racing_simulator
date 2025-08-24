@@ -1,9 +1,10 @@
 import pygame, random
+from shape_logic import get_circle_hitboxes, get_line_hitboxes
 
 class Map:
     def __init__(self, name, map_fields, special_rects, max_horses, 
                 wrap_after, first_horse_starting_pos, background_color, field_color, 
-                this_is_a_wall, goal_x, goal_y):
+                this_is_a_wall, goal_x, goal_y, spacing):
         
         self.name = name
         self.map_fields = map_fields
@@ -14,6 +15,7 @@ class Map:
         self.background_color = background_color
         self.field_color = field_color
         self.this_is_a_wall = this_is_a_wall
+        self.spacing = spacing
         self.goal_x = goal_x
         self.goal_y = goal_y
         
@@ -25,10 +27,10 @@ class Map:
             horse.location_x, horse.location_y = x_start_pos, y_start_pos
             horse_count += 1
             
-            x_start_pos += 50
+            x_start_pos += self.spacing
             if horse_count % self.wrap_after == 0:
-                y_start_pos += 50
-                x_start_pos -= (50*self.wrap_after)
+                y_start_pos += self.spacing
+                x_start_pos -= (self.spacing*self.wrap_after)
            
             if horse_count == self.max_horses:
                 break
@@ -54,23 +56,39 @@ class Map:
     
     def handle_special_collision(self, horse, direction):
         for special_rect in self.special_rects:
-            special_rect_value = pygame.Rect(special_rect["rect_value"][0], special_rect["rect_value"][1], special_rect["rect_value"][2], special_rect["rect_value"][3])
-            horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
-            if special_rect_value.colliderect(horse_rect):
-                rect_type = special_rect["type"]
-                if rect_type == "KILLBRICK":
-                    self.collide_killbrick(horse)
-                elif rect_type == "BOUNCE":
-                    self.collide_bounce_pad(horse, direction)
-                elif rect_type == "TELEPORT":
-                    self.collide_teleporter(horse, special_rect)
-                elif rect_type == "MOVING":
-                    self.collide_moving_wall(horse, direction)
-                elif rect_type == "WALL":
-                    self.collide_moving_wall(horse, direction) # i am not making two functions that do the same thing
+            if special_rect["shape"] == "RECT":
+                special_rect_value = pygame.Rect(special_rect["rect_value"][0], special_rect["rect_value"][1], special_rect["rect_value"][2], special_rect["rect_value"][3])
+                horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
+                if special_rect_value.colliderect(horse_rect):
+                    rect_type = special_rect["type"]
+                    if rect_type == "KILLBRICK":
+                        self.collide_killbrick(horse)
+                    elif rect_type == "BOUNCE":
+                        self.collide_bounce_pad(horse, direction)
+                    elif rect_type == "TELEPORT":
+                        self.collide_teleporter(horse, special_rect)
+                    elif rect_type == "MOVING":
+                        self.collide_moving_wall(horse, direction)
+                    elif rect_type == "WALL":
+                        self.collide_moving_wall(horse, direction) # i am not making two functions that do the same thing
+            elif special_rect["shape"] == "CIRCLE":
+                circle_hitboxes = get_circle_hitboxes(special_rect["center"], special_rect["radius"])
+                horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
+                for circle_hitbox in circle_hitboxes:
+                    if circle_hitbox.colliderect(horse_rect):
+                        rect_type = special_rect["type"]
+                        if rect_type == "KILLBRICK":
+                            self.collide_killbrick(horse)
+                        elif rect_type == "BOUNCE":
+                            self.collide_bounce_pad(horse, direction)
+                        elif rect_type == "TELEPORT":
+                            self.collide_teleporter(horse, special_rect)
+                        elif rect_type == "MOVING":
+                            self.collide_moving_wall(horse, direction)
+                        elif rect_type == "WALL":
+                            self.collide_moving_wall(horse, direction)
 
     def collide_moving_wall(self, horse, direction):
-        
         if direction == "UP":
             horse.location_y += 12 * horse.speed
             horse.vector_down["vector_measurement"] = horse.vector_up["vector_measurement"]
@@ -98,22 +116,22 @@ class Map:
     def collide_bounce_pad(self, horse, direction):
         horse.turns_until_speed = 10
         if direction == "UP":
-            horse.location_y += 12 * horse.speed
+            horse.location_y += 7 * horse.speed
             horse.vector_down["vector_measurement"] = horse.vector_up["vector_measurement"]
             horse.vector_up["vector_measurement"] = 0
             
         elif direction == "DOWN":
-            horse.location_y -= 12 * horse.speed
+            horse.location_y -= 7 * horse.speed
             horse.vector_up["vector_measurement"] = horse.vector_down["vector_measurement"]
             horse.vector_down["vector_measurement"] = 0
 
         elif direction == "LEFT":
-            horse.location_x += 12 * horse.speed
+            horse.location_x += 7 * horse.speed
             horse.vector_right["vector_measurement"] = horse.vector_left["vector_measurement"]
             horse.vector_left["vector_measurement"] = 0
             
         elif direction == "RIGHT":
-            horse.location_x -= 12 * horse.speed
+            horse.location_x -= 7 * horse.speed
             horse.vector_left["vector_measurement"] = horse.vector_right["vector_measurement"]
             horse.vector_right["vector_measurement"] = 0
     

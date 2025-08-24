@@ -2,6 +2,7 @@ import pygame, json, os, time
 from horse_logic import Horse
 from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction
 from map_logic import Map
+from shape_logic import get_circle_hitboxes, get_line_hitboxes
 
 pygame.init()
 
@@ -46,9 +47,10 @@ class Screen:
                 this_is_a_wall = map["this_is_a_wall"]
                 goal_x = map["goal_x"]
                 goal_y = map["goal_y"]
+                spacing = map["spacing"]
                 
                 return Map(name, map_fields, special_rects, max_horses, wrap_after,
-                first_horse_start_pos, background_color, field_color, this_is_a_wall, goal_x, goal_y)
+                first_horse_start_pos, background_color, field_color, this_is_a_wall, goal_x, goal_y, spacing)
                 
         if not found:
             return  Map("basic_ass_map", [pygame.Rect(50, 50, 670, 320), pygame.Rect(720, 300, 300, 200)], 
@@ -105,14 +107,20 @@ class Screen:
                 special_rect_color = map.background_color
                 if special_rect["type"] != "WALL":
                     special_rect_color = map.get_special_rect_color(special_rect["type"])
-                srv = special_rect["rect_value"] # shorthand purposes
-        
-                if special_rect["type"] == "MOVING":
-                    map.move_moving_wall(special_rect)
-                    pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
-                else:
-                    pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                if special_rect["shape"] == "RECT":
+                    srv = special_rect["rect_value"] # shorthand purposes
             
+                    if special_rect["type"] == "MOVING":
+                        map.move_moving_wall(special_rect)
+                        pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
+                    else:
+                        pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                
+                elif special_rect["shape"] == "CIRCLE":
+                    circle_hitboxes = get_circle_hitboxes(special_rect["center"], special_rect["radius"])
+                    for circle_hitbox in circle_hitboxes:
+                        pygame.draw.rect(screen, special_rect_color, circle_hitbox)
+                
             file_path = os.path.join("images", "carrot.png")
             image = pygame.image.load(file_path)
             scaled_image = pygame.transform.scale(image, (20, 20))
@@ -158,5 +166,5 @@ class Screen:
             pygame.display.update()
             
             
-participating_horses = ["John Horse", "Aquamarine Gambit", "Jovial Merryment", "Slow 'n' Steady", "Hopeless Endeavor", "Maiden O'Luck", "The Sweetest Treat"]
-Screen.game(participating_horses, "The Stanky Leg")
+participating_horses = ["John Horse", "Aquamarine Gambit", "Jovial Merryment", "Slow 'n' Steady", "Hopeless Endeavor", "Maiden O'Luck", "The Sweetest Treat", "Cherry Jubilee", "Ellsee Reins"]
+Screen.game(participating_horses, "Plinko Paradise")
