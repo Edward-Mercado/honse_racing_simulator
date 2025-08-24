@@ -54,7 +54,7 @@ class Screen:
                 
         if not found:
             return  Map("basic_ass_map", [pygame.Rect(50, 50, 670, 320), pygame.Rect(720, 300, 300, 200)], 
-                        [mover], 6, 3, [100, 100], (30, 45, 70), (100, 150, 200), None, 1020, 750)
+                        [], 6, 3, [100, 100], (30, 45, 70), (100, 150, 200), None, 1020, 750, 50)
     
     def load_horse_objects(selected_horses, map):
         with open("horses.json") as file:
@@ -83,7 +83,8 @@ class Screen:
         running = True
         game_done = False
         field_hitboxes = []
-        horse_objects = Screen.load_horse_objects(participating_horses, map)
+        all_horse_objects = Screen.load_horse_objects(participating_horses, map)
+        horse_objects = all_horse_objects[:(map.max_horses)]
         goal = pygame.Rect(map.goal_x, map.goal_y, 20, 20)
         counter_1 = 0
         
@@ -147,7 +148,7 @@ class Screen:
             if game_done == False:
                 for horse in horse_objects:
                     if isinstance(horse, Horse):
-                        horse.horse_move(field_hitboxes, horse_objects, map)
+                        #horse.horse_move(field_hitboxes, horse_objects, map)
                         horse.fix_vector_pair("horizontal", horse.vector_left["vector_measurement"], horse.vector_right["vector_measurement"])
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])
                     
@@ -166,5 +167,8 @@ class Screen:
             pygame.display.update()
             
             
-participating_horses = ["John Horse", "Aquamarine Gambit", "Jovial Merryment", "Slow 'n' Steady", "Hopeless Endeavor", "Maiden O'Luck", "The Sweetest Treat", "Cherry Jubilee", "Ellsee Reins"]
+participating_horses = ["John Horse", "Aquamarine Gambit", "Lightning Strikes Thrice", "Jovial Merryment",
+                        "Slow 'n' Steady", "Cherry Jubilee", "Hopeless Endeavor", "The Sweetest Treat",
+                        "Imperial Grace", "Maiden O'Luck"]
+
 Screen.game(participating_horses, "Teleporting Mess")

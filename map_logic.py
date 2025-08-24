@@ -64,13 +64,14 @@ class Map:
                     if rect_type == "KILLBRICK":
                         self.collide_killbrick(horse)
                     elif rect_type == "BOUNCE":
-                        self.collide_bounce_pad(horse, direction)
+                        self.collide_bounce_pad(horse, direction, special_rect)
                     elif rect_type == "TELEPORT":
                         self.collide_teleporter(horse, special_rect)
                     elif rect_type == "MOVING":
                         self.collide_moving_wall(horse, direction)
                     elif rect_type == "WALL":
                         self.collide_moving_wall(horse, direction) # i am not making two functions that do the same thing
+            
             elif special_rect["shape"] == "CIRCLE":
                 circle_hitboxes = get_circle_hitboxes(special_rect["center"], special_rect["base_radius"])
                 horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
@@ -151,23 +152,44 @@ class Map:
         paired_teleporter = self.get_paired_teleporter(teleporter)
         
         if paired_teleporter != "ERROR":
-            if "UP" in paired_teleporter["teleport_sides"]:
-                horse.vector_down["vector_measurement"] = 0
-                horse.vector_up["vector_measurement"] = random.randint(1, 6)
-                horse.location_y = paired_teleporter["rect_value"][1] - (horse.height + 5)
-            if "DOWN" in paired_teleporter["teleport_sides"]:
-                horse.vector_up["vector_measurement"] = 0
-                horse.vector_down["vector_measurement"] = random.randint(1, 6)
-                horse.location_y =( paired_teleporter["rect_value"][1] + paired_teleporter["rect_value"][3]) + 5
+            if paired_teleporter["shape"] == "RECT":
+                if "UP" in paired_teleporter["teleport_sides"]:
+                    horse.vector_down["vector_measurement"] = 0
+                    horse.vector_up["vector_measurement"] = random.randint(1, 6)
+                    horse.location_y = paired_teleporter["rect_value"][1] - (horse.height + 5)
+                if "DOWN" in paired_teleporter["teleport_sides"]:
+                    horse.vector_up["vector_measurement"] = 0
+                    horse.vector_down["vector_measurement"] = random.randint(1, 6)
+                    horse.location_y =( paired_teleporter["rect_value"][1] + paired_teleporter["rect_value"][3]) + 5
+                
+                if "LEFT" in paired_teleporter["teleport_sides"]:
+                    horse.vector_right["vector_measurement"] = 0
+                    horse.vector_left["vector_measurement"] = random.randint(1, 6)
+                    horse.location_x = paired_teleporter["rect_value"][0] - (horse.height + 5)
+                if "RIGHT" in paired_teleporter["teleport_sides"]:
+                    horse.vector_left["vector_measurement"] = 0
+                    horse.vector_right["vector_measurement"] = random.randint(1, 6)
+                    horse.location_x =( paired_teleporter["rect_value"][0] + paired_teleporter["rect_value"][2]) + 5
             
-            if "LEFT" in paired_teleporter["teleport_sides"]:
-                horse.vector_right["vector_measurement"] = 0
-                horse.vector_left["vector_measurement"] = random.randint(1, 6)
-                horse.location_x = paired_teleporter["rect_value"][0] - (horse.height + 5)
-            if "RIGHT" in paired_teleporter["teleport_sides"]:
-                horse.vector_left["vector_measurement"] = 0
-                horse.vector_right["vector_measurement"] = random.randint(1, 6)
-                horse.location_x =( paired_teleporter["rect_value"][0] + paired_teleporter["rect_value"][2]) + 5
+            if paired_teleporter["shape"] == "CIRCLE":
+                if "UP" in paired_teleporter["teleport_sides"]:
+                    horse.vector_down["vector_measurement"] = 0
+                    horse.vector_up["vector_measurement"] = random.randint(1, 6)
+                    horse.location_y = paired_teleporter["center"][1] - (horse.height + 5)
+                if "DOWN" in paired_teleporter["teleport_sides"]:
+                    horse.vector_up["vector_measurement"] = 0
+                    horse.vector_down["vector_measurement"] = random.randint(1, 6)
+                    horse.location_y =( paired_teleporter["center"][1] + paired_teleporter["radius"]) + 5
+                
+                if "LEFT" in paired_teleporter["teleport_sides"]:
+                    horse.vector_right["vector_measurement"] = 0
+                    horse.vector_left["vector_measurement"] = random.randint(1, 6)
+                    horse.location_x = paired_teleporter["center"][0] - (horse.height + 5)
+                if "RIGHT" in paired_teleporter["teleport_sides"]:
+                    horse.vector_left["vector_measurement"] = 0
+                    horse.vector_right["vector_measurement"] = random.randint(1, 6)
+                    horse.location_x =( paired_teleporter["center"][0] + paired_teleporter["radius"]) + 5
+                    
             horse.fit_movement_vectors()
     
     def move_moving_wall(self, moving_wall):

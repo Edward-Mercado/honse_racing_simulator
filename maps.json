@@ -1,17 +1,17 @@
 [
     {
         "name" : "Blank Field",
-        "map_fields" : [[30, 320, 180, 120], [210, 30, 1220, 760]],
+        "map_fields" : [[30, 30, 1410, 760]],
         "special_rects" : [],
         "this_is_a_wall" : ["TUPLE"],
-        "max_horses": 6,
-        "wrap_after" : 3, 
-        "first_horse_start_pos" : [40, 330],
-        "background_color" : [10, 10, 10],
-        "field_color" : [50, 50, 50],
-        "goal_x": 780,
+        "max_horses": 8,
+        "wrap_after" : 1, 
+        "first_horse_start_pos" : [40, 40],
+        "background_color" : [240, 150, 80],
+        "field_color" : [255, 180, 140],
+        "goal_x": 725,
         "goal_y": 400,
-        "spacing": 50
+        "spacing": 100
     },
     {
         "name" : "Bouncy Town",
@@ -639,16 +639,62 @@
         "spacing": 110
     }, {
         "name" : "Teleporting Mess",
-        "map_fields" : [[30, 320, 180, 120], [210, 30, 1220, 760]],
-        "special_rects" : [],
+        "map_fields" : [[30, 290, 1360, 220], [210, 30, 1200, 760]],
+        "special_rects" : [{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [210, 249, 1200, 1]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [210, 550, 1200, 1]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [390, 30, 1, 760]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [610, 30, 1, 760]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [830, 30, 1, 760]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1050, 30, 1, 760]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1270, 30, 1, 760]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [350, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 0,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [430, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 0,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        }],
         "this_is_a_wall" : ["TUPLE"],
         "max_horses": 6,
-        "wrap_after" : 3, 
-        "first_horse_start_pos" : [40, 330],
-        "background_color" : [10, 10, 10],
-        "field_color" : [50, 50, 50],
-        "goal_x": 780,
+        "wrap_after" : 2, 
+        "first_horse_start_pos" : [30, 320],
+        "background_color" : [240, 150, 80],
+        "field_color" : [255, 180, 140],
+        "goal_x": 1400,
         "goal_y": 400,
-        "spacing": 50
+        "spacing": 60
     }
 ]
