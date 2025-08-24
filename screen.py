@@ -101,7 +101,9 @@ class Screen:
                 pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
             
             for special_rect in map.special_rects:
-                special_rect_color = map.get_special_rect_color(special_rect["type"])
+                special_rect_color = map.background_color
+                if special_rect["type"] != "WALL":
+                    special_rect_color = map.get_special_rect_color(special_rect["type"])
                 srv = special_rect["rect_value"] # shorthand purposes
                 pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
                 if special_rect["type"] == "MOVING":
@@ -152,5 +154,5 @@ class Screen:
             pygame.display.update()
             
             
-participating_horses = ["John Horse", "Aquamarine Gambit", "Ellsee Reins", "Slow 'n' Steady", "Hopeless Endeavor", "Cherry Jubilee", "The Sweetest Treat"]
-Screen.game(participating_horses, "Bouncy Town")
+participating_horses = ["John Horse", "Aquamarine Gambit", "Jovial Merryment", "Slow 'n' Steady", "Hopeless Endeavor", "Maiden O'Luck", "The Sweetest Treat"]
+Screen.game(participating_horses, "The Wall-y West")

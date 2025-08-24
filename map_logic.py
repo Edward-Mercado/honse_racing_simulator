@@ -66,6 +66,8 @@ class Map:
                     self.collide_teleporter(horse, special_rect)
                 elif rect_type == "MOVING":
                     self.collide_moving_wall(horse, direction)
+                elif rect_type == "WALL":
+                    self.collide_moving_wall(horse, direction) # i am not making two functions that do the same thing
 
     def collide_moving_wall(self, horse, direction):
         

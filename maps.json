@@ -49,5 +49,54 @@
         "field_color" : [255, 180, 140],
         "goal_x": 1360,
         "goal_y": 400
+    },
+    {
+        "name" : "The Wall-y West",
+        "map_fields" : [[30, 30, 1410, 760]],
+        "special_rects" : [{
+            "type": "WALL",
+            "rect_value": [30, 200, 1300, 10]
+        }, {
+            "type": "WALL",
+            "rect_value": [1330, 200, 10, 500]
+        }, {
+            "type": "WALL",
+            "rect_value": [160, 700, 1180, 10]
+        }, {
+            "type": "WALL",
+            "rect_value": [160, 400, 10, 300]
+        }, {
+            "type": "WALL",
+            "rect_value": [160, 400, 980, 10]
+        }, {
+            "type": "WALL",
+            "rect_value": [320, 400, 10, 160]
+        }, {
+            "type": "WALL",
+            "rect_value": [600, 400, 10, 160]
+        }, {
+            "type": "WALL",
+            "rect_value": [880, 400, 10, 160]
+        }, {
+            "type": "WALL",
+            "rect_value": [1160, 400, 10, 160]
+        }, {
+            "type": "WALL",
+            "rect_value": [460, 540, 10, 160]
+        }, {
+            "type": "WALL",
+            "rect_value": [740, 540, 10, 160]
+        }, {
+            "type": "WALL",
+            "rect_value": [1020, 540, 10, 160]
+        }],
+        "this_is_a_wall" : ["TUPLE"],
+        "max_horses": 6,
+        "wrap_after" : 3, 
+        "first_horse_start_pos" : [30, 30],
+        "background_color" : [240, 150, 80],
+        "field_color" : [255, 180, 140],
+        "goal_x": 240,
+        "goal_y": 450
     }
 ]
