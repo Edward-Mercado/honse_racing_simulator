@@ -44,9 +44,11 @@ class Screen:
                 background_color = map["background_color"]
                 field_color = map["field_color"]
                 this_is_a_wall = map["this_is_a_wall"]
+                goal_x = map["goal_x"]
+                goal_y = map["goal_y"]
                 
                 return Map(name, map_fields, special_rects, max_horses, wrap_after,
-                first_horse_start_pos, background_color, field_color, this_is_a_wall)
+                first_horse_start_pos, background_color, field_color, this_is_a_wall, goal_x, goal_y)
                 
         if not found:
             return  Map("basic_ass_map", [pygame.Rect(50, 50, 670, 320), pygame.Rect(720, 300, 300, 200)], 
@@ -100,7 +102,8 @@ class Screen:
             
             for special_rect in map.special_rects:
                 special_rect_color = map.get_special_rect_color(special_rect["type"])
-                pygame.draw.rect(screen, special_rect_color, special_rect["rect_value"])
+                srv = special_rect["rect_value"] # shorthand purposes
+                pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
                 if special_rect["type"] == "MOVING":
                     map.move_moving_wall(special_rect)
             
@@ -150,4 +153,4 @@ class Screen:
             
             
 participating_horses = ["John Horse", "Aquamarine Gambit", "Ellsee Reins", "Slow 'n' Steady", "Hopeless Endeavor", "Cherry Jubilee", "The Sweetest Treat"]
-Screen.game(participating_horses, "Map 1")
+Screen.game(participating_horses, "Bouncy Town")

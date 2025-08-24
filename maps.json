@@ -1,36 +1,53 @@
 [
     {
-        "name" : "NAME",
-        "map_fields" : ["LIST OF TUPLES"],
-        "special_rects" : [
-            {
-                "type": "BOUNCE",
-                "rect_value": []
-            }
-        ],
-        "starting_field_rect" : ["TUPLE"],
+        "name" : "Blank Field",
+        "map_fields" : [[30, 320, 180, 120], [210, 30, 1220, 760]],
+        "special_rects" : [],
         "this_is_a_wall" : ["TUPLE"],
-        "max_horses": 0,
-        "wrap_after" : 0, 
-        "first_horse_start_pos" : ["X", "Y"],
-        "background_color" : ["TUPLE"],
-        "field_color" : ["TUPLE"]
+        "max_horses": 6,
+        "wrap_after" : 3, 
+        "first_horse_start_pos" : [40, 330],
+        "background_color" : [10, 10, 10],
+        "field_color" : [50, 50, 50],
+        "goal_x": 780,
+        "goal_y": 400
     },
     {
-        "name" : "NAME",
-        "map_fields" : ["LIST OF TUPLES"],
+        "name" : "Bouncy Town",
+        "map_fields" : [[30, 290, 1360, 220], [210, 30, 960, 760]],
         "special_rects" : [
             {
                 "type": "BOUNCE",
-                "rect_value": []
+                "rect_value": [210, 30, 960, 10]
+            },
+            {
+                "type": "BOUNCE",
+                "rect_value": [210, 30, 10, 220]
+            },
+            {
+                "type": "BOUNCE",
+                "rect_value": [1160, 30, 10, 220]
+            },
+            {
+                "type": "BOUNCE",
+                "rect_value": [210, 790, 960, 10]
+            },
+            {
+                "type": "BOUNCE",
+                "rect_value": [210, 550, 10, 220]
+            },
+            {
+                "type": "BOUNCE",
+                "rect_value": [1160, 550, 10, 220]
             }
         ],
-        "starting_field_rect" : ["TUPLE"],
         "this_is_a_wall" : ["TUPLE"],
-        "max_horses": 0,
-        "wrap_after" : 0, 
-        "first_horse_start_pos" : ["X", "Y"],
-        "background_color" : ["TUPLE"],
-        "field_color" : ["TUPLE"]
+        "max_horses": 12,
+        "wrap_after" : 3, 
+        "first_horse_start_pos" : [40, 300],
+        "background_color" : [240, 150, 80],
+        "field_color" : [255, 180, 140],
+        "goal_x": 1360,
+        "goal_y": 400
     }
 ]

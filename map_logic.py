@@ -61,7 +61,7 @@ class Map:
                 if rect_type == "KILLBRICK":
                     self.collide_killbrick(horse)
                 elif rect_type == "BOUNCE":
-                    self.collide_bounce_pad(horse, special_rect["rect_value"])
+                    self.collide_bounce_pad(horse, direction)
                 elif rect_type == "TELEPORT":
                     self.collide_teleporter(horse, special_rect)
                 elif rect_type == "MOVING":
@@ -93,48 +93,27 @@ class Map:
         self.get_single_start_pos(horse)
         return horse
     
-    def collide_bounce_pad(self, horse, bounce_pad):
+    def collide_bounce_pad(self, horse, direction):
         horse.turns_until_speed = 10
-        horse_top = horse.location_y
-        horse_bottom = horse.location_y + horse.height
-        horse_left = horse.location_x
-        horse_right = horse.location_x + horse.width
-        
-        bounce_pad_top = bounce_pad[0]
-        bounce_pad_bottom = bounce_pad[0] + bounce_pad[2]
-        bounce_pad_left = bounce_pad[1]
-        bounce_pad_right = bounce_pad[1] + bounce_pad[3]
-        
-        difference_top = abs(horse_bottom - bounce_pad_top)
-        difference_bottom = abs(horse_top - bounce_pad_bottom)
-        difference_left = abs(horse_right - bounce_pad_left)
-        difference_right = abs(horse_left - bounce_pad_right)
-        
-        max_distance = max([difference_top, difference_bottom, difference_left, difference_right])
-        
-        if max_distance == difference_top: 
-            horse.location_y += 40
+        if direction == "UP":
+            horse.location_y += 12 * horse.speed
+            horse.vector_down["vector_measurement"] = horse.vector_up["vector_measurement"]
             horse.vector_up["vector_measurement"] = 0
-            horse.vector_down["vector_measurement"] = random.randint(1, 6)
-            horse.fit_movement_vectors()
             
-        elif max_distance == difference_bottom:
-            horse.location_y -= 40
+        elif direction == "DOWN":
+            horse.location_y -= 12 * horse.speed
+            horse.vector_up["vector_measurement"] = horse.vector_down["vector_measurement"]
             horse.vector_down["vector_measurement"] = 0
-            horse.vector_up["vector_measurement"] = random.randint(1, 6)
-            horse.fit_movement_vectors()
-            
-        elif max_distance == difference_left: 
-            horse.location_x += 40 
+
+        elif direction == "LEFT":
+            horse.location_x += 12 * horse.speed
+            horse.vector_right["vector_measurement"] = horse.vector_left["vector_measurement"]
             horse.vector_left["vector_measurement"] = 0
-            horse.vector_right["vector_measurement"] = random.randint(1, 6)
-            horse.fit_movement_vectors()
             
-        elif max_distance == difference_right:
-            horse.location_x -= 40
-            horse.vector_left["vector_measurement"] = 0
-            horse.vector_right["vector_measurement"] = random.randint(1, 6)
-            horse.fit_movement_vectors()
+        elif direction == "RIGHT":
+            horse.location_x -= 12 * horse.speed
+            horse.vector_left["vector_measurement"] = horse.vector_right["vector_measurement"]
+            horse.vector_right["vector_measurement"] = 0
     
     def get_paired_teleporter(self, teleporter):
         for special_rect in self.special_rects:
@@ -168,8 +147,6 @@ class Map:
             horse.fit_movement_vectors()
     
     def move_moving_wall(self, moving_wall):
-        print(moving_wall["rect_value"][1])
-        print(moving_wall["max"])
         if moving_wall["movement_direction"] == "HORIZONTAL":
             
             if moving_wall["animation_direction"] == "max":
