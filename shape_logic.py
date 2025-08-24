@@ -58,35 +58,3 @@ def get_line_hitboxes(start_pos, end_pos, thickness): # start_pos_x MUST BE LESS
     
     
     return line_hitboxes
-    
-    """
-circle_hitboxes = get_circle_hitboxes((700, 400), 150)
-verticalish_line_hitboxes = get_line_hitboxes((800, 140), (1000, 580), 20)
-horizontalish_line_hitboxes = get_line_hitboxes((140, 600), (580, 800), 20)
-
-pygame.init()
-
-screen = pygame.display.set_mode((1470, 820))
-pygame.display.set_caption('Shape Display')
-running = True
-
-while running:
-    events = pygame.event.get()
-    for event in events:
-        if event.type == pygame.QUIT:
-            quit()
-            
-    screen.fill((0, 0, 0))
-    
-    pygame.draw.circle(screen, (180, 180, 180), (700, 400), 150)
-    pygame.draw.line(screen, (255, 255, 255), (800, 140), (1000, 580), 20)
-    pygame.draw.line(screen, (100, 100, 100), (140, 600), (580, 800), 20)
-    
-    for line_rect in verticalish_line_hitboxes:
-        pygame.draw.rect(screen, (0, 255, 255), line_rect)
-    for line_rect in horizontalish_line_hitboxes:
-        pygame.draw.rect(screen, (255, 255, 0), line_rect)
-    for circle_rect in circle_hitboxes:
-        pygame.draw.rect(screen, (255, 0, 255), circle_rect)
-        
-    pygame.display.update()"""

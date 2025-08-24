@@ -15,12 +15,12 @@
     },
     {
         "name" : "Bouncy Town",
-        "map_fields" : [[30, 290, 1360, 220], [210, 30, 960, 760]],
+        "map_fields" : [[30, 290, 900, 220], [210, 30, 760, 760], [30, 330, 1410, 140]],
         "special_rects" : [
             {
                 "type": "BOUNCE",
                 "shape": "RECT",
-                "rect_value": [210, 30, 960, 10]
+                "rect_value": [210, 30, 760, 10]
             },
             {
                 "type": "BOUNCE",
@@ -30,12 +30,12 @@
             {
                 "type": "BOUNCE",
                 "shape": "RECT",
-                "rect_value": [1160, 30, 10, 220]
+                "rect_value": [960, 30, 10, 260]
             },
             {
                 "type": "BOUNCE",
                 "shape": "RECT",
-                "rect_value": [210, 790, 960, 10]
+                "rect_value": [210, 790, 760, 10]
             },
             {
                 "type": "BOUNCE",
@@ -45,7 +45,7 @@
             {
                 "type": "BOUNCE",
                 "shape": "RECT",
-                "rect_value": [1160, 550, 10, 220]
+                "rect_value": [960, 510, 10, 260]
             }
         ],
         "this_is_a_wall" : ["TUPLE"],

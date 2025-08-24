@@ -170,5 +170,3 @@ class Screen:
 participating_horses = ["John Horse", "Aquamarine Gambit", "Lightning Strikes Thrice", "Jovial Merryment",
                         "Slow 'n' Steady", "Cherry Jubilee", "Hopeless Endeavor", "The Sweetest Treat",
                         "Imperial Grace", "Maiden O'Luck"]
-
-Screen.game(participating_horses, "Teleporting Mess")
