@@ -1,3 +1,114 @@
-{
-    
-}
+[
+    {
+            "name" : "Aquamarine Gambit",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "aquamarine_gambit.png",
+            "win_image_url" : "aquamarine_gambit.win.png"
+    }, 
+    {
+            "name" : "Cherry Jubilee",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "cherry_jubilee.png",
+            "win_image_url" : "cherry_jubilee.win.png"
+    }, 
+    {
+            "name" : "Crybaby Sundae",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "crybaby_sundae.png",
+            "win_image_url" : "crybaby_sundae.win.png"
+    }, 
+    {
+            "name" : "Ellsee Reins",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "ellsee_reins.png",
+            "win_image_url" : "ellsee_reins.win.png"
+    }, 
+    {
+            "name" : "Finneas Cutlass",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "finneas_cutlass.png",
+            "win_image_url" : "finneas_cutlass.win.png"
+    }, 
+    {
+            "name" : "Hopeless Endeavor",
+            "speed" : 0.5,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "hopeless_endeavor.png",
+            "win_image_url" : "hopeless_endeavor.win.png"
+    }, 
+    {
+            "name" : "Imperial Grace",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "imperial_grace.png",
+            "win_image_url" : "imperial_grace.win.png"
+    }, 
+    {
+            "name" : "John Horse",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "john_horse.png",
+            "win_image_url" : "john_horse.win.png"
+    }, 
+    {
+            "name" : "Jovial Merryment",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "jovial_merryment.png",
+            "win_image_url" : "jovial_merryment.win.png"
+    }, 
+    {
+            "name" : "Lightning Strikes Thrice",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "lightning_strikes_thrice.png",
+            "win_image_url" : "lightning_strikes_thrice.win.png"
+    }, 
+    {
+            "name" : "Maiden O'Luck",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "maiden_oluck.png",
+            "win_image_url" : "maiden_oluck.win.png"
+    }, 
+    {
+            "name" : "Marshmallow Fluff",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "marshmallow_fluff.png",
+            "win_image_url" : "marshmallow_fluff.win.png"
+    }, 
+    {
+            "name" : "Slow 'n' Steady",
+            "speed" : 0.666,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "slow_n_steady.png",
+            "win_image_url" : "slow_n_steady.win.png"
+    }, 
+    {
+            "name" : "The Sweetest Treat",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "the_sweetest_treat.png",
+            "win_image_url" : "the_sweetest_treat.win.png"
+    }
+]

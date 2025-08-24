@@ -1,0 +1,36 @@
+[
+    {
+        "name" : "NAME",
+        "map_fields" : ["LIST OF TUPLES"],
+        "special_rects" : [
+            {
+                "type": "BOUNCE",
+                "rect_value": []
+            }
+        ],
+        "starting_field_rect" : ["TUPLE"],
+        "this_is_a_wall" : ["TUPLE"],
+        "max_horses": 0,
+        "wrap_after" : 0, 
+        "first_horse_start_pos" : ["X", "Y"],
+        "background_color" : ["TUPLE"],
+        "field_color" : ["TUPLE"]
+    },
+    {
+        "name" : "NAME",
+        "map_fields" : ["LIST OF TUPLES"],
+        "special_rects" : [
+            {
+                "type": "BOUNCE",
+                "rect_value": []
+            }
+        ],
+        "starting_field_rect" : ["TUPLE"],
+        "this_is_a_wall" : ["TUPLE"],
+        "max_horses": 0,
+        "wrap_after" : 0, 
+        "first_horse_start_pos" : ["X", "Y"],
+        "background_color" : ["TUPLE"],
+        "field_color" : ["TUPLE"]
+    }
+]
