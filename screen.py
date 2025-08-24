@@ -148,7 +148,7 @@ class Screen:
             if game_done == False:
                 for horse in horse_objects:
                     if isinstance(horse, Horse):
-                        #horse.horse_move(field_hitboxes, horse_objects, map)
+                        horse.horse_move(field_hitboxes, horse_objects, map)
                         horse.fix_vector_pair("horizontal", horse.vector_left["vector_measurement"], horse.vector_right["vector_measurement"])
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])
                     

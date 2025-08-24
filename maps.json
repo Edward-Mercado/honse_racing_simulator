@@ -639,15 +639,15 @@
         "spacing": 110
     }, {
         "name" : "Teleporting Mess",
-        "map_fields" : [[30, 290, 1360, 220], [210, 30, 1200, 760]],
+        "map_fields" : [[30, 290, 1360, 220], [210, 30, 1230, 760]],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
-            "rect_value": [210, 249, 1200, 1]
+            "rect_value": [210, 249, 1230, 1]
         },{
             "type": "WALL",
             "shape": "RECT",
-            "rect_value": [210, 550, 1200, 1]
+            "rect_value": [210, 550, 1230, 1]
         },{
             "type": "WALL",
             "shape": "RECT",
@@ -668,7 +668,7 @@
             "type": "WALL",
             "shape": "RECT",
             "rect_value": [1270, 30, 1, 760]
-        }, {
+        },{
             "type": "TELEPORT",
             "shape": "CIRCLE",
             "center": [350, 410],
@@ -677,7 +677,7 @@
             "teleport_id": 0,
             "pair_id": "A",
             "teleport_sides": ["LEFT"]
-        }, {
+        },{
             "type": "TELEPORT",
             "shape": "CIRCLE",
             "center": [430, 410],
@@ -686,6 +686,474 @@
             "teleport_id": 0,
             "pair_id": "B",
             "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [570, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 1,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [650, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 1,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [790, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 2,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [870, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 2,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1010, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 3,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1090, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 3,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1230, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 4,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1310, 410],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 4,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [350, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 5,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [430, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 5,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [570, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 6,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [650, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 6,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [790, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 7,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [870, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 7,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1010, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 8,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1090, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 8,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1230, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 9,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1310, 110],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 9,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [350, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 10,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [430, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 10,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [570, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 11,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [650, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 11,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [790, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 12,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [870, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 12,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1010, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 13,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        },{ 
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1090, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 13,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1230, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 14,
+            "pair_id": "A",
+            "teleport_sides": ["LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1310, 710],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 14,
+            "pair_id": "B",
+            "teleport_sides": ["RIGHT"]
+        },{                                         
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [290, 290],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 15,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [290, 210],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 15,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [500, 290],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 16,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [500, 210],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 16,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [730, 290],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 17,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [730, 210],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 17,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [935, 290],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 18,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [935, 210],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 18,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1160, 290],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 19,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1160, 210],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 19,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1395, 290],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 20,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1395, 210],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 20,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{                                         
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [290, 600],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 21,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [290, 510],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 21,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [500, 600],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 22,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [500, 510],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 22,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [730, 600],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 23,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [730, 510],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 23,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [935, 600],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 24,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [935, 510],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 24,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1160, 600],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 25,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1160, 510],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 25,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1395, 600],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 26,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1395, 510],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 26,
+            "pair_id": "B",
+            "teleport_sides": ["UP"]
         }],
         "this_is_a_wall" : ["TUPLE"],
         "max_horses": 6,
