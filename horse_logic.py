@@ -1,15 +1,17 @@
-import pygame, random, math
-from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction
+import pygame, random, math, json
+from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction, get_horse_start_pos
 
 class Horse:
-    def __init__(self, name, speed, width, height, location_x, location_y, image_url):
+    def __init__(self, name, speed, width, height, location_x, location_y, image_url, win_image_url):
         self.name = name
         self.speed = speed
+        self.turns_until_speed = 0
         self.width = width
         self.height = height
         self.image_url = image_url
         self.location_x = location_x
         self.location_y = location_y
+        self.win_image_url = win_image_url
         self.rect = (location_x, location_y, width, height)
         self.past_directions = []
         
@@ -68,10 +70,11 @@ class Horse:
         self.vector_up["vector_measurement"] *= proportion
         self.vector_up["vector_measurement"] *= self.speed
       
-    def movement_steps(self, field_hitboxes, horses, direction):
+    def movement_steps(self, field_hitboxes, horses, direction, map):
         global horse_hit_wall
         horse_hit_wall = handle_wall_collision(self, field_hitboxes, direction)
         handle_horse_collision(self, horses, direction)
+        map.handle_special_collision(self, direction)
         
     def swap_horse_vectors(horse, direction):
         opposite_direction = get_opposite_direction(direction)
@@ -90,7 +93,7 @@ class Horse:
             horse.vector_right = horse.vector_left
             horse.vector_left = 0
         
-    def horse_move(self, field_hitboxes, horses, carrot):
+    def horse_move(self, field_hitboxes, horses, map):
         try:
             if horse_hit_wall == "yo wsg brother":
                 horse_hit_wall = True
@@ -99,7 +102,7 @@ class Horse:
         
         for i in range(math.ceil(self.vector_left["vector_measurement"])):
             self.location_x -= 1
-            self.movement_steps(field_hitboxes, horses, "LEFT")
+            self.movement_steps(field_hitboxes, horses, "LEFT", map)
             if horse_hit_wall == False:
                 break
         if horse_hit_wall == True:
@@ -107,7 +110,7 @@ class Horse:
             
         for i in range(math.ceil(self.vector_right["vector_measurement"])):
             self.location_x += 1
-            self.movement_steps(field_hitboxes, horses, "RIGHT")   
+            self.movement_steps(field_hitboxes, horses, "RIGHT", map)   
             if horse_hit_wall == False:
                 break
         if horse_hit_wall == True:
@@ -115,7 +118,7 @@ class Horse:
         
         for i in range(math.ceil(self.vector_down["vector_measurement"])):
             self.location_y += 1
-            self.movement_steps(field_hitboxes, horses, "DOWN")
+            self.movement_steps(field_hitboxes, horses, "DOWN", map)
             if horse_hit_wall == False:
                 break
         if horse_hit_wall == True:
@@ -123,12 +126,46 @@ class Horse:
         
         for i in range(math.ceil(self.vector_up["vector_measurement"])):
             self.location_y -= 1
-            self.movement_steps(field_hitboxes, horses, "UP")
+            self.movement_steps(field_hitboxes, horses, "UP", map)
             if horse_hit_wall == False:
                 break
         if horse_hit_wall == True:
             self.location_y -= (self.vector_up["vector_measurement"] - int(self.vector_up["vector_measurement"]))
+        
+        if self.turns_until_speed != 0:             ## YOooohoooOOO!! 
+            self.turns_until_speed -= 1
+            for i in range(math.ceil(self.vector_left["vector_measurement"])):
+                self.location_x -= 1
+                self.movement_steps(field_hitboxes, horses, "LEFT", map)
+                if horse_hit_wall == False:
+                    break
+            if horse_hit_wall == True:
+                self.location_x -= (self.vector_left["vector_measurement"] - int(self.vector_left["vector_measurement"]))
+                
+            for i in range(math.ceil(self.vector_right["vector_measurement"])):
+                self.location_x += 1
+                self.movement_steps(field_hitboxes, horses, "RIGHT", map)   
+                if horse_hit_wall == False:
+                    break
+            if horse_hit_wall == True:
+                self.location_x += (self.vector_right["vector_measurement"] - int(self.vector_right["vector_measurement"]))
             
+            for i in range(math.ceil(self.vector_down["vector_measurement"])):
+                self.location_y += 1
+                self.movement_steps(field_hitboxes, horses, "DOWN", map)
+                if horse_hit_wall == False:
+                    break
+            if horse_hit_wall == True:
+                self.location_y += (self.vector_down["vector_measurement"] - int(self.vector_down["vector_measurement"]))   
+            
+            for i in range(math.ceil(self.vector_up["vector_measurement"])):
+                self.location_y -= 1
+                self.movement_steps(field_hitboxes, horses, "UP", map)
+                if horse_hit_wall == False:
+                    break
+            if horse_hit_wall == True:
+                self.location_y -= (self.vector_up["vector_measurement"] - int(self.vector_up["vector_measurement"]))
+                
     def get_vector_movement(self, vector_name):
         vector_movements = {
             "RIGHT" : ["X", 1],
