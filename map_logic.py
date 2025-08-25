@@ -58,27 +58,11 @@ class Map:
     
     def handle_special_collision(self, horse, direction):
         for special_rect in self.special_rects:
-            if special_rect["shape"] == "RECT":
-                special_rect_value = pygame.Rect(special_rect["rect_value"][0], special_rect["rect_value"][1], special_rect["rect_value"][2], special_rect["rect_value"][3])
-                horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
-                if special_rect_value.colliderect(horse_rect):
-                    rect_type = special_rect["type"]
-                    if rect_type == "KILLBRICK":
-                        self.collide_killbrick(horse)
-                    elif rect_type == "BOUNCE":
-                        self.collide_bounce_pad(horse, direction, special_rect)
-                    elif rect_type == "TELEPORT":
-                        self.collide_teleporter(horse, special_rect)
-                    elif rect_type == "MOVING":
-                        self.collide_moving_wall(horse, direction)
-                    elif rect_type == "WALL":
-                        self.collide_moving_wall(horse, direction) # i am not making two functions that do the same thing
-            
-            elif special_rect["shape"] == "CIRCLE":
-                circle_hitboxes = get_circle_hitboxes(special_rect["center"], special_rect["base_radius"])
-                horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
-                for circle_hitbox in circle_hitboxes:
-                    if circle_hitbox.colliderect(horse_rect):
+            if special_rect["type"] != "KNIFE":
+                if special_rect["shape"] == "RECT":
+                    special_rect_value = pygame.Rect(special_rect["rect_value"][0], special_rect["rect_value"][1], special_rect["rect_value"][2], special_rect["rect_value"][3])
+                    horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
+                    if special_rect_value.colliderect(horse_rect):
                         rect_type = special_rect["type"]
                         if rect_type == "KILLBRICK":
                             self.collide_killbrick(horse)
@@ -89,7 +73,24 @@ class Map:
                         elif rect_type == "MOVING":
                             self.collide_moving_wall(horse, direction)
                         elif rect_type == "WALL":
-                            self.collide_moving_wall(horse, direction)
+                            self.collide_moving_wall(horse, direction) # i am not making two functions that do the same thing
+                
+                elif special_rect["shape"] == "CIRCLE":
+                    circle_hitboxes = get_circle_hitboxes(special_rect["center"], special_rect["base_radius"])
+                    horse_rect = pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)
+                    for circle_hitbox in circle_hitboxes:
+                        if circle_hitbox.colliderect(horse_rect):
+                            rect_type = special_rect["type"]
+                            if rect_type == "KILLBRICK":
+                                self.collide_killbrick(horse)
+                            elif rect_type == "BOUNCE":
+                                self.collide_bounce_pad(horse, direction, special_rect)
+                            elif rect_type == "TELEPORT":
+                                self.collide_teleporter(horse, special_rect)
+                            elif rect_type == "MOVING":
+                                self.collide_moving_wall(horse, direction)
+                            elif rect_type == "WALL":
+                                self.collide_moving_wall(horse, direction)
 
     def collide_moving_wall(self, horse, direction):
         if direction == "UP":

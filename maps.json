@@ -1542,7 +1542,7 @@
         "map_fields" : [[30, 30, 1410, 760]],
         "special_rects" : [{
             "type" : "KNIFE",
-            "rect_value": [1200, 400, 20, 20]
+            "rect_value": [1350, 390, 40, 40]
         }],
         "this_is_a_wall" : [150, 10, 40, 800],
         "max_horses": 8,

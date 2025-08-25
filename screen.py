@@ -98,6 +98,15 @@ class Screen:
         counter_1 = 0
         game_start_time, current_time = time.time(), time.time()
 
+        knife_mode = False
+        knife = None
+        for special_rect in map.special_rects:
+            if special_rect["type"] == "KNIFE":
+                knife = special_rect
+                knife_mode = True
+                break
+        
+        
         start_rect = {
             "rect": [random.randint(200, 1070), random.randint(200, 420), 400, 200],
             "directions": [random.choice(["UP", "DOWN"]), random.choice(["LEFT", "RIGHT"])]
@@ -152,7 +161,12 @@ class Screen:
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
                         horse = map.get_single_start_pos(horse)
             
-            
+            if knife_mode == True:
+                knife_rect = knife["rect_value"]
+                knife_file_path = os.path.join("images", "knife.png")
+                knife_image = pygame.image.load(knife_file_path)
+                scaled_knife_image = pygame.transform.scale(knife_image, (knife_rect[2], knife_rect[3]))
+                screen.blit(scaled_knife_image, (knife_rect[0], knife_rect[1]))
             
             pygame.draw.rect(screen, (0, 0, 0), map.this_is_a_wall)
             
@@ -200,33 +214,61 @@ class Screen:
             
             for special_rect in map.special_rects:
                 special_rect_color = map.background_color
-                if special_rect["type"] != "WALL":
-                    special_rect_color = map.get_special_rect_color(special_rect["type"])
-                if special_rect["shape"] == "RECT":
-                    srv = special_rect["rect_value"] # shorthand purposes
-            
-                    if special_rect["type"] == "MOVING":
-                        map.move_moving_wall(special_rect)
-                        pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
-                    else:
-                        pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                if knife_mode == False:
+                    if special_rect["type"] != "WALL":
+                        special_rect_color = map.get_special_rect_color(special_rect["type"])
+                    if special_rect["shape"] == "RECT":
+                        srv = special_rect["rect_value"] # shorthand purposes
                 
-                elif special_rect["shape"] == "CIRCLE":
-                    pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
-                    if special_rect["radius"] != special_rect["base_radius"]:
-                        special_rect["radius"] -= 1
-                
+                        if special_rect["type"] == "MOVING":
+                            map.move_moving_wall(special_rect)
+                            pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
+                        else:
+                            pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                    
+                    elif special_rect["shape"] == "CIRCLE":
+                        pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
+                        if special_rect["radius"] != special_rect["base_radius"]:
+                            special_rect["radius"] -= 1
+                    
             file_path = os.path.join("images", "carrot.png")
             image = pygame.image.load(file_path)
             scaled_image = pygame.transform.scale(image, (20, 20))
             screen.blit(scaled_image, (map.goal_x, map.goal_y)) 
             
+            if knife_mode == True:
+                knife_rect = knife["rect_value"]
+                knife_file_path = os.path.join("images", "knife.png")
+                knife_image = pygame.image.load(knife_file_path)
+                scaled_knife_image = pygame.transform.scale(knife_image, (knife_rect[2], knife_rect[3]))
+                screen.blit(scaled_knife_image, (knife_rect[0], knife_rect[1]))
+            
             for horse in horse_objects:
                 if isinstance(horse, Horse):
+                    if knife_mode == True:
+                        horse.frames_since_last_stab += 0.5 # i want to half speed it but im too lazy to figure that out
+                        if horse.frames_since_last_stab < 25:
+                            hit_file_path = os.path.join("images", horse.win_image_url)
+                            hit_image = pygame.image.load(hit_file_path)
+                            hit_image.set_alpha(255*((24-horse.frames_since_last_stab)/24))
+                            hit_scaled_image = pygame.transform.scale(hit_image, (1470, 820))
+                            tint_hit_image = hit_scaled_image.copy()
+                            tint_color = (120, 10, 15)
+                            tint_hit_image.fill(tint_color, None, pygame.BLEND_RGBA_MULT)
+                            screen.blit(tint_hit_image, (0, 0))
+                    
                     file_path = os.path.join("images", horse.image_url)
                     image = pygame.image.load(file_path)
                     scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
                     screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
+                    
+                    if horse.holding_knife == True:
+                        knife_rect = knife["rect_value"]
+                        knife_file_path = os.path.join("images", "knife.png")
+                        knife_image = pygame.image.load(knife_file_path)
+                        scaled_knife_image = pygame.transform.scale(knife_image, (knife_rect[2], knife_rect[3]))
+                        screen.blit(scaled_knife_image, (horse.location_x+10, horse.location_y+10))
+                    
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
                         horse = map.get_single_start_pos(horse)
             
@@ -238,14 +280,27 @@ class Screen:
                 win_image = pygame.image.load(win_file_path)
                 win_scaled_image = pygame.transform.scale(win_image, (1470, 820))
                 screen.blit(win_scaled_image, (0, 0))
-                
+            
             if game_done == False:
+                horses_remaining = 0
+                for horse in horse_objects:
+                    if horse.width > 0:
+                        horses_remaining += 1
+                if horses_remaining == 1:
+                    game_done = True
+                    for horse in horse_objects:
+                        if horse.width > 0:
+                            winning_horse = horse
                 for horse in horse_objects:
                     if isinstance(horse, Horse):
-                        horse.horse_move(field_hitboxes, horse_objects, map)
+                        if knife_mode == True:
+                            if len(horse_objects) == 1:
+                                game_done = True
+                                winning_horse = horse_objects[0]
+                        horse.horse_move(field_hitboxes, horse_objects, map, knife)
                         horse.fix_vector_pair("horizontal", horse.vector_left["vector_measurement"], horse.vector_right["vector_measurement"])
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])
-                    
+                        
                         if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(goal):
                             game_done = True
                             if horse.vector_up["vector_measurement"] != 0: 
@@ -257,6 +312,12 @@ class Screen:
                             if horse.vector_left["vector_measurement"] != 0: 
                                 horse.location_x -= 10     
                             winning_horse = horse   
+                        
+                        if knife_mode == True:
+                            knife_rect = knife["rect_value"]
+                            if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(knife_rect):
+                                horse.holding_knife = True
+                                knife["rect_value"][0] = 10000
             
             pygame.display.update()
             
