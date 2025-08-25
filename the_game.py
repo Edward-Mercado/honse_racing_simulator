@@ -5,12 +5,13 @@ all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee R
               "Hopeless Endeavor", "Imperial Grace", "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 
               "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat"]
 
-random_on = False
+random_on = True
 
 participating_horses = []
 
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 
-            "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory", "Knife Battlegrounds"]
+            "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory", "Knife Battlegrounds", 
+            "Honseday The Thirteenth", "Test Map"]
 
 with open("horses.json", "r") as file:
     json_horses = json.load(file)

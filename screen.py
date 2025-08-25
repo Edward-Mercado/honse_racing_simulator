@@ -57,9 +57,10 @@ class Screen:
                 goal_x = map["goal_x"]
                 goal_y = map["goal_y"]
                 spacing = map["spacing"]
+                circle_fields = map["circle_fields"]
                 
                 return Map(name, map_fields, special_rects, max_horses, wrap_after,
-                first_horse_start_pos, background_color, field_color, this_is_a_wall, goal_x, goal_y, spacing)
+                first_horse_start_pos, background_color, field_color, this_is_a_wall, goal_x, goal_y, spacing, circle_fields)
                 
         if not found:
             return  Map("basic_ass_map", [pygame.Rect(50, 50, 670, 320), pygame.Rect(720, 300, 300, 200)], 
@@ -127,6 +128,9 @@ class Screen:
             
             for hitbox in field_hitboxes:
                 pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
+            
+            for hitbox in map.circle_hitboxes:
+                pygame.draw.rect(screen, map.field_color, hitbox)
             
             for special_rect in map.special_rects:
                 special_rect_color = map.background_color
@@ -212,6 +216,9 @@ class Screen:
             for hitbox in field_hitboxes:
                 pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
             
+            for hitbox in map.circle_hitboxes:
+                pygame.draw.rect(screen, map.field_color, hitbox)
+                
             for special_rect in map.special_rects:
                 special_rect_color = map.background_color
                 if knife_mode == False:
@@ -299,7 +306,7 @@ class Screen:
                                 winning_horse = horse_objects[0]
                         horse.horse_move(field_hitboxes, horse_objects, map, knife)
                         horse.fix_vector_pair("horizontal", horse.vector_left["vector_measurement"], horse.vector_right["vector_measurement"])
-                        horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])
+                        horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])         
                         
                         if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(goal):
                             game_done = True

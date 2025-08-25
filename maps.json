@@ -2,6 +2,7 @@
     {
         "name" : "Blank Field",
         "map_fields" : [[30, 30, 1410, 760]],
+        "circle_fields": [],
         "special_rects" : [],
         "this_is_a_wall" : [150, 10, 40, 800],
         "max_horses": 8,
@@ -16,6 +17,7 @@
     {
         "name" : "Bouncy Town",
         "map_fields" : [[30, 290, 900, 220], [210, 30, 760, 760], [30, 330, 1410, 140]],
+        "circle_fields": [],
         "special_rects" : [
             {
                 "type": "BOUNCE",
@@ -61,6 +63,7 @@
     {
         "name" : "The Wall-y West",
         "map_fields" : [[30, 30, 1410, 760]],
+        "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
@@ -122,6 +125,7 @@
     }, {
         "name" : "Mover Maze",
         "map_fields" : [[30, 30, 1410, 760]],
+        "circle_fields": [],
         "special_rects" : [
             {
                 "type": "WALL",
@@ -250,6 +254,7 @@
         [810, 200, 600, 80],
         [1320, 200, 90, 400],
         [850, 400, 450, 200]],
+        "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
@@ -275,6 +280,7 @@
     }, {
         "name" : "Plinko Paradise",
         "map_fields" : [[250, 30, 970, 760]],
+        "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
@@ -640,6 +646,7 @@
     }, {
         "name" : "Teleporting Mess",
         "map_fields" : [[30, 290, 1360, 220], [210, 30, 1230, 760]],
+        "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
@@ -1167,6 +1174,7 @@
     }, {
         "name" : "Plinko Purgatory",
         "map_fields" : [[250, 30, 970, 760]],
+        "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
@@ -1540,6 +1548,7 @@
     },{
         "name" : "Knife Battlegrounds",
         "map_fields" : [[30, 30, 1410, 760]],
+        "circle_fields": [],
         "special_rects" : [{
             "type" : "KNIFE",
             "rect_value": [1350, 390, 40, 40]
@@ -1553,5 +1562,34 @@
         "goal_x": 10025,
         "goal_y": 400,
         "spacing": 100
+    },{
+        "name" : "Honseday The Thirteenth",
+        "map_fields" : [[30, 30, 1050, 600], [950, 630, 60, 150], [1010, 700, 350, 80], [1250, 550, 110, 150], 
+            [1200, 350, 210, 200], [1080, 100, 250, 30]],
+        "circle_fields": [[1200, 265, 50]],
+        "special_rects" : [],
+        "this_is_a_wall" : [150, 450, 40, 200],
+        "max_horses": 8,
+        "wrap_after" : 2, 
+        "first_horse_start_pos" : [40, 450],
+        "background_color" : [80, 80, 80],
+        "field_color" : [25, 25, 25],
+        "goal_x": 30,
+        "goal_y": 100,
+        "spacing": 50
+    },{
+        "name" : "Test Map",
+        "map_fields" : [],
+        "circle_fields": [[1200, 165, 100]],
+        "special_rects" : [],
+        "this_is_a_wall" : [150, 450, 40, 200],
+        "max_horses": 8,
+        "wrap_after" : 2, 
+        "first_horse_start_pos" : [40, 450],
+        "background_color" : [80, 80, 80],
+        "field_color" : [25, 25, 25],
+        "goal_x": 30,
+        "goal_y": 100,
+        "spacing": 50
     }
 ]

@@ -4,7 +4,7 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 class Map:
     def __init__(self, name, map_fields, special_rects, max_horses, 
                 wrap_after, first_horse_starting_pos, background_color, field_color, 
-                this_is_a_wall, goal_x, goal_y, spacing):
+                this_is_a_wall, goal_x, goal_y, spacing, circle_fields):
         
         self.name = name
         self.map_fields = map_fields
@@ -18,7 +18,18 @@ class Map:
         self.spacing = spacing
         self.goal_x = goal_x
         self.goal_y = goal_y
+        self.circle_fields = circle_fields
+        self.circle_hitboxes = []
         
+        for circle_field in self.circle_fields:
+            print(self.circle_fields)
+            circle_hitboxes = get_circle_hitboxes((circle_field[0], circle_field[1]), circle_field[2])
+            
+            for circle_hitbox in circle_hitboxes:
+                self.circle_hitboxes.append(circle_hitbox)
+        
+        print(self.circle_hitboxes)
+
     def get_horses_start_pos(self, horses):
         x_start_pos, y_start_pos = self.first_horse_starting_pos[0], self.first_horse_starting_pos[1]
         horse_count = 0
