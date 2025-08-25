@@ -92,22 +92,22 @@ class Map:
 
     def collide_moving_wall(self, horse, direction):
         if direction == "UP":
-            horse.location_y += 12 * horse.speed
+            horse.location_y += 7 * horse.speed
             horse.vector_down["vector_measurement"] = horse.vector_up["vector_measurement"]
             horse.vector_up["vector_measurement"] = 0
             
         elif direction == "DOWN":
-            horse.location_y -= 12 * horse.speed
+            horse.location_y -= 7 * horse.speed
             horse.vector_up["vector_measurement"] = horse.vector_down["vector_measurement"]
             horse.vector_down["vector_measurement"] = 0
 
         elif direction == "LEFT":
-            horse.location_x += 12 * horse.speed
+            horse.location_x += 7 * horse.speed
             horse.vector_right["vector_measurement"] = horse.vector_left["vector_measurement"]
             horse.vector_left["vector_measurement"] = 0
             
         elif direction == "RIGHT":
-            horse.location_x -= 12 * horse.speed
+            horse.location_x -= 7 * horse.speed
             horse.vector_left["vector_measurement"] = horse.vector_right["vector_measurement"]
             horse.vector_right["vector_measurement"] = 0
     
