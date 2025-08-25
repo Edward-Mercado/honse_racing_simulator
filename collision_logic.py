@@ -77,7 +77,7 @@ def handle_wall_collision(horse, field_hitboxes, direction, circle_fields):
         
     return horse_hit_wall
 
-def handle_horse_collision(horse, horses, direction, knife):
+def handle_horse_collision(horse, horses, direction, knife, honseday):
     other_horses = horses
 
     for other_horse in other_horses:
@@ -87,25 +87,29 @@ def handle_horse_collision(horse, horses, direction, knife):
             recoil_count = 1
             
             if horse_rect.colliderect(other_horse_rect):
-                if horse.holding_knife == True:
+                if horse.holding_knife == True or (honseday == True and horse.name == "Hopeless Endeavor"):
                     other_horse.frames_since_last_stab = 0
-                    recoil_count = 7
                     horse.holding_knife = False
-                    other_horse.lives_remaining -= 1
-                    knife["rect_value"][0] = other_horse.location_x
-                    knife["rect_value"][1] = other_horse.location_y
-
+                    other_horse.lives_remaining -= 0.5
+                    
+                    if horse.holding_knife == True:
+                        knife["rect_value"][0] = other_horse.location_x
+                        knife["rect_value"][1] = other_horse.location_y
+                        recoil_count = 7
                     if other_horse.lives_remaining < 1:
                         other_horse.width = 0
                         other_horse.height = 0   
-                if other_horse.holding_knife == True: 
+                        
+                if other_horse.holding_knife == True or (honseday == True and other_horse.name == "Hopeless Endeavor"): 
                     horse.frames_since_last_stab = 0 
-                    recoil_count = 7
                     other_horse.holding_knife = False
-                    horse.lives_remaining -= 1
-                    knife["rect_value"][0] = horse.location_x
-                    knife["rect_value"][1] = horse.location_y
-
+                    horse.lives_remaining -= 0.5
+                    
+                    if other_horse.holding_knife == True:
+                        knife["rect_value"][0] = horse.location_x
+                        knife["rect_value"][1] = horse.location_y
+                        recoil_count = 7
+                        
                     if horse.lives_remaining < 1:
                         horse.width = 0
                         horse.height = 0    

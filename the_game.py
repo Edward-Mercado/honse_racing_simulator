@@ -11,10 +11,11 @@ participating_horses = []
 
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 
             "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory", "Knife Battlegrounds", 
-            "Raceday The Thirteenth"]
+            "Raceday The Thirteenth", "Honseday The Thirteenth"]
 
 with open("horses.json", "r") as file:
     json_horses = json.load(file)
+    
 with open("maps.json", "r") as file:
     json_maps = json.load(file)
     
@@ -28,6 +29,9 @@ for json_map in json_maps:
     if json_map["name"] == map_choice:
         chosen_map = json_map
         break
+
+if chosen_map["name"] == "Honseday The Thirteenth":
+    all_horses.remove("Hopeless Endeavor")
 
 print("")
 
@@ -53,4 +57,7 @@ else:
         participating_horses.append(chosen_horse)  
         all_horses.remove(chosen_horse)
         
-Screen.game(participating_horses, map_choice)
+if chosen_map["name"] != "Honseday The Thirteenth":
+    Screen.game(participating_horses, map_choice)
+else:
+    Screen.honseday_the_thirteenth(participating_horses, map_choice)

@@ -22,7 +22,6 @@ class Map:
         self.circle_hitboxes = []
         
         for circle_field in self.circle_fields:
-            print(self.circle_fields)
             circle_hitboxes = get_circle_hitboxes((circle_field[0], circle_field[1]), circle_field[2])
             
             for circle_hitbox in circle_hitboxes:
