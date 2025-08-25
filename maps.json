@@ -1783,6 +1783,10 @@
             "min": 210,
             "animation_direction": "max",
             "distance_per_frame": 4
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [30, 370, 50, 1]
         }],
         "this_is_a_wall" : [150, 440, 40, 210],
         "max_horses": 6,
@@ -1791,7 +1795,7 @@
         "background_color" : [80, 80, 80],
         "field_color" : [25, 25, 25],
         "goal_x": 40,
-        "goal_y": 320,
+        "goal_y": 280,
         "spacing": 50
     }
 ]

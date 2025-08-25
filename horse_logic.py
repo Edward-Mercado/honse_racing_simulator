@@ -54,7 +54,7 @@ class Horse:
         self.fit_movement_vectors()
       
     def fit_movement_vectors(self):
-        ratio_total = 10
+        ratio_total = 10 * speed
         
         vector_measurements = [self.vector_down["vector_measurement"], 
                         self.vector_left["vector_measurement"], 
@@ -66,13 +66,9 @@ class Horse:
         proportion = ratio_total / vector_sum
         
         self.vector_down["vector_measurement"] *= proportion
-        self.vector_down["vector_measurement"] *= self.speed
         self.vector_left["vector_measurement"] *= proportion
-        self.vector_left["vector_measurement"] *= self.speed
         self.vector_right["vector_measurement"] *= proportion
-        self.vector_right["vector_measurement"] *= self.speed
         self.vector_up["vector_measurement"] *= proportion
-        self.vector_up["vector_measurement"] *= self.speed
       
     def movement_steps(self, field_hitboxes, horses, direction, map, knife, circle_fields, honseday):
         global horse_hit_wall

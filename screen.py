@@ -402,11 +402,18 @@ class Screen:
                     scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
                     screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
                     
-                    heart_x = horse.location_x - 20
-                    heart_y = horse.location_y - 20
+                    heart_x = horse.location_x
+                    heart_y = horse.location_y
+                    hearts_drawn = 0
                     
-                    for i in range(horse.lives_remaining):
-                        
+                    for i in range(int(horse.lives_remaining)):
+                        pygame.draw.circle(screen, (255, 0, 0), (heart_x, heart_y), 5)
+                        heart_x += 10
+                        hearts_drawn += 1
+                    
+                    for i in range(3 - hearts_drawn):
+                        pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
+                        heart_x += 10
                     
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
                         horse = map.get_single_start_pos(horse)
@@ -509,6 +516,20 @@ class Screen:
                     scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
                     screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
                     
+                    heart_x = horse.location_x
+                    heart_y = horse.location_y
+                    hearts_drawn = 0
+                    
+                    for i in range(int(horse.lives_remaining)):
+                        pygame.draw.circle(screen, (255, 0, 0), (heart_x, heart_y), 5)
+                        heart_x += 10
+                        hearts_drawn += 1
+                    
+                    if horse.width != 0:
+                        for i in range(3 - hearts_drawn):
+                            pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
+                            heart_x += 10
+                        
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
                         horse = map.get_single_start_pos(horse)
             
@@ -593,18 +614,6 @@ class Screen:
                             horse.vector_up["vector_measurement"] *= 4
                             horse.vector_down["vector_measurement"] *= 4
                         
-                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(
-                            hopeless_endeavor.location_x, hopeless_endeavor.location_y, hopeless_endeavor.width, hopeless_endeavor.height):
-                            horse.lives_remaining -= 1
-                            horse.frames_since_last_stab = 0
-                            
-                            horse.vector_left["vector_measurement"] /= 4
-                            horse.vector_right["vector_measurement"] /= 4
-                            horse.vector_up["vector_measurement"] /= 4
-                            horse.vector_down["vector_measurement"] /= 4
-                            
-                            if horse.lives_remaining < 1:
-                                horse.width = 0
-                                horse.height = 0
+                        
             
             pygame.display.update()
