@@ -157,20 +157,20 @@ class Map:
                 if "UP" in paired_teleporter["teleport_sides"]:
                     horse.vector_down["vector_measurement"] = 0
                     horse.vector_up["vector_measurement"] = random.randint(1, 6)
-                    horse.location_y = paired_teleporter["rect_value"][1] - (horse.height + 5)
+                    horse.location_y = paired_teleporter["rect_value"][1] - (horse.height)
                 if "DOWN" in paired_teleporter["teleport_sides"]:
                     horse.vector_up["vector_measurement"] = 0
                     horse.vector_down["vector_measurement"] = random.randint(1, 6)
-                    horse.location_y =( paired_teleporter["rect_value"][1] + paired_teleporter["rect_value"][3]) + 5
+                    horse.location_y =( paired_teleporter["rect_value"][1] + paired_teleporter["rect_value"][3])
                 
                 if "LEFT" in paired_teleporter["teleport_sides"]:
                     horse.vector_right["vector_measurement"] = 0
                     horse.vector_left["vector_measurement"] = random.randint(1, 6)
-                    horse.location_x = paired_teleporter["rect_value"][0] - (horse.height + 5)
+                    horse.location_x = paired_teleporter["rect_value"][0] - (horse.height)
                 if "RIGHT" in paired_teleporter["teleport_sides"]:
                     horse.vector_left["vector_measurement"] = 0
                     horse.vector_right["vector_measurement"] = random.randint(1, 6)
-                    horse.location_x =( paired_teleporter["rect_value"][0] + paired_teleporter["rect_value"][2]) + 5
+                    horse.location_x =( paired_teleporter["rect_value"][0] + paired_teleporter["rect_value"][2])
             
             if paired_teleporter["shape"] == "CIRCLE":
 
@@ -184,22 +184,22 @@ class Map:
                 if "UP" in paired_teleporter["teleport_sides"]:
                     horse.vector_down["vector_measurement"] = 0
                     horse.vector_up["vector_measurement"] = random.randint(1, 6)
-                    horse.location_y = (paired_teleporter["center"][1] - paired_teleporter["radius"]) - (horse.height + 5)
+                    horse.location_y = (paired_teleporter["center"][1] - paired_teleporter["radius"]) - (horse.height)
                     
                 if "DOWN" in paired_teleporter["teleport_sides"]:
                     horse.vector_up["vector_measurement"] = 0
                     horse.vector_down["vector_measurement"] = random.randint(1, 6)
-                    horse.location_y =( paired_teleporter["center"][1] + paired_teleporter["radius"]) + 5
+                    horse.location_y =( paired_teleporter["center"][1] + paired_teleporter["radius"])
                 
                 if "LEFT" in paired_teleporter["teleport_sides"]:
                     horse.vector_right["vector_measurement"] = 0
                     horse.vector_left["vector_measurement"] = random.randint(1, 6)
-                    horse.location_x = (paired_teleporter["center"][0] - paired_teleporter["radius"]) - (horse.height + 5)
+                    horse.location_x = (paired_teleporter["center"][0] - paired_teleporter["radius"]) - (horse.height)
                     
                 if "RIGHT" in paired_teleporter["teleport_sides"]:
                     horse.vector_left["vector_measurement"] = 0
                     horse.vector_right["vector_measurement"] = random.randint(1, 6)
-                    horse.location_x =( paired_teleporter["center"][0] + paired_teleporter["radius"]) + 5
+                    horse.location_x =( paired_teleporter["center"][0] + paired_teleporter["radius"])
                     
             horse.fit_movement_vectors()
     
