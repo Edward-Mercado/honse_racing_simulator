@@ -304,7 +304,7 @@ class Screen:
                             if len(horse_objects) == 1:
                                 game_done = True
                                 winning_horse = horse_objects[0]
-                        horse.horse_move(field_hitboxes, horse_objects, map, knife)
+                        horse.horse_move(field_hitboxes, horse_objects, map, knife, map.circle_fields)
                         horse.fix_vector_pair("horizontal", horse.vector_left["vector_measurement"], horse.vector_right["vector_measurement"])
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])         
                         

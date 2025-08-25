@@ -74,9 +74,9 @@ class Horse:
         self.vector_up["vector_measurement"] *= proportion
         self.vector_up["vector_measurement"] *= self.speed
       
-    def movement_steps(self, field_hitboxes, horses, direction, map, knife):
+    def movement_steps(self, field_hitboxes, horses, direction, map, knife, circle_fields):
         global horse_hit_wall
-        horse_hit_wall = handle_wall_collision(self, field_hitboxes, direction)
+        horse_hit_wall = handle_wall_collision(self, field_hitboxes, direction, circle_fields)
         handle_horse_collision(self, horses, direction, knife)
         map.handle_special_collision(self, direction)
         
@@ -97,7 +97,7 @@ class Horse:
             horse.vector_right = horse.vector_left
             horse.vector_left = 0
         
-    def horse_move(self, field_hitboxes, horses, map, knife):
+    def horse_move(self, field_hitboxes, horses, map, knife, circle_fields):
         if self.consecutive_wall_hits > 1:
             map.get_single_start_pos(self)
             self.consecutive_wall_hits = 0
@@ -110,7 +110,7 @@ class Horse:
         
         for i in range(math.ceil(self.vector_left["vector_measurement"])):
             self.location_x -= 1
-            self.movement_steps(field_hitboxes, horses, "LEFT", map, knife)
+            self.movement_steps(field_hitboxes, horses, "LEFT", map, knife, circle_fields)
             if horse_hit_wall == False:
                 self.consecutive_wall_hits += 1
                 break
@@ -120,7 +120,7 @@ class Horse:
             
         for i in range(math.ceil(self.vector_right["vector_measurement"])):
             self.location_x += 1
-            self.movement_steps(field_hitboxes, horses, "RIGHT", map, knife)   
+            self.movement_steps(field_hitboxes, horses, "RIGHT", map, knife, circle_fields)   
             if horse_hit_wall == False:
                 self.consecutive_wall_hits += 1
                 break
@@ -130,7 +130,7 @@ class Horse:
         
         for i in range(math.ceil(self.vector_down["vector_measurement"])):
             self.location_y += 1
-            self.movement_steps(field_hitboxes, horses, "DOWN", map, knife)
+            self.movement_steps(field_hitboxes, horses, "DOWN", map, knife, circle_fields)
             if horse_hit_wall == False:
                 self.consecutive_wall_hits += 1
                 break
@@ -140,7 +140,7 @@ class Horse:
         
         for i in range(math.ceil(self.vector_up["vector_measurement"])):
             self.location_y -= 1
-            self.movement_steps(field_hitboxes, horses, "UP", map, knife)
+            self.movement_steps(field_hitboxes, horses, "UP", map, knife, circle_fields)
             if horse_hit_wall == False:
                 self.consecutive_wall_hits += 1
                 break
@@ -152,7 +152,7 @@ class Horse:
             self.turns_until_speed -= 1
             for i in range(math.ceil(self.vector_left["vector_measurement"])):
                 self.location_x -= 1
-                self.movement_steps(field_hitboxes, horses, "LEFT", map, knife)
+                self.movement_steps(field_hitboxes, horses, "LEFT", map, knife, circle_fields)
                 if horse_hit_wall == False:
                     self.consecutive_wall_hits += 1
                     break
@@ -162,7 +162,7 @@ class Horse:
                 
             for i in range(math.ceil(self.vector_right["vector_measurement"])):
                 self.location_x += 1
-                self.movement_steps(field_hitboxes, horses, "RIGHT", map, knife)   
+                self.movement_steps(field_hitboxes, horses, "RIGHT", map, knife, circle_fields)   
                 if horse_hit_wall == False:
                     self.consecutive_wall_hits += 1
                     break
@@ -172,7 +172,7 @@ class Horse:
             
             for i in range(math.ceil(self.vector_down["vector_measurement"])):
                 self.location_y += 1
-                self.movement_steps(field_hitboxes, horses, "DOWN", map, knife)
+                self.movement_steps(field_hitboxes, horses, "DOWN", map, knife, circle_fields)
                 if horse_hit_wall == False:
                     self.consecutive_wall_hits += 1
                     break
@@ -182,7 +182,8 @@ class Horse:
             
             for i in range(math.ceil(self.vector_up["vector_measurement"])):
                 self.location_y -= 1
-                self.movement_steps(field_hitboxes, horses, "UP", map, knife)
+                self.movement_steps(field_hitboxes, horses, "UP", map, knife, circle_fields)
+                
                 if horse_hit_wall == False:
                     self.consecutive_wall_hits += 1
                     break

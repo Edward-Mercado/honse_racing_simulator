@@ -1566,29 +1566,23 @@
         "name" : "Honseday The Thirteenth",
         "map_fields" : [[30, 30, 1050, 600], [950, 630, 60, 150], [1010, 700, 350, 80], [1250, 550, 110, 150], 
             [1200, 350, 210, 200], [1080, 100, 250, 30]],
-        "circle_fields": [[1200, 265, 50]],
-        "special_rects" : [],
+        "circle_fields": [[1350, 125, 100]],
+        "special_rects" : [{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [30, 200, 700, 1]
+        },{
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [1150, 790, 40, 1]
+        }],
         "this_is_a_wall" : [150, 450, 40, 200],
         "max_horses": 8,
         "wrap_after" : 2, 
         "first_horse_start_pos" : [40, 450],
         "background_color" : [80, 80, 80],
         "field_color" : [25, 25, 25],
-        "goal_x": 30,
-        "goal_y": 100,
-        "spacing": 50
-    },{
-        "name" : "Test Map",
-        "map_fields" : [],
-        "circle_fields": [[1200, 165, 100]],
-        "special_rects" : [],
-        "this_is_a_wall" : [150, 450, 40, 200],
-        "max_horses": 8,
-        "wrap_after" : 2, 
-        "first_horse_start_pos" : [40, 450],
-        "background_color" : [80, 80, 80],
-        "field_color" : [25, 25, 25],
-        "goal_x": 30,
+        "goal_x": 3000,
         "goal_y": 100,
         "spacing": 50
     }

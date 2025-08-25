@@ -56,24 +56,4 @@ def get_line_hitboxes(start_pos, end_pos, thickness): # start_pos_x MUST BE LESS
         else:
             line_hitboxes.append(pygame.Rect((start_pos_x + i) - 9, (new_pos_y - (top_value - 1)) + 9, thickness, math.ceil(slope)))
     
-    
     return line_hitboxes
-
-
-"""pygame.init()
-
-screen = pygame.display.set_mode((1470, 820))
-pygame.display.set_caption('Python Honse Racing Simulator')
-running = True
-circle_hitboxes = get_circle_hitboxes((1200, 165), 100)
-
-while running:
-    events = pygame.event.get()
-    for event in events:
-        if event.type == pygame.QUIT:
-            quit()
-    screen.fill((100, 100, 100))
-    for circle_hitbox in circle_hitboxes:
-        pygame.draw.rect(screen, (255, 255, 255), circle_hitbox)
-        
-    pygame.display.update()"""

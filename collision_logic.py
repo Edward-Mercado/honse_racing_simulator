@@ -12,12 +12,14 @@ def get_opposite_direction(direction):
     except KeyError:
         return "INVALID"
 
-def handle_wall_collision(horse, field_hitboxes, direction):
+def handle_wall_collision(horse, field_hitboxes, direction, circle_fields):
     horse_hit_hitbox = False
     
     for field_hitbox in field_hitboxes:
         if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(field_hitbox):
             horse_hit_hitbox = True  
+   
+   
             
     if horse_hit_hitbox == False:
         horse.past_directions.append(direction)

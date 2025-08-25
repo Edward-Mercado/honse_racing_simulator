@@ -27,8 +27,6 @@ class Map:
             
             for circle_hitbox in circle_hitboxes:
                 self.circle_hitboxes.append(circle_hitbox)
-        
-        print(self.circle_hitboxes)
 
     def get_horses_start_pos(self, horses):
         x_start_pos, y_start_pos = self.first_horse_starting_pos[0], self.first_horse_starting_pos[1]
