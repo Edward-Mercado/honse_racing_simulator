@@ -1563,27 +1563,112 @@
         "goal_y": 400,
         "spacing": 100
     },{
-        "name" : "Honseday The Thirteenth",
+        "name" : "Raceday The Thirteenth",
         "map_fields" : [[30, 30, 1050, 600], [950, 630, 60, 150], [1010, 700, 350, 80], [1250, 550, 110, 150], 
             [1200, 350, 210, 200], [1080, 100, 250, 30]],
         "circle_fields": [[1350, 125, 100]],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
-            "rect_value": [30, 200, 700, 1]
+            "rect_value": [30, 380, 891, 40]
         },{
-            "type": "KILLBRICK",
+            "type": "WALL",
             "shape": "RECT",
-            "rect_value": [1150, 790, 40, 1]
+            "rect_value": [920, 30, 1, 50]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [920, 230, 1, 150]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [240, 30, 1, 150]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [240, 180],
+            "radius": 32,
+            "base_radius": 32
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [490, 30, 1, 150]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [490, 180],
+            "radius": 32,
+            "base_radius": 32
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [740, 30, 1, 150]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [120, 200, 1, 180]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [120, 180],
+            "radius": 32,
+            "base_radius": 32
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [370, 200, 1, 180]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [370, 180],
+            "radius": 32,
+            "base_radius": 32
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [620, 200, 1, 180]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [620, 180],
+            "radius": 32,
+            "base_radius": 32
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [835, 60],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 100,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN", "LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1305, 390],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 100,
+            "pair_id": "B",
+            "teleport_sides": ["DOWN", "RIGHT"]
+        },{
+            "type": "MOVING",
+            "shape": "RECT",
+            "rect_value": [1180, 500, 80, 20],
+            "movement_direction": "HORIZONTAL", 
+            "max": 1350,
+            "min": 1180,
+            "animation_direction": "max",
+            "distance_per_frame": 2
         }],
-        "this_is_a_wall" : [150, 450, 40, 200],
-        "max_horses": 8,
+        "this_is_a_wall" : [150, 440, 40, 210],
+        "max_horses": 6,
         "wrap_after" : 2, 
-        "first_horse_start_pos" : [40, 450],
+        "first_horse_start_pos" : [40, 490],
         "background_color" : [80, 80, 80],
         "field_color" : [25, 25, 25],
-        "goal_x": 3000,
-        "goal_y": 100,
+        "goal_x": 40,
+        "goal_y": 320,
         "spacing": 50
     }
 ]

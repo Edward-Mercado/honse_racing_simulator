@@ -7,6 +7,7 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 pygame.init()
 
 screen = pygame.display.set_mode((1470, 820))
+fps = 24
 pygame.display.set_caption('Python Honse Racing Simulator')
 running = True
 
@@ -118,7 +119,7 @@ class Screen:
 
         while current_time - game_start_time < 10:
             clock = pygame.time.Clock()
-            clock.tick(24)
+            clock.tick(fps)
             current_time = time.time()
             events = pygame.event.get()
             screen.fill(map.background_color) 
@@ -205,7 +206,7 @@ class Screen:
         
         while running:
             clock = pygame.time.Clock()
-            clock.tick(24)
+            clock.tick(fps)
             screen.fill(map.background_color) 
             
             events = pygame.event.get()

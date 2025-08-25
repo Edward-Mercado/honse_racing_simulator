@@ -129,8 +129,8 @@ class Map:
     def collide_bounce_pad(self, horse, direction, special_rect):
         if special_rect["shape"] == "CIRCLE":
             special_rect["radius"] += 5
-            if special_rect["radius"] > 24:
-                special_rect["radius"] = 25
+            if special_rect["radius"] > (special_rect["base_radius"] + 10):
+                special_rect["radius"] = (special_rect["base_radius"] + 10)
         horse.turns_until_speed = 10
         if direction == "UP":
             horse.location_y += 7 * horse.speed
@@ -165,6 +165,9 @@ class Map:
         
         if paired_teleporter != "ERROR":
             if paired_teleporter["shape"] == "RECT":
+                horse.location_x = paired_teleporter["rect_value"][0]
+                horse.location_y = paired_teleporter["rect_value"][1]
+                
                 if "UP" in paired_teleporter["teleport_sides"]:
                     horse.vector_down["vector_measurement"] = 0
                     horse.vector_up["vector_measurement"] = random.randint(1, 6)
@@ -185,13 +188,17 @@ class Map:
             
             if paired_teleporter["shape"] == "CIRCLE":
 
-                teleporter["radius"] += 10
-                if teleporter["radius"] > 24:
-                    teleporter["radius"] = 25
-                paired_teleporter["radius"] += 10
-                if paired_teleporter["radius"] > 24:
-                    paired_teleporter["radius"] = 25
-         
+                teleporter["radius"] += 5
+                if teleporter["radius"] > (teleporter["base_radius"] + 10):
+                    teleporter["radius"] = (teleporter["base_radius"] + 10)
+                    
+                paired_teleporter["radius"] += 5
+                if paired_teleporter["radius"] > (teleporter["base_radius"] + 10):
+                    paired_teleporter["radius"] = (teleporter["base_radius"] + 10)
+                
+                horse.location_x = paired_teleporter["center"][0]
+                horse.location_y = paired_teleporter["center"][1]
+                
                 if "UP" in paired_teleporter["teleport_sides"]:
                     horse.vector_down["vector_measurement"] = 0
                     horse.vector_up["vector_measurement"] = random.randint(1, 6)

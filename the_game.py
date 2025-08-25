@@ -11,7 +11,7 @@ participating_horses = []
 
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 
             "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory", "Knife Battlegrounds", 
-            "Honseday The Thirteenth"]
+            "Raceday The Thirteenth"]
 
 with open("horses.json", "r") as file:
     json_horses = json.load(file)
