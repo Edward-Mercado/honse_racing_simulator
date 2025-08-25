@@ -54,7 +54,7 @@ class Horse:
         self.fit_movement_vectors()
       
     def fit_movement_vectors(self):
-        ratio_total = 10 * speed
+        ratio_total = 10 * self.speed
         
         vector_measurements = [self.vector_down["vector_measurement"], 
                         self.vector_left["vector_measurement"], 
