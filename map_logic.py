@@ -47,6 +47,7 @@ class Map:
             "BOUNCE": (0, 255, 0),
             "TELEPORT" : (0, 255, 255),
             "MOVING": (70, 70, 70),
+            "KNIFE": (20, 20, 20)
         }
         return color_values[special_rect_type]
     

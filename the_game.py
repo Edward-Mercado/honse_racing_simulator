@@ -10,7 +10,7 @@ random_on = True
 participating_horses = []
 
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 
-            "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory"]
+            "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory", "Knife Battlegrounds"]
 
 with open("horses.json", "r") as file:
     json_horses = json.load(file)

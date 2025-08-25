@@ -97,10 +97,9 @@ class Screen:
         goal = pygame.Rect(map.goal_x, map.goal_y, 20, 20)
         counter_1 = 0
         game_start_time, current_time = time.time(), time.time()
-        
 
         start_rect = {
-            "rect": [random.randint(0, 1270), random.randint(0, 620), 400, 200],
+            "rect": [random.randint(200, 1070), random.randint(200, 420), 400, 200],
             "directions": [random.choice(["UP", "DOWN"]), random.choice(["LEFT", "RIGHT"])]
         }
         
@@ -124,19 +123,20 @@ class Screen:
                 special_rect_color = map.background_color
                 if special_rect["type"] != "WALL":
                     special_rect_color = map.get_special_rect_color(special_rect["type"])
-                if special_rect["shape"] == "RECT":
-                    srv = special_rect["rect_value"] # shorthand purposes
-            
-                    if special_rect["type"] == "MOVING":
-                        map.move_moving_wall(special_rect)
-                        pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
-                    else:
-                        pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                if special_rect["type"] != "KNIFE":
+                    if special_rect["shape"] == "RECT":
+                        srv = special_rect["rect_value"] # shorthand purposes
                 
-                elif special_rect["shape"] == "CIRCLE":
-                    pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
-                    if special_rect["radius"] != special_rect["base_radius"]:
-                        special_rect["radius"] -= 1
+                        if special_rect["type"] == "MOVING":
+                            map.move_moving_wall(special_rect)
+                            pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
+                        else:
+                            pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                    
+                    elif special_rect["shape"] == "CIRCLE":
+                        pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
+                        if special_rect["radius"] != special_rect["base_radius"]:
+                            special_rect["radius"] -= 1
               
             file_path = os.path.join("images", "carrot.png")
             image = pygame.image.load(file_path)
@@ -151,6 +151,8 @@ class Screen:
                     screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
                         horse = map.get_single_start_pos(horse)
+            
+            
             
             pygame.draw.rect(screen, (0, 0, 0), map.this_is_a_wall)
             

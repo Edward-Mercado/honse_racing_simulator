@@ -1537,5 +1537,21 @@
         "goal_x": 720,
         "goal_y": 750,
         "spacing": 110
+    },{
+        "name" : "Knife Battlegrounds",
+        "map_fields" : [[30, 30, 1410, 760]],
+        "special_rects" : [{
+            "type" : "KNIFE",
+            "rect_value": [1200, 400, 20, 20]
+        }],
+        "this_is_a_wall" : [150, 10, 40, 800],
+        "max_horses": 8,
+        "wrap_after" : 1, 
+        "first_horse_start_pos" : [40, 40],
+        "background_color" : [240, 150, 80],
+        "field_color" : [255, 180, 140],
+        "goal_x": 10025,
+        "goal_y": 400,
+        "spacing": 100
     }
 ]
