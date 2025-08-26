@@ -2,8 +2,8 @@ from screen import Screen
 import json, random
 
 random_on = True
-map_chosen = True
-map_choice = "Honseday The Thirteenth"
+map_chosen = False
+map_choice = "Raceday The Thirteenth"
 
 # the list of horses
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 

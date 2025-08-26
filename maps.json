@@ -1567,9 +1567,65 @@
         "circle_fields": [],
         "special_rects" : [{
             "type" : "KNIFE",
-            "rect_value": [1350, 390, 40, 40]
+            "rect_value": [1400, 410, 40, 40]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [180, 120, 50, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [350, 120, 50, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [550, 120, 50, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [750, 120, 50, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [950, 120, 50, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [1150, 120, 50, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [1350, 120, 100, 200]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [180, 540, 50, 180]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [350, 540, 50, 180]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [550, 540, 50, 180]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [750, 540, 50, 180]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [950, 540, 50, 180]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [1150, 540, 50, 180]
+        },{
+            "type" : "WALL",
+            "shape": "RECT",
+            "rect_value": [1350, 540, 100, 180]
         }],
-        "this_is_a_wall" : [150, 10, 40, 800],
+        "this_is_a_wall" : [90, 10, 40, 800],
         "max_horses": 8,
         "wrap_after" : 1, 
         "first_horse_start_pos" : [40, 40],

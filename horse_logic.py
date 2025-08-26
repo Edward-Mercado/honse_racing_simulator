@@ -5,6 +5,7 @@ class Horse:
     def __init__(self, name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url):
         self.name = name
         self.speed = speed
+        self.base_speed = speed
         self.turns_until_speed = 0
         self.width = width
         self.height = height

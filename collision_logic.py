@@ -107,15 +107,18 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                     other_horse.frames_since_last_stab = 0
                     
                     other_horse.speed /= 4
+                    if other_horse.speed < (other_horse.base_speed / 4):
+                        other_horse.speed *= 4
                     other_horse.fit_movement_vectors()
                     
-                    horse.holding_knife = False
+                    
                     other_horse.lives_remaining -= 1
                     
                     if horse.holding_knife == True:
                         knife["rect_value"][0] = other_horse.location_x
                         knife["rect_value"][1] = other_horse.location_y
                         recoil_count = 7
+                        horse.holding_knife = False
                     else:
                         recoil_count = 3
                     
@@ -125,21 +128,18 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                         
                 if other_horse.holding_knife == True or (honseday == True and other_horse.name == "Hopeless Endeavor"): 
                     horse.frames_since_last_stab = 0 
-                    other_horse.holding_knife = False
                     horse.lives_remaining -= 1
                     
                     horse.speed /= 4
+                    if horse.speed < (horse.base_speed / 4):
+                        horse.speed *= 4
                     horse.fit_movement_vectors()
-                    
-                    horse.vector_left["vector_measurement"] /= 4
-                    horse.vector_right["vector_measurement"] /= 4
-                    horse.vector_up["vector_measurement"] /= 4
-                    horse.vector_down["vector_measurement"] /= 4
                     
                     if other_horse.holding_knife == True:
                         knife["rect_value"][0] = horse.location_x
                         knife["rect_value"][1] = horse.location_y
                         recoil_count = 7
+                        other_horse.holding_knife = False
                     else:
                         recoil_count = 3
                         
@@ -189,5 +189,8 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                     if other_horse.vector_left["vector_measurement"] != 0:
                         other_horse.vector_right["vector_measurement"] = other_horse.vector_left["vector_measurement"]
                         other_horse.vector_left["vector_measurement"] = 0
-                    
+                
+                horse.fit_movement_vectors()
+                other_horse.fit_movement_vectors()
+                
                 break

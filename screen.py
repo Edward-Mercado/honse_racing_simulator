@@ -7,7 +7,7 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 pygame.init()
 
 screen = pygame.display.set_mode((1470, 820))
-max_fps = 1000
+max_fps = 48
 fps = max_fps
 
 pygame.display.set_caption('Python Honse Racing Simulator')
@@ -106,6 +106,7 @@ class Screen:
         counter_1 = 0 # this counter will increment by one, so the time delay after a horse hits the carrot
         # only happens once
         # this is for the starting cutscene so the horses move after 10 seconds
+        counter_10 = 0
         game_start_time, current_time = time.time(), time.time()
 
         # this is for knife battlegrounds
@@ -173,6 +174,21 @@ class Screen:
             # draws horses
             for horse in horse_objects:
                 if isinstance(horse, Horse):
+                    # this will draw the hearts for the life bar
+                    heart_x = horse.location_x
+                    heart_y = horse.location_y
+                    
+                    # for the amount of lives we have, draw red circles
+                    for i in range(int(horse.lives_remaining)):
+                        pygame.draw.circle(screen, (255, 0, 0), (heart_x, heart_y), 5)
+                        heart_x += 10 # move us over
+                        
+                    
+                    # for the amount of lives we dont have draw black circles
+                    for i in range(3 - horse.lives_remaining):
+                        pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
+                        heart_x += 10
+                        
                     file_path = os.path.join("images", horse.image_url)
                     image = pygame.image.load(file_path)
                     scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
@@ -235,6 +251,7 @@ class Screen:
             clock = pygame.time.Clock()
             clock.tick(max_fps)
             screen.fill(map.background_color) 
+            knife_can_pick_up = True
             
             events = pygame.event.get()
             for event in events:
@@ -246,6 +263,10 @@ class Screen:
                 pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
             for hitbox in map.circle_hitboxes:
                 pygame.draw.rect(screen, map.field_color, hitbox)
+            
+            for horse in horse_objects:
+                if horse.frames_since_last_stab <= 72:
+                    knife_can_pick_up = False
                 
             # draws all the special rects
             for special_rect in map.special_rects:
@@ -268,6 +289,25 @@ class Screen:
                             # some instances (like teleport or bounce collision) have a small animation to which the 
                             # circle appears to grow, this is to animate it returning back to normal
                             special_rect["radius"] -= 1
+                else:
+                    if special_rect["type"] != "KNIFE":
+                        if special_rect["type"] != "WALL": 
+                            special_rect_color = map.get_special_rect_color(special_rect["type"])
+                        if special_rect["shape"] == "RECT":
+                            srv = special_rect["rect_value"] # shorthand purposes (short for special rect value)
+                            
+                            if special_rect["type"] == "MOVING": # moving rects are drawn differently
+                                map.move_moving_wall(special_rect)
+                                pygame.draw.rect(screen, special_rect_color, (srv[0], srv[1], srv[2], srv[3]))
+                            else:
+                                pygame.draw.rect(screen, special_rect_color, (srv[0] - 20, srv[1] - 20, srv[2] + 40, srv[3] + 40))
+                        
+                        elif special_rect["shape"] == "CIRCLE": # if the shpae is a circle just draw the circle instead
+                            pygame.draw.circle(screen, special_rect_color, special_rect["center"], special_rect["radius"])
+                            if special_rect["radius"] != special_rect["base_radius"]:
+                                # some instances (like teleport or bounce collision) have a small animation to which the 
+                                # circle appears to grow, this is to animate it returning back to normal
+                                special_rect["radius"] -= 1
             
             # draws carrot
             file_path = os.path.join("images", "carrot.png")
@@ -275,8 +315,38 @@ class Screen:
             scaled_image = pygame.transform.scale(image, (20, 20))
             screen.blit(scaled_image, (map.goal_x, map.goal_y)) 
             
-            # if there is a knife, blit the knife image to the screen
+            for horse in horse_objects:
+                if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(pygame.Rect(map.goal_x, map.goal_y, 20, 20)):
+                    game_done = True
+                    winning_horse = horse
+                    for horse in horse_objects:
+                        horse.base_speed /= 10
+                        horse.speed /= 10
+                        horse.fit_movement_vectors()
+            
+            # this is to make the game more interesting if there are two horses left:
             if knife_mode == True:
+                alive_horses = 0
+                horses_critical_health = 0
+                for horse in horse_objects:
+                    if horse.width > 0:
+                        alive_horses += 1
+            
+                        if horse.lives_remaining < 2:
+                            horses_critical_health += 1
+                
+                if alive_horses == 2 and counter_10 == 0 and horses_critical_health > 0:
+                    counter_10 += 1
+                    map.background_color = (80, 0, 0)
+                    map.field_color = (30, 0, 0)
+                    
+                    map.goal_x = 1400
+                    map.goal_y = 410
+                    
+            ###    
+            
+            # if there is a knife, blit the knife image to the screen
+            if knife_mode == True:                   
                 knife_rect = knife["rect_value"]
                 knife_file_path = os.path.join("images", "knife.png")
                 knife_image = pygame.image.load(knife_file_path)
@@ -286,6 +356,25 @@ class Screen:
             for horse in horse_objects:
                 if isinstance(horse, Horse):
                     if knife_mode == True: # if there are knives
+                        # this will draw the hearts for the life bar
+                        if horse.speed < 0.1:
+                            horse.speed = horse.base_speed
+                            horse.fit_movement_vectors()
+                        if horse.width != 0:
+                            heart_x = horse.location_x
+                            heart_y = horse.location_y
+                            
+                            # for the amount of lives we have, draw red circles
+                            for i in range(int(horse.lives_remaining)):
+                                pygame.draw.circle(screen, (255, 0, 0), (heart_x, heart_y), 5)
+                                heart_x += 10 # move us over
+                                
+                            
+                            # for the amount of lives we dont have draw black circles
+                            for i in range(3 - horse.lives_remaining):
+                                pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
+                                heart_x += 10
+                                
                         horse.frames_since_last_stab += 0.5 # i want to half speed this animation but im too lazy to fix this function
                         if horse.frames_since_last_stab < 25: # if its been less than one game second (24 frames) since the horse got stabbed
                             # get the image for the hit (which is the same as its winning image)
@@ -350,6 +439,9 @@ class Screen:
                 for horse in horse_objects: # this will move the horses
                     if isinstance(horse, Horse):
                         # move horse function, then it will fix the vectors if randomly both opposing pairs get set to 0
+                        if horse.frames_since_last_stab > 96:
+                            horse.speed = horse.base_speed
+                            horse.fit_movement_vectors()
                         horse.horse_move(field_hitboxes, horse_objects, map, knife, map.circle_fields)
                         horse.fix_vector_pair("horizontal", horse.vector_left["vector_measurement"], horse.vector_right["vector_measurement"])
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])         
@@ -373,7 +465,7 @@ class Screen:
                         if knife_mode == True:
                             knife_rect = knife["rect_value"]
                             # if a horse touches the knife it picks it up and the knife gets sent over yonder (so no one can pick it up in the meantime)
-                            if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(knife_rect):
+                            if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(knife_rect) and knife_can_pick_up == True:
                                 horse.holding_knife = True
                                 knife["rect_value"][0] = 100000
                         #
