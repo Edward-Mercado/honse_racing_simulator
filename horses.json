@@ -5,7 +5,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "aquamarine_gambit.png",
-            "win_image_url" : "aquamarine_gambit.win.png"
+            "win_image_url" : "aquamarine_gambit.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Cherry Jubilee",
@@ -13,7 +14,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "cherry_jubilee.png",
-            "win_image_url" : "cherry_jubilee.win.png"
+            "win_image_url" : "cherry_jubilee.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Crybaby Sundae",
@@ -21,7 +23,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "crybaby_sundae.png",
-            "win_image_url" : "crybaby_sundae.win.png"
+            "win_image_url" : "crybaby_sundae.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Ellsee Reins",
@@ -29,7 +32,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "ellsee_reins.png",
-            "win_image_url" : "ellsee_reins.win.png"
+            "win_image_url" : "ellsee_reins.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Finneas Cutlass",
@@ -37,7 +41,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "finneas_cutlass.png",
-            "win_image_url" : "finneas_cutlass.win.png"
+            "win_image_url" : "finneas_cutlass.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Hopeless Endeavor",
@@ -45,7 +50,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "hopeless_endeavor.png",
-            "win_image_url" : "hopeless_endeavor.win.png"
+            "win_image_url" : "hopeless_endeavor.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Imperial Grace",
@@ -53,7 +59,9 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "imperial_grace.png",
-            "win_image_url" : "imperial_grace.win.png"
+            "win_image_url" : "imperial_grace.win.png",
+            "win_song_url": "NONE"
+            
     }, 
     {
             "name" : "John Horse",
@@ -61,7 +69,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "john_horse.png",
-            "win_image_url" : "john_horse.win.png"
+            "win_image_url" : "john_horse.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Jovial Merryment",
@@ -69,7 +78,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "jovial_merryment.png",
-            "win_image_url" : "jovial_merryment.win.png"
+            "win_image_url" : "jovial_merryment.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Lightning Strikes Thrice",
@@ -77,7 +87,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "lightning_strikes_thrice.png",
-            "win_image_url" : "lightning_strikes_thrice.win.png"
+            "win_image_url" : "lightning_strikes_thrice.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Maiden O'Luck",
@@ -85,7 +96,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "maiden_oluck.png",
-            "win_image_url" : "maiden_oluck.win.png"
+            "win_image_url" : "maiden_oluck.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Marshmallow Fluff",
@@ -93,7 +105,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "marshmallow_fluff.png",
-            "win_image_url" : "marshmallow_fluff.win.png"
+            "win_image_url" : "marshmallow_fluff.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "Slow 'n' Steady",
@@ -101,7 +114,8 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "slow_n_steady.png",
-            "win_image_url" : "slow_n_steady.win.png"
+            "win_image_url" : "slow_n_steady.win.png",
+            "win_song_url": "NONE"
     }, 
     {
             "name" : "The Sweetest Treat",
@@ -109,6 +123,7 @@
             "width" : 40,
             "height" : 40,
             "image_url" : "the_sweetest_treat.png",
-            "win_image_url" : "the_sweetest_treat.win.png"
+            "win_image_url" : "the_sweetest_treat.win.png",
+            "win_song_url": "NONE"
     }
 ]

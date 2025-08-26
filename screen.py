@@ -84,7 +84,8 @@ class Screen:
                 location_y = None
                 image_url = horse["image_url"]
                 win_image_url = horse["win_image_url"]
-                horse_objects.append(Horse(name, speed, width, height, location_x, location_y, image_url, win_image_url))
+                win_song_url = horse["win_song_url"]
+                horse_objects.append(Horse(name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url))
         
         unpacked_horses = map.get_horses_start_pos(horse_objects)
         
@@ -346,7 +347,7 @@ class Screen:
         counter_3 = 0
         knife = pygame.Rect(0, 0, 0, 0)
         
-        hopeless_endeavor = Horse("Hopeless Endeavor", 0.5, 40, 40, 800, 100, "hopeless_endeavor.png", "hopeless_endeavor.win.png")
+        hopeless_endeavor = Horse("Hopeless Endeavor", 0.5, 40, 40, 800, 100, "hopeless_endeavor.png", "hopeless_endeavor.win.png", "")
         
         game_start_time, current_time = time.time(), time.time()
         current_time += 0

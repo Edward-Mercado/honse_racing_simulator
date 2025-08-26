@@ -279,12 +279,20 @@
         "spacing": 50
     }, {
         "name" : "Plinko Paradise",
-        "map_fields" : [[250, 30, 970, 760]],
+        "map_fields" : [[220, 30, 1030, 760]],
         "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
             "rect_value": [235, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [185, 600, 50, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1225, 600, 80, 220]
         },{
             "type": "WALL",
             "shape": "RECT",
@@ -634,7 +642,7 @@
             "radius": 15,
             "base_radius": 15
         }],
-        "this_is_a_wall" : [230, 566, 1010, 32],
+        "this_is_a_wall" : [230, 580, 1010, 32],
         "max_horses": 9,
         "wrap_after" : 9, 
         "first_horse_start_pos" : [270, 740],
@@ -1173,12 +1181,20 @@
         "spacing": 60
     }, {
         "name" : "Plinko Purgatory",
-        "map_fields" : [[250, 30, 970, 760]],
+        "map_fields" : [[220, 30, 1030, 760]],
         "circle_fields": [],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
             "rect_value": [235, 600, 1, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [185, 600, 50, 220]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [1225, 600, 80, 220]
         },{
             "type": "WALL",
             "shape": "RECT",
@@ -1536,7 +1552,7 @@
             "shape": "RECT",
             "rect_value": [1150, 790, 40, 1]
         }],
-        "this_is_a_wall" : [230, 66, 1010, 32],
+        "this_is_a_wall" : [200, 66, 1070, 32],
         "max_horses": 9,
         "wrap_after" : 9, 
         "first_horse_start_pos" : [270, 20],

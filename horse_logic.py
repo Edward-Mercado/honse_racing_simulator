@@ -2,7 +2,7 @@ import pygame, random, math, json
 from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction, get_horse_start_pos
 
 class Horse:
-    def __init__(self, name, speed, width, height, location_x, location_y, image_url, win_image_url):
+    def __init__(self, name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url):
         self.name = name
         self.speed = speed
         self.turns_until_speed = 0
@@ -12,6 +12,7 @@ class Horse:
         self.location_x = location_x
         self.location_y = location_y
         self.win_image_url = win_image_url
+        self.win_song_url = win_song_url
         self.consecutive_wall_hits = 0
         self.rect = (location_x, location_y, width, height)
         self.past_directions = []
