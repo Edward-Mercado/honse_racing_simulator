@@ -1,7 +1,7 @@
 from screen import Screen
 import json, random
 
-random_on = False
+random_on = True
 
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
               "Hopeless Endeavor", "Imperial Grace", "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 

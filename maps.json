@@ -1788,7 +1788,7 @@
         },{
             "type": "TELEPORT",
             "shape": "CIRCLE",
-            "center": [190, 280],
+            "center": [450, 300],
             "radius": 0,
             "base_radius": 0,
             "teleport_id": 1,
