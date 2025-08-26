@@ -16,7 +16,7 @@ class Horse:
         self.rect = (location_x, location_y, width, height)
         self.past_directions = []
         self.holding_knife = False
-        self.lives_remaining = 3
+        self.lives_remaining = 1
         self.frames_since_last_stab = 24
         
         self.vector_up = {
@@ -63,12 +63,30 @@ class Horse:
         
         vector_sum = sum(vector_measurements)
         
-        proportion = ratio_total / vector_sum
-        
-        self.vector_down["vector_measurement"] *= proportion
-        self.vector_left["vector_measurement"] *= proportion
-        self.vector_right["vector_measurement"] *= proportion
-        self.vector_up["vector_measurement"] *= proportion
+        try:
+            proportion = ratio_total / vector_sum
+            self.vector_down["vector_measurement"] *= proportion
+            self.vector_left["vector_measurement"] *= proportion
+            self.vector_right["vector_measurement"] *= proportion
+            self.vector_up["vector_measurement"] *= proportion
+            
+        except ZeroDivisionError:
+            if random.choice(["UP", "DOWN"]) == "UP":
+                self.vector_up["vector_measurement"] = random.randint(1, 6)
+            else:
+                self.vector_down["vector_measurement"] = random.randint(1, 6)
+                
+            if random.choice(["LEFT", "RIGHT"]) == "LEFT":
+                self.vector_left["vector_measurement"] = random.randint(1, 6)
+            else:
+                self.vector_right["vector_measurement"] = random.randint(1, 6)
+            
+            vector_measurements = [self.vector_down["vector_measurement"], 
+                        self.vector_left["vector_measurement"], 
+                        self.vector_right["vector_measurement"], 
+                        self.vector_up["vector_measurement"]]
+            vector_sum = sum(vector_measurements)
+            proportion = ratio_total / vector_sum
       
     def movement_steps(self, field_hitboxes, horses, direction, map, knife, circle_fields, honseday):
         global horse_hit_wall

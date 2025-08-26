@@ -7,7 +7,9 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 pygame.init()
 
 screen = pygame.display.set_mode((1470, 820))
-fps = 24
+max_fps = 1000
+fps = max_fps
+
 pygame.display.set_caption('Python Honse Racing Simulator')
 running = True
 
@@ -207,7 +209,7 @@ class Screen:
         
         while running:
             clock = pygame.time.Clock()
-            clock.tick(fps)
+            clock.tick(max_fps)
             screen.fill(map.background_color) 
             
             events = pygame.event.get()
@@ -340,11 +342,14 @@ class Screen:
         horse_objects = all_horse_objects[:(map.max_horses)]
         goal = pygame.Rect(map.goal_x, map.goal_y, 20, 20)
         counter_1 = 0
+        counter_2 = 0
+        counter_3 = 0
         knife = pygame.Rect(0, 0, 0, 0)
         
         hopeless_endeavor = Horse("Hopeless Endeavor", 0.5, 40, 40, 800, 100, "hopeless_endeavor.png", "hopeless_endeavor.win.png")
         
         game_start_time, current_time = time.time(), time.time()
+        current_time += 0
         frames_since_game_start = 0
         
         start_rect = {
@@ -357,7 +362,8 @@ class Screen:
 
         while current_time - game_start_time < 10:
             clock = pygame.time.Clock()
-            clock.tick(fps)
+            clock.tick(max_fps)
+            fps = max_fps
             current_time = time.time()
             events = pygame.event.get()
             screen.fill(map.background_color) 
@@ -463,7 +469,32 @@ class Screen:
         while running:
             frames_since_game_start += 1
             
-            if frames_since_game_start % 1440 == 0:
+            alive_horses = 0
+            for horse in horse_objects:
+                if horse.width != 0:
+                    alive_horses+=1
+            
+            if alive_horses == 1 and counter_2 == 0:
+                if counter_3 < 1:
+                    for horse in horse_objects:
+                        horse.speed /= 4
+                        horse.fit_movement_vectors()
+                    hopeless_endeavor.speed /= 4
+                    hopeless_endeavor.fit_movement_vectors()
+                
+                counter_3 += 1    
+                if counter_3 == 72:
+                    for horse in horse_objects:
+                        horse.speed *= 4
+                        horse.fit_movement_vectors()
+                    hopeless_endeavor.speed *= 4
+                    hopeless_endeavor.fit_movement_vectors()
+                    map.background_color = (80, 00, 00)
+                    map.field_color = (30, 0, 0)
+                    counter_2 += 1
+                    counter_3 += 1
+        
+            if frames_since_game_start % 3660 == 0:
                 hopeless_endeavor.speed *= 2
                 hopeless_endeavor.vector_left["vector_measurement"] *= 2
                 hopeless_endeavor.vector_right["vector_measurement"] *= 2
@@ -507,7 +538,6 @@ class Screen:
             image = pygame.image.load(file_path)
             scaled_image = pygame.transform.scale(image, (20, 20))
             screen.blit(scaled_image, (map.goal_x, map.goal_y)) 
- 
             
             for horse in horse_objects:
                 if isinstance(horse, Horse):
@@ -539,7 +569,7 @@ class Screen:
             tinted_image = scaled_image.copy()
             tint_color = (160, 12, 20)
             tinted_image.fill(tint_color, None, pygame.BLEND_RGBA_MULT)
-            if frames_since_game_start < 1440:
+            if frames_since_game_start < 3600:
                 used_image = scaled_image
             else:
                 used_image = tinted_image

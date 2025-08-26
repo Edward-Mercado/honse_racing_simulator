@@ -1660,6 +1660,10 @@
             "min": 1180,
             "animation_direction": "max",
             "distance_per_frame": 2
+        }, {
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [30, 400, 870, 1]
         }],
         "this_is_a_wall" : [150, 440, 40, 210],
         "max_horses": 6,
@@ -1674,7 +1678,7 @@
         "name" : "Honseday The Thirteenth",
         "map_fields" : [[30, 30, 1050, 600], [950, 630, 60, 150], [1010, 700, 350, 80], [1250, 550, 110, 150], 
             [1200, 350, 210, 200], [1080, 100, 250, 30]],
-        "circle_fields": [[1350, 125, 100]],
+        "circle_fields": [[1350, 125, 120]],
         "special_rects" : [{
             "type": "WALL",
             "shape": "RECT",
@@ -1747,7 +1751,7 @@
             "center": [835, 60],
             "radius": 15,
             "base_radius": 15,
-            "teleport_id": 100,
+            "teleport_id": 0,
             "pair_id": "A",
             "teleport_sides": ["DOWN", "LEFT"]
         }, {
@@ -1756,7 +1760,7 @@
             "center": [1305, 390],
             "radius": 15,
             "base_radius": 15,
-            "teleport_id": 100,
+            "teleport_id": 0,
             "pair_id": "B",
             "teleport_sides": ["DOWN", "RIGHT"]
         },{
@@ -1768,12 +1772,10 @@
             "min": 1180,
             "animation_direction": "max",
             "distance_per_frame": 2
-        },{
-            "type": "BOUNCE",
-            "shape": "CIRCLE",
-            "center": [0, 220],
-            "radius": 40,
-            "base_radius": 40
+        }, {
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [30, 400, 870, 1]
         },{
             "type": "MOVING",
             "shape": "RECT",
@@ -1784,9 +1786,29 @@
             "animation_direction": "max",
             "distance_per_frame": 4
         },{
-            "type": "KILLBRICK",
-            "shape": "RECT",
-            "rect_value": [30, 370, 50, 1]
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [190, 280],
+            "radius": 0,
+            "base_radius": 0,
+            "teleport_id": 1,
+            "pair_id": "A",
+            "teleport_sides": ["UP", "LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1350, 125],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 1,
+            "pair_id": "B",
+            "teleport_sides": ["UP", "RIGHT"]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [-5, 200],
+            "radius": 40,
+            "base_radius": 40
         }],
         "this_is_a_wall" : [150, 440, 40, 210],
         "max_horses": 6,

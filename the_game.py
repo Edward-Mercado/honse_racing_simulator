@@ -1,11 +1,11 @@
 from screen import Screen
 import json, random
 
+random_on = False
+
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
               "Hopeless Endeavor", "Imperial Grace", "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 
               "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat"]
-
-random_on = True
 
 participating_horses = []
 
@@ -41,7 +41,7 @@ if random_on == False:
         print(f"{horse_index}: {horse}")
 
     print("")
-    print(f"Select up to {chosen_map["max_horses"]} horses.")    
+    print(f"Select up to {chosen_map["max_horses"]} horses. Enter an invalid ID to start prematurely.")    
     print("")
 
     for i in range(chosen_map["max_horses"]):
