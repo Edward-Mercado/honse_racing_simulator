@@ -2,6 +2,8 @@ from screen import Screen
 import json, random
 
 random_on = True
+map_chosen = True
+map_choice = "Honseday The Thirteenth"
 
 # the list of horses
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
@@ -30,10 +32,12 @@ for a_map in all_maps:
 
 # ask which map you want
 
-try:
-    map_choice = all_maps[int(input("Select Map #: "))]
-except:
-    map_choice = "Blank Field"
+
+if map_chosen == False:
+    try:
+        map_choice = all_maps[int(input("Select Map #: "))]
+    except:
+        map_choice = "Blank Field"
 
 for json_map in json_maps: # find the map chosen by the user
     if json_map["name"] == map_choice:
