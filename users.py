@@ -24,6 +24,7 @@ def gamble(selected_horses):
         print(f"USERNAME: {user['name']}")
         print(f"HONSE BUCKS: {user["honse_bucks"]}")
         print(f"CURRENT_STREAK: {user["current_streak"]}")
+        print(f"LIFETIME CORRECT GUESSES: {user["lifetime_correct_guesses"]}")
         print("")
         try:
             honse_buck_bet = int(input("How many Honse Bucks would you like to use? "))
@@ -110,7 +111,8 @@ def create_user():
         new_user = {
             "name": desired_username,
             "current_streak" : 0,
-            "honse_bucks" : 500 
+            "honse_bucks" : 500,
+            "lifetime_correct_guesses": 0
         }
         json_users.append(new_user)
         with open("users.json", "w") as file:

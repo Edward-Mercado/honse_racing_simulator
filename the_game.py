@@ -2,10 +2,10 @@ from screen import Screen
 from users import gamble
 import json, random
 
-random_on = False
-map_chosen = False
-gambling = True
-map_choice = "Raceday The Thirteenth"
+random_on = True
+map_chosen = True
+gambling = False
+map_choice = "Knife Battlegrounds"
 
 # the list of horses
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
@@ -103,12 +103,17 @@ if gambling == True:
     for user_with_bet in users_with_bets:
         users_post_game.append(user_with_bet[0])
         if user_with_bet[2] == winning_horse["name"]:
-            honse_buck_payout = user_with_bet[1] + user_with_bet[1] / winning_horse["speed"]
+            honse_buck_payout = user_with_bet[1] + round((user_with_bet[1] / winning_horse["speed"]))
+            user_with_bet[0]["lifetime_correct_guesses"] += 1
             user_with_bet[0]["honse_bucks"] += honse_buck_payout
             user_with_bet[0]["current_streak"] += 1
             print(f"{user_with_bet[0]["name"]} placed a correct bet and has earned {honse_buck_payout} Honse Bucks!")
             print(f"Their streak is now {user_with_bet[0]["current_streak"]}!")
         else:
+            if user_with_bet[0]["honse_bucks"] == 0:
+                random_money = random.randint(1, 20) * 10
+                print(f"{user_with_bet[0]["name"]} went bankrupt. They will be given a pity payment of {random_money} Honse Dollars.")
+                user_with_bet[0]["honse_dollars"] += random_money
             user_with_bet[0]["current_streak"] = 0
             print(f"{user_with_bet[0]["name"]} was not so lucky. Better luck next time!")
             print("Their streak is now 0.")

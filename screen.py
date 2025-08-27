@@ -7,7 +7,7 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 pygame.init()
 
 screen = pygame.display.set_mode((1470, 820))
-max_fps = 1000
+max_fps = 48
 fps = max_fps
 
 pygame.display.set_caption('Python Honse Racing Simulator')
