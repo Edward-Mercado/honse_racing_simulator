@@ -1631,8 +1631,8 @@
         "first_horse_start_pos" : [40, 40],
         "background_color" : [240, 150, 80],
         "field_color" : [255, 180, 140],
-        "goal_x": 10025,
-        "goal_y": 400,
+        "goal_x": 1400,
+        "goal_y": 410,
         "spacing": 100
     },{
         "name" : "Raceday The Thirteenth",
@@ -1875,6 +1875,136 @@
             "teleport_id": 1,
             "pair_id": "B",
             "teleport_sides": ["UP", "RIGHT"]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [-5, 200],
+            "radius": 40,
+            "base_radius": 40
+        }],
+        "this_is_a_wall" : [150, 440, 40, 210],
+        "max_horses": 6,
+        "wrap_after" : 2, 
+        "first_horse_start_pos" : [40, 490],
+        "background_color" : [80, 80, 80],
+        "field_color" : [25, 25, 25],
+        "goal_x": 40,
+        "goal_y": 280,
+        "spacing": 50
+    },{
+        "name" : "Knifeday The Thirteenth",
+        "map_fields" : [[30, 30, 1050, 600], [950, 630, 60, 150], [1010, 700, 350, 80], [1250, 550, 110, 150], 
+            [1200, 350, 210, 200], [1080, 100, 250, 30]],
+        "circle_fields": [[1350, 125, 120]],
+        "special_rects" : [{
+            "type": "KNIFE",
+            "rect_value": [1330, 105, 40, 40]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [30, 380, 891, 40]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [920, 30, 1, 50]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [920, 230, 1, 150]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [240, 30, 1, 150]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [240, 200],
+            "radius": 24,
+            "base_radius": 24
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [490, 30, 1, 150]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [490, 200],
+            "radius": 24,
+            "base_radius": 24
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [740, 30, 1, 150]
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [120, 200, 1, 180]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [120, 180],
+            "radius": 24,
+            "base_radius": 24
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [370, 180, 1, 180]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [370, 180],
+            "radius": 24,
+            "base_radius": 24
+        },{
+            "type": "WALL",
+            "shape": "RECT",
+            "rect_value": [620, 200, 1, 180]
+        },{
+            "type": "BOUNCE",
+            "shape": "CIRCLE",
+            "center": [620, 180],
+            "radius": 24,
+            "base_radius": 24
+        },{
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [835, 60],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 0,
+            "pair_id": "A",
+            "teleport_sides": ["DOWN", "LEFT"]
+        }, {
+            "type": "TELEPORT",
+            "shape": "CIRCLE",
+            "center": [1305, 390],
+            "radius": 15,
+            "base_radius": 15,
+            "teleport_id": 0,
+            "pair_id": "B",
+            "teleport_sides": ["DOWN", "RIGHT"]
+        },{
+            "type": "MOVING",
+            "shape": "RECT",
+            "rect_value": [1180, 500, 80, 20],
+            "movement_direction": "HORIZONTAL", 
+            "max": 1350,
+            "min": 1180,
+            "animation_direction": "max",
+            "distance_per_frame": 2
+        }, {
+            "type": "KILLBRICK",
+            "shape": "RECT",
+            "rect_value": [30, 400, 870, 1]
+        },{
+            "type": "MOVING",
+            "shape": "RECT",
+            "rect_value": [230, 210, 20, 150],
+            "movement_direction": "VERTICAL", 
+            "max": 500,
+            "min": 210,
+            "animation_direction": "max",
+            "distance_per_frame": 4
         },{
             "type": "BOUNCE",
             "shape": "CIRCLE",

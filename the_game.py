@@ -2,22 +2,28 @@ from screen import Screen
 from users import gamble
 import json, random
 
-random_on = True
-map_chosen = True
-gambling = False
-map_choice = "Knife Battlegrounds"
+# customize the game here
+random_on = True      # random horses
+map_chosen = True        # skip map selection 
+gambling = False         # gamble
+map_choice = "Knifeday The Thirteenth"  # name of the map if map_chosen = True
+
+
+participating_horses = ["John Horse", "Slow 'n' Steady"] # put horses you already want to see here
+
+
+
+# ---------------------------------------------------------------------------------------------------------------------------- #
 
 # the list of horses
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
               "Hopeless Endeavor", "Imperial Grace", "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 
               "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat"]
 
-participating_horses = []
-
 # the list of maps
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 
             "The Stanky Leg", "Plinko Paradise", "Teleporting Mess", "Plinko Purgatory", "Knife Battlegrounds", 
-            "Raceday The Thirteenth", "Honseday The Thirteenth"]
+            "Raceday The Thirteenth", "Honseday The Thirteenth", "Knifeday The Thirteenth"]
 
 # get the json files
 with open("horses.json", "r") as file:
@@ -65,7 +71,7 @@ if random_on == False: # you can make random_on true at the top if you want the 
     print(f"Select up to {chosen_map["max_horses"]} horses. Enter an invalid ID to start prematurely.")    
     print("")
 
-    for i in range(chosen_map["max_horses"]):
+    while chosen_map["max_horses"] > len(participating_horses):
         input_horse = input("Select A Horse ID: ")
         try:
             horse_name = all_horses[int(input_horse)]
@@ -73,7 +79,10 @@ if random_on == False: # you can make random_on true at the top if you want the 
         except: # invalid values break the loop and then start the game
             break
 else:
-    for i in range(chosen_map["max_horses"]): # this will randomly pick the exact number of horses you need
+    for horse in participating_horses:
+        all_horses.remove(horse)
+    
+    while chosen_map["max_horses"] > len(participating_horses): # this will randomly pick the exact number of horses you need
         chosen_horse = random.choice(all_horses)
         participating_horses.append(chosen_horse)  
         all_horses.remove(chosen_horse)

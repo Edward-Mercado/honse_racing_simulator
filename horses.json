@@ -1,4 +1,12 @@
-[
+[   {
+            "name" : "Missing No.",
+            "speed" : 10010000,
+            "width" : 10,
+            "height" : 10,
+            "image_url" : "NONE",
+            "win_image_url" : "NONE",
+            "win_song_url": "NONE"
+    },
     {
             "name" : "Aquamarine Gambit",
             "speed" : 1,

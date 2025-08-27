@@ -95,6 +95,7 @@ class Screen:
         return unpacked_horses
     
     def game(participating_horses, map_name):
+        winning_horse = Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
         map = Screen.map_init(map_name)
         pygame.display.set_caption(f'Honse Racing Simulator: {map_name}')
         running = True
@@ -119,11 +120,19 @@ class Screen:
                 break
         ###
         
+        # this will move the knife over yonder
+        
         # initializes the start rect as a dictionary, whose location is random and whose directions are also random
         start_rect = {
             "rect": [random.randint(200, 1070), random.randint(200, 420), 400, 200],
             "directions": [random.choice(["UP", "DOWN"]), random.choice(["LEFT", "RIGHT"])]
         }
+        
+        if knife_mode == True:
+            goal_x = map.goal_x
+            goal_y = map.goal_y
+            map.goal_x = 10000
+            map.goal_y = 0
         
         
         for map_rect in map.map_fields: # allows us to load and check for just the field_hitboxes
@@ -138,7 +147,8 @@ class Screen:
             
             for event in events:
                 if event.type == pygame.QUIT:
-                    quit()
+                    current_time += 10
+                    return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
             
             for hitbox in field_hitboxes: # draw all the fields for the horses 
                 pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
@@ -354,9 +364,9 @@ class Screen:
                     map.background_color = (80, 0, 0)
                     map.field_color = (30, 0, 0)
                     
-                    map.goal_x = 1400
-                    map.goal_y = 410
-                    
+                    map.goal_x = goal_x
+                    map.goal_y = goal_y
+                
             ###    
             
             # if there is a knife, blit the knife image to the screen
@@ -465,7 +475,7 @@ class Screen:
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])         
                         
                         # if a horse hits the goal then they win yay
-                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(goal):
+                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect((map.goal_x, map.goal_y, 20, 20)):
                             game_done = True
                             
                             # this moves the winning horse closer to the goal
@@ -538,7 +548,8 @@ class Screen:
             screen.fill(map.background_color) 
             for event in events:
                 if event.type == pygame.QUIT:
-                    quit()
+                    current_time += 10
+                    return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
             
             # draw hitboxes
             for hitbox in field_hitboxes:
@@ -837,7 +848,7 @@ class Screen:
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])         
                         
                         # if a horse touches the goal then that horse wins and the game is done
-                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(goal):
+                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect((map.goal_x, map.goal_y, 20, 20)):
                             game_done = True
                             
                             # move the horse closer to the goal
