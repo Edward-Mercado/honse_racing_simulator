@@ -98,6 +98,16 @@
             "win_song_url": "NONE",
             "grave_color": [20, 0, 40]
             
+    },
+    {
+            "name" : "Jane Silksong",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "jane_silksong.png",
+            "win_image_url" : "jane_silksong.win.png",
+            "win_song_url": "NONE",
+            "grave_color": [100, 10, 0]
     }, 
     {
             "name" : "John Horse",
