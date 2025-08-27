@@ -10,6 +10,10 @@ class Horse:
         self.width = width
         self.height = height
         self.image_url = image_url
+        
+        self.dead_x = 1000
+        self.dead_y = 1000
+        
         self.location_x = location_x
         self.location_y = location_y
         self.win_image_url = win_image_url
