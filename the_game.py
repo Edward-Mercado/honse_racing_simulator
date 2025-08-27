@@ -9,7 +9,7 @@ gambling = False         # gamble
 map_choice = "Knifeday The Thirteenth"  # name of the map if map_chosen = True
 
 
-participating_horses = ["John Horse", "Slow 'n' Steady"] # put horses you already want to see here
+participating_horses = ["Jesus Christ", "Sonic The Hedgehog"] # put horses you already want to see here
 
 
 
@@ -18,7 +18,7 @@ participating_horses = ["John Horse", "Slow 'n' Steady"] # put horses you alread
 # the list of horses
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
               "Hopeless Endeavor", "Imperial Grace", "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 
-              "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat"]
+              "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat", "Jesus Christ"]
 
 # the list of maps
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 

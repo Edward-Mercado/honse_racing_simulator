@@ -133,5 +133,14 @@
             "image_url" : "the_sweetest_treat.png",
             "win_image_url" : "the_sweetest_treat.win.png",
             "win_song_url": "NONE"
+    }, 
+    {
+            "name" : "Jesus Christ",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "jesus_christ.png",
+            "win_image_url" : "jesus_christ.win.png",
+            "win_song_url": "NONE"
     }
 ]
