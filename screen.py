@@ -174,6 +174,10 @@ class Screen:
             # draws horses
             for horse in horse_objects:
                 if isinstance(horse, Horse):
+                    file_path = os.path.join("images", horse.image_url)
+                    image = pygame.image.load(file_path)
+                    scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
+                    screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
                     if knife_mode == True:
                         # this will draw the hearts for the life bar
                         heart_x = horse.location_x
@@ -189,11 +193,6 @@ class Screen:
                         for i in range(3 - horse.lives_remaining):
                             pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
                             heart_x += 10
-                            
-                    file_path = os.path.join("images", horse.image_url)
-                    image = pygame.image.load(file_path)
-                    scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
-                    screen.blit(scaled_image, (horse.location_x, horse.location_y)) 
                     
                     # if the horse is not on screen it will reset the horse location to the map's starting position
                     if not pygame.Rect(0, 0, 1470, 820).colliderect(pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height)):
@@ -278,6 +277,7 @@ class Screen:
             for horse in horse_objects:
                 if horse.frames_since_last_stab <= 36:
                     knife_can_pick_up = False
+                    problem_horse = horse
                 
             # draws all the special rects
             for special_rect in map.special_rects:
@@ -360,12 +360,16 @@ class Screen:
             ###    
             
             # if there is a knife, blit the knife image to the screen
-            if knife_mode == True:                   
+            if knife_mode == True:           
                 knife_rect = knife["rect_value"]
                 knife_file_path = os.path.join("images", "knife.png")
                 knife_image = pygame.image.load(knife_file_path)
                 scaled_knife_image = pygame.transform.scale(knife_image, (knife_rect[2], knife_rect[3]))
                 screen.blit(scaled_knife_image, (knife_rect[0], knife_rect[1]))
+                if knife_can_pick_up == False:
+                    load_bar = problem_horse.frames_since_last_stab / 36
+                    pygame.draw.rect(screen, (0, 0, 0), (knife_rect[0]-16, knife_rect[1]-20, 72, 10))
+                    pygame.draw.rect(screen, (220, 240, 255), (knife_rect[0]-16, knife_rect[1]-20, 72*load_bar, 10))
             
             for horse in horse_objects:
                 if isinstance(horse, Horse):
