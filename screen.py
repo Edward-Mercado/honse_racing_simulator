@@ -7,7 +7,7 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 pygame.init()
 
 screen = pygame.display.set_mode((1470, 820))
-max_fps = 48
+max_fps = 1000
 fps = max_fps
 
 pygame.display.set_caption('Python Honse Racing Simulator')
@@ -174,21 +174,22 @@ class Screen:
             # draws horses
             for horse in horse_objects:
                 if isinstance(horse, Horse):
-                    # this will draw the hearts for the life bar
-                    heart_x = horse.location_x
-                    heart_y = horse.location_y
-                    
-                    # for the amount of lives we have, draw red circles
-                    for i in range(int(horse.lives_remaining)):
-                        pygame.draw.circle(screen, (255, 0, 0), (heart_x, heart_y), 5)
-                        heart_x += 10 # move us over
+                    if knife_mode == True:
+                        # this will draw the hearts for the life bar
+                        heart_x = horse.location_x
+                        heart_y = horse.location_y
                         
-                    
-                    # for the amount of lives we dont have draw black circles
-                    for i in range(3 - horse.lives_remaining):
-                        pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
-                        heart_x += 10
+                        # for the amount of lives we have, draw red circles
+                        for i in range(int(horse.lives_remaining)):
+                            pygame.draw.circle(screen, (255, 0, 0), (heart_x, heart_y), 5)
+                            heart_x += 10 # move us over
+                            
                         
+                        # for the amount of lives we dont have draw black circles
+                        for i in range(3 - horse.lives_remaining):
+                            pygame.draw.circle(screen, (0, 0, 0), (heart_x, heart_y), 5)
+                            heart_x += 10
+                            
                     file_path = os.path.join("images", horse.image_url)
                     image = pygame.image.load(file_path)
                     scaled_image = pygame.transform.scale(image, (horse.width, horse.height))
@@ -266,7 +267,7 @@ class Screen:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    quit()
+                    running = False
             
             # draws the various hitboxes for the field        
             for hitbox in field_hitboxes:
@@ -485,6 +486,8 @@ class Screen:
             
             pygame.display.update()
     
+        return winning_horse
+    
     def honseday_the_thirteenth(participating_horses, map_name): # a lot of copied code from regular game but yk
         # same assigning variables
         map = Screen.map_init(map_name)
@@ -694,7 +697,7 @@ class Screen:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    quit()
+                    running = False
                   
             # draw hitboxes  
             for hitbox in field_hitboxes:
@@ -862,6 +865,6 @@ class Screen:
                             horse.speed *= 4
                             horse.fit_movement_vectors()
                         
-                        
-            
             pygame.display.update()
+        
+        return winning_horse

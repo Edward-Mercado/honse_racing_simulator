@@ -1,9 +1,10 @@
 from screen import Screen
-from create_user import gamble
+from users import gamble
 import json, random
 
-random_on = True
+random_on = False
 map_chosen = False
+gambling = True
 map_choice = "Raceday The Thirteenth"
 
 # the list of horses
@@ -76,8 +77,42 @@ else:
         chosen_horse = random.choice(all_horses)
         participating_horses.append(chosen_horse)  
         all_horses.remove(chosen_horse)
+print("")
+
+
+if gambling == True:
+    if chosen_map["name"] == "Honseday The Thirteenth":
+        participating_horses.append("Hopeless Endeavor")
+    users_with_bets = gamble(participating_horses)
+    if chosen_map["name"] == "Honseday The Thirteenth":
+        participating_horses.remove("Hopeless Endeavor")
         
 if chosen_map["name"] != "Honseday The Thirteenth": # route the game to the correct mode
-    Screen.game(participating_horses, map_choice)
+    winning_horse = Screen.game(participating_horses, map_choice)
 else:
-    Screen.honseday_the_thirteenth(participating_horses, map_choice)
+    winning_horse = Screen.honseday_the_thirteenth(participating_horses, map_choice)
+    
+for horse in json_horses:
+    if horse["name"] == winning_horse.name:
+        winning_horse = horse
+        break
+
+if gambling == True:
+    users_post_game = []
+    print("")
+    for user_with_bet in users_with_bets:
+        users_post_game.append(user_with_bet[0])
+        if user_with_bet[2] == winning_horse["name"]:
+            honse_buck_payout = user_with_bet[1] + user_with_bet[1] / winning_horse["speed"]
+            user_with_bet[0]["honse_bucks"] += honse_buck_payout
+            user_with_bet[0]["current_streak"] += 1
+            print(f"{user_with_bet[0]["name"]} placed a correct bet and has earned {honse_buck_payout} Honse Bucks!")
+            print(f"Their streak is now {user_with_bet[0]["current_streak"]}!")
+        else:
+            user_with_bet[0]["current_streak"] = 0
+            print(f"{user_with_bet[0]["name"]} was not so lucky. Better luck next time!")
+            print("Their streak is now 0.")
+        print("")
+        
+    with open("users.json", "w") as file:
+        json.dump(users_post_game, file, indent=4)
