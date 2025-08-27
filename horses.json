@@ -49,6 +49,16 @@
             "grave_color": [50, 230, 255]
     }, 
     {
+            "name" : "Dabloon Matey",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "dabloon_matey.png",
+            "win_image_url" : "dabloon_matey.win.png",
+            "win_song_url": "NONE",
+            "grave_color": [255, 230, 0]
+    },
+    {
             "name" : "Ellsee Reins",
             "speed" : 1,
             "width" : 40,
@@ -107,7 +117,7 @@
             "image_url" : "jovial_merryment.png",
             "win_image_url" : "jovial_merryment.win.png",
             "win_song_url": "NONE",
-            "grave_color": [255, 200, 0]
+            "grave_color": [255, 140, 0]
     }, 
     {
             "name" : "Lightning Strikes Thrice",

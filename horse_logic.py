@@ -24,7 +24,7 @@ class Horse:
         self.rect = (location_x, location_y, width, height)
         self.past_directions = []
         self.holding_knife = False
-        self.lives_remaining = 1
+        self.lives_remaining = 3
         self.frames_since_last_stab = 24
         
         # i was going to originally have some function that returns the attribute based on vector name and then never did that

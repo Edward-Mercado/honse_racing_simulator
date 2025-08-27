@@ -10,7 +10,7 @@ max_fps = 48             # change game speed
 map_chosen = True        # skip map selection 
 map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
 
-participating_horses = [] # put horses you already want to see here
+participating_horses = ["Crybaby Sundae", "John Horse", "Christ Almighty"] # put horses you already want to see here
 
 # customize the game here ---------------------------------------------------------------------------------------------- #
 
@@ -120,6 +120,11 @@ if gambling == True:
         else:
             if user_with_bet[0]["honse_bucks"] == 0:
                 random_money = random.randint(1, 20) * 10
+                
+                if random.randint(1, 100) == 100:
+                    random_money = 1000000
+                    print("JACKPOT!")
+                    
                 print(f"{user_with_bet[0]["name"]} went bankrupt. They will be given a pity payment of {random_money} Honse Bucks.")
                 user_with_bet[0]["honse_bucks"] += random_money
             user_with_bet[0]["current_streak"] = 0
