@@ -3,13 +3,13 @@ from users import gamble
 import json, random
 
 # customize the game here
-random_on = True         # random horses
+random_on = True        # random horses
 map_chosen = True        # skip map selection 
 gambling = True          # gamble
 map_choice = "Knifeday The Thirteenth"  # name of the map if map_chosen = True
 
 
-participating_horses = ["Jesus Christ", "John Horse"] # put horses you already want to see here
+participating_horses = ["Jesus Christ"] # put horses you already want to see here
 
 
 
