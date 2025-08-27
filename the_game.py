@@ -4,10 +4,11 @@ import json, random
 
 # customize the game here
 random_on = True        # random horses
-map_chosen = True        # skip map selection 
-gambling = True          # gamble
-map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
+gambling = False          # gamble with users from users.json
+max_fps = 120             # change game speed
 
+map_chosen = True        # skip map selection 
+map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
 
 participating_horses = [] # put horses you already want to see here
 
@@ -97,9 +98,9 @@ if gambling == True:
         participating_horses.remove("Hopeless Endeavor")
         
 if chosen_map["name"] != "Honseday The Thirteenth": # route the game to the correct mode
-    winning_horse = Screen.game(participating_horses, map_choice)
+    winning_horse = Screen.game(participating_horses, map_choice, max_fps)
 else:
-    winning_horse = Screen.honseday_the_thirteenth(participating_horses, map_choice)
+    winning_horse = Screen.honseday_the_thirteenth(participating_horses, map_choice, max_fps)
     
 for horse in json_horses:
     if horse["name"] == winning_horse.name:

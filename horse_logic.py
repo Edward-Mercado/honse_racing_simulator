@@ -2,7 +2,7 @@ import pygame, random, math, json
 from collision_logic import handle_horse_collision, handle_wall_collision
 
 class Horse:
-    def __init__(self, name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url):
+    def __init__(self, name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url, grave_color):
         self.name = name
         self.speed = speed
         self.base_speed = speed
@@ -18,11 +18,13 @@ class Horse:
         self.location_y = location_y
         self.win_image_url = win_image_url
         self.win_song_url = win_song_url
+        self.grave_color = grave_color
+        
         self.consecutive_wall_hits = 0
         self.rect = (location_x, location_y, width, height)
         self.past_directions = []
         self.holding_knife = False
-        self.lives_remaining = 3
+        self.lives_remaining = 1
         self.frames_since_last_stab = 24
         
         # i was going to originally have some function that returns the attribute based on vector name and then never did that

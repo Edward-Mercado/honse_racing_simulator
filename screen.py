@@ -7,8 +7,6 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 pygame.init()
 
 screen = pygame.display.set_mode((1470, 820))
-max_fps = 48
-fps = max_fps
 
 pygame.display.set_caption('Python Honse Racing Simulator')
 running = True
@@ -85,8 +83,9 @@ class Screen:
                 image_url = horse["image_url"]
                 win_image_url = horse["win_image_url"]
                 win_song_url = horse["win_song_url"]
+                grave_color = horse["grave_color"]
                 # initalize the horse and append it to our horse_objects list
-                horse_objects.append(Horse(name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url))
+                horse_objects.append(Horse(name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url, grave_color))
         
         # this will give all the horse objects starting positions 
         # the map object has variables that can dictate how each horse will load in
@@ -94,8 +93,9 @@ class Screen:
         
         return unpacked_horses
     
-    def game(participating_horses, map_name):
-        winning_horse = Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
+    def game(participating_horses, map_name, max_fps):
+        fps = max_fps
+        winning_horse = Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None, None)
         map = Screen.map_init(map_name)
         pygame.display.set_caption(f'Honse Racing Simulator: {map_name}')
         running = True
@@ -148,7 +148,7 @@ class Screen:
             for event in events:
                 if event.type == pygame.QUIT:
                     current_time += 10
-                    return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
+                    return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None, None)
             
             for hitbox in field_hitboxes: # draw all the fields for the horses 
                 pygame.draw.rect(screen, map.field_color, (hitbox[0] - 20, hitbox[1] - 20, hitbox[2] + 40, hitbox[3] + 40))
@@ -377,6 +377,8 @@ class Screen:
                     horse.base_speed = 0
                     horse.fit_movement_vectors()
                     grave_file_path = os.path.join("images", "gravestone.png")
+                    if horse.name == "Christ Almighty":
+                        grave_file_path = os.path.join("images", "crucifix.png")
                     grave_image = pygame.image.load(grave_file_path)
                     scaled_grave_image = pygame.transform.scale(grave_image, (40, 40))
                     if two_horses_remain == True:
@@ -388,6 +390,11 @@ class Screen:
                         used_image = scaled_grave_image
                     
                     screen.blit(used_image, (horse.dead_x, horse.dead_y))
+                    
+                    grave_font = pygame.font.SysFont(None, 14, bold=True)
+                    grave_text = grave_font.render(horse.name.upper(), True, (horse.grave_color[0], horse.grave_color[1], horse.grave_color[2]))
+                    grave_surface = grave_text.get_rect(centerx=horse.dead_x+20, centery=horse.dead_y+60)
+                    screen.blit(grave_text, grave_surface)
                     
             # if there is a knife, blit the knife image to the screen
             if knife_mode == True:           
@@ -524,7 +531,7 @@ class Screen:
     
         return winning_horse
     
-    def honseday_the_thirteenth(participating_horses, map_name): # a lot of copied code from regular game but yk
+    def honseday_the_thirteenth(participating_horses, map_name, max_fps): # a lot of copied code from regular game but yk
         # same assigning variables
         map = Screen.map_init(map_name)
         pygame.display.set_caption(f'Honse Racing Simulator: {map_name}')
@@ -540,7 +547,7 @@ class Screen:
         knife = pygame.Rect(0, 0, 0, 0)
         
         # load hopeless endeavor as his own horse
-        hopeless_endeavor = Horse("Hopeless Endeavor", 0.5, 40, 40, 800, 100, "hopeless_endeavor.png", "hopeless_endeavor.win.png", "")
+        hopeless_endeavor = Horse("Hopeless Endeavor", 0.5, 40, 40, 800, 100, "hopeless_endeavor.png", "hopeless_endeavor.win.png", "", (100, 100, 100))
         
         game_start_time, current_time = time.time(), time.time()
         current_time += 0
@@ -701,6 +708,8 @@ class Screen:
                     horse.base_speed = 0
                     horse.fit_movement_vectors()
                     grave_file_path = os.path.join("images", "gravestone.png")
+                    if horse.name == "Christ Almighty":
+                        grave_file_path = os.path.join("images", "crucifix.png")
                     grave_image = pygame.image.load(grave_file_path)
                     scaled_grave_image = pygame.transform.scale(grave_image, (40, 40))
                     if counter_3 > 72:

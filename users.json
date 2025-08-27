@@ -2,13 +2,13 @@
     {
         "name": "drwillfulneglect",
         "current_streak": 0,
-        "honse_bucks": 90,
-        "lifetime_correct_guesses": 0
+        "honse_bucks": 50,
+        "lifetime_correct_guesses": 1
     },
     {
         "name": "dk",
         "current_streak": 0,
-        "honse_bucks": 40,
+        "honse_bucks": 80,
         "lifetime_correct_guesses": 0
     }
 ]
