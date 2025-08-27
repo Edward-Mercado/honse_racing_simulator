@@ -1,4 +1,5 @@
 from screen import Screen
+from create_user import gamble
 import json, random
 
 random_on = True
@@ -23,6 +24,9 @@ with open("horses.json", "r") as file:
     
 with open("maps.json", "r") as file:
     json_maps = json.load(file)
+    
+with open("users.json", "r") as file:
+    json_users = json.load(file)
     
 for a_map in all_maps:
     map_index = all_maps.index(a_map)

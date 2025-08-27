@@ -246,8 +246,18 @@ class Screen:
             
             pygame.display.update()
         
+        two_horses_remain = False
+        frames_since_two_horses = 0
         while running: # most comments here will be similar to/short versions of the starting while loop comments
             # set max_fps
+            if two_horses_remain == True:
+                frames_since_two_horses += 1
+                if frames_since_two_horses % 1440 == 0:
+                    for horse in horse_objects:
+                        horse.speed *= 1.5
+                        horse.base_speed *= 1.5
+                        horse.fit_movement_vectors()
+                        
             clock = pygame.time.Clock()
             clock.tick(max_fps)
             screen.fill(map.background_color) 
@@ -265,7 +275,7 @@ class Screen:
                 pygame.draw.rect(screen, map.field_color, hitbox)
             
             for horse in horse_objects:
-                if horse.frames_since_last_stab <= 72:
+                if horse.frames_since_last_stab <= 36:
                     knife_can_pick_up = False
                 
             # draws all the special rects
@@ -334,6 +344,9 @@ class Screen:
             
                         if horse.lives_remaining < 2:
                             horses_critical_health += 1
+                
+                if alive_horses == 2:
+                    two_horses_remain = True
                 
                 if alive_horses == 2 and counter_10 == 0 and horses_critical_health > 0:
                     counter_10 += 1
