@@ -271,7 +271,7 @@ class Screen:
             clock = pygame.time.Clock()
             clock.tick(max_fps)
             screen.fill(map.background_color) 
-            knife_can_pick_up = True
+            
             
             events = pygame.event.get()
             for event in events:
@@ -284,6 +284,7 @@ class Screen:
             for hitbox in map.circle_hitboxes:
                 pygame.draw.rect(screen, map.field_color, hitbox)
             
+            knife_can_pick_up = True
             for horse in horse_objects:
                 if horse.frames_since_last_stab <= 36:
                     knife_can_pick_up = False
@@ -378,7 +379,15 @@ class Screen:
                     grave_file_path = os.path.join("images", "gravestone.png")
                     grave_image = pygame.image.load(grave_file_path)
                     scaled_grave_image = pygame.transform.scale(grave_image, (40, 40))
-                    screen.blit(scaled_grave_image, (horse.dead_x, horse.dead_y))
+                    if two_horses_remain == True:
+                        tint_image = scaled_grave_image.copy()
+                        tint_color = (120, 10, 15)
+                        tint_image.fill(tint_color, None, pygame.BLEND_RGBA_MULT)
+                        used_image = tint_image
+                    else:
+                        used_image = scaled_grave_image
+                    
+                    screen.blit(used_image, (horse.dead_x, horse.dead_y))
                     
             # if there is a knife, blit the knife image to the screen
             if knife_mode == True:           
@@ -687,13 +696,22 @@ class Screen:
             # draws a gravestone where the horse dies
             for horse in horse_objects:
                 if horse.width == 0:
+                    
                     horse.speed = 0
                     horse.base_speed = 0
                     horse.fit_movement_vectors()
                     grave_file_path = os.path.join("images", "gravestone.png")
                     grave_image = pygame.image.load(grave_file_path)
                     scaled_grave_image = pygame.transform.scale(grave_image, (40, 40))
-                    screen.blit(scaled_grave_image, (horse.dead_x, horse.dead_y))
+                    if counter_3 > 72:
+                        tint_image = scaled_grave_image.copy()
+                        tint_color = (120, 10, 15)
+                        tint_image.fill(tint_color, None, pygame.BLEND_RGBA_MULT)
+                        used_image = tint_image
+                    else:
+                        used_image = scaled_grave_image
+                    
+                    screen.blit(used_image, (horse.dead_x, horse.dead_y))
             
             
             # if only one horse is alive this will trigger stress mode (field is red now)

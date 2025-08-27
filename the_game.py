@@ -5,7 +5,7 @@ import json, random
 # customize the game here
 random_on = True        # random horses
 map_chosen = True        # skip map selection 
-gambling = False          # gamble
+gambling = True          # gamble
 map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
 
 

@@ -44,9 +44,10 @@ def gamble(selected_horses):
         for i in range(len(selected_horses)):
             print(f"{i}: {selected_horses[i]}")
         print("")
+        
         try:
             selected_horse = selected_horses[int(input("Select the ID of the horse you wish to bet on. "))]
-            print(f"You have successfully placed a {honse_buck_bet} Honse Dollar Bet for {selected_horses[i]}!")
+            print(f"You have successfully placed a {honse_buck_bet} Honse Dollar Bet for {selected_horse}!")
         except:
             selected_horse = selected_horses[0]
             print(f"Invalid input. Your {honse_buck_bet} Honse Dollar bet has automatically been placed as {selected_horse}.")

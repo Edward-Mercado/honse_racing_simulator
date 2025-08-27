@@ -23,7 +23,7 @@ class Horse:
         self.past_directions = []
         self.holding_knife = False
         self.lives_remaining = 3
-        self.frames_since_last_stab = 36
+        self.frames_since_last_stab = 24
         
         # i was going to originally have some function that returns the attribute based on vector name and then never did that
         self.vector_up = {

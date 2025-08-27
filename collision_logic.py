@@ -117,7 +117,7 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                     if horse.holding_knife == True:
                         knife["rect_value"][0] = other_horse.location_x
                         knife["rect_value"][1] = other_horse.location_y
-                        recoil_count = 2
+                        recoil_count = 6
                         horse.holding_knife = False
                     else:
                         recoil_count = 3
@@ -140,7 +140,7 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                     if other_horse.holding_knife == True:
                         knife["rect_value"][0] = horse.location_x
                         knife["rect_value"][1] = horse.location_y
-                        recoil_count = 2
+                        recoil_count = 6
                         other_horse.holding_knife = False
                     else:
                         recoil_count = 3
