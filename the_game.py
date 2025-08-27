@@ -3,13 +3,13 @@ from users import gamble
 import json, random
 
 # customize the game here
-random_on = True      # random horses
+random_on = True         # random horses
 map_chosen = True        # skip map selection 
-gambling = False         # gamble
+gambling = True          # gamble
 map_choice = "Knifeday The Thirteenth"  # name of the map if map_chosen = True
 
 
-participating_horses = ["Jesus Christ", "Sonic The Hedgehog"] # put horses you already want to see here
+participating_horses = ["Jesus Christ", "John Horse"] # put horses you already want to see here
 
 
 
@@ -121,8 +121,8 @@ if gambling == True:
         else:
             if user_with_bet[0]["honse_bucks"] == 0:
                 random_money = random.randint(1, 20) * 10
-                print(f"{user_with_bet[0]["name"]} went bankrupt. They will be given a pity payment of {random_money} Honse Dollars.")
-                user_with_bet[0]["honse_dollars"] += random_money
+                print(f"{user_with_bet[0]["name"]} went bankrupt. They will be given a pity payment of {random_money} Honse Bucks.")
+                user_with_bet[0]["honse_bucks"] += random_money
             user_with_bet[0]["current_streak"] = 0
             print(f"{user_with_bet[0]["name"]} was not so lucky. Better luck next time!")
             print("Their streak is now 0.")
