@@ -2,19 +2,17 @@ from screen import Screen
 from users import gamble
 import json, random
 
-# customize the game here
+# customize the game here ---------------------------------------------------------------------------------------------- #
 random_on = True        # random horses
 gambling = False          # gamble with users from users.json
-max_fps = 120             # change game speed
+max_fps = 48             # change game speed
 
 map_chosen = True        # skip map selection 
 map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
 
 participating_horses = [] # put horses you already want to see here
 
-
-
-# ---------------------------------------------------------------------------------------------------------------------------- #
+# customize the game here ---------------------------------------------------------------------------------------------- #
 
 # the list of horses
 all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Christ Almighty", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 

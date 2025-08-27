@@ -376,6 +376,8 @@ class Screen:
                     horse.speed = 0
                     horse.base_speed = 0
                     horse.fit_movement_vectors()
+                    
+                    # draw grave
                     grave_file_path = os.path.join("images", "gravestone.png")
                     if horse.name == "Christ Almighty":
                         grave_file_path = os.path.join("images", "crucifix.png")
@@ -391,6 +393,7 @@ class Screen:
                     
                     screen.blit(used_image, (horse.dead_x, horse.dead_y))
                     
+                    # grave text
                     grave_font = pygame.font.SysFont(None, 14, bold=True)
                     grave_text = grave_font.render(horse.name.upper(), True, (horse.grave_color[0], horse.grave_color[1], horse.grave_color[2]))
                     grave_surface = grave_text.get_rect(centerx=horse.dead_x+20, centery=horse.dead_y+60)
@@ -704,6 +707,7 @@ class Screen:
             for horse in horse_objects:
                 if horse.width == 0:
                     
+                    # draw grave
                     horse.speed = 0
                     horse.base_speed = 0
                     horse.fit_movement_vectors()
@@ -721,6 +725,12 @@ class Screen:
                         used_image = scaled_grave_image
                     
                     screen.blit(used_image, (horse.dead_x, horse.dead_y))
+                     
+                    # grave text
+                    grave_font = pygame.font.SysFont(None, 14, bold=True)
+                    grave_text = grave_font.render(horse.name.upper(), True, (horse.grave_color[0], horse.grave_color[1], horse.grave_color[2]))
+                    grave_surface = grave_text.get_rect(centerx=horse.dead_x+20, centery=horse.dead_y+60)
+                    screen.blit(grave_text, grave_surface)
             
             
             # if only one horse is alive this will trigger stress mode (field is red now)
