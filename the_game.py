@@ -5,20 +5,20 @@ import json, random
 # customize the game here
 random_on = True        # random horses
 map_chosen = True        # skip map selection 
-gambling = True          # gamble
-map_choice = "Knifeday The Thirteenth"  # name of the map if map_chosen = True
+gambling = False          # gamble
+map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
 
 
-participating_horses = ["Jesus Christ"] # put horses you already want to see here
+participating_horses = [] # put horses you already want to see here
 
 
 
 # ---------------------------------------------------------------------------------------------------------------------------- #
 
 # the list of horses
-all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
-              "Hopeless Endeavor", "Imperial Grace", "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 
-              "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat", "Jesus Christ"]
+all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Christ Almighty", "Crybaby Sundae", "Ellsee Reins", "Finneas Cutlass", 
+              "Hopeless Endeavor", "Imperial Grace",  "John Horse", "Jovial Merryment", "Lightning Strikes Thrice", 
+              "Maiden O'Luck", "Marshmallow Fluff", "Slow 'n' Steady", "The Sweetest Treat"]
 
 # the list of maps
 all_maps = ["Blank Field", "Bouncy Town", "The Wall-y West", "Mover Maze", 
