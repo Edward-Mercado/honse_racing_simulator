@@ -2,7 +2,7 @@ from screen import Screen
 from users import gamble
 import json, random
 
-def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps):
+def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps, map_choice):
     # the list of horses
     all_horses = ["Aquamarine Gambit", "Cherry Jubilee", "Christ Almighty", "Crybaby Sundae", "Dabloon Matey", "Ellsee Reins", 
                 "Finneas Cutlass", "Hopeless Endeavor", "Imperial Grace", "Jane Silksong", "John Horse", "Jovial Merryment", 
