@@ -17,7 +17,17 @@
             "win_image_url" : "aquamarine_gambit.win.png",
             "win_song_url": "NONE",
             "grave_color": [30, 210, 255]
-    }, 
+    },
+    {
+            "name" : "Barred Enchantment",
+            "speed" : 1,
+            "width" : 40,
+            "height" : 40,
+            "image_url" : "barred_enchantment.png",
+            "win_image_url" : "barred_enchantment.win.png",
+            "win_song_url": "NONE",
+            "grave_color": [30, 210, 255]
+    },
     {
             "name" : "Cherry Jubilee",
             "speed" : 1,
