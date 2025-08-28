@@ -20,7 +20,6 @@ all_horses = [
     "The Sweetest Treat"
     ]
 
-    # the list of maps
 all_maps = [
     "Blank Field", 
             "Bouncy Town", 
