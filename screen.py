@@ -385,7 +385,7 @@ class Screen:
                     scaled_grave_image = pygame.transform.scale(grave_image, (40, 40))
                     if two_horses_remain == True:
                         tint_image = scaled_grave_image.copy()
-                        tint_color = (120, 10, 15)
+                        tint_color = (180, 20, 30)
                         tint_image.fill(tint_color, None, pygame.BLEND_RGBA_MULT)
                         used_image = tint_image
                     else:
@@ -718,7 +718,7 @@ class Screen:
                     scaled_grave_image = pygame.transform.scale(grave_image, (40, 40))
                     if counter_3 > 72:
                         tint_image = scaled_grave_image.copy()
-                        tint_color = (120, 10, 15)
+                        tint_color = (180, 20, 30)
                         tint_image.fill(tint_color, None, pygame.BLEND_RGBA_MULT)
                         used_image = tint_image
                     else:
