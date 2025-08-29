@@ -8,7 +8,7 @@ max_fps = 48             # change game speed
 map_chosen = True        # skip map selection 
 map_choice = "Knife Battlegrounds"  # name of the map if map_chosen = True
 
-participating_horses = [] # put horses you already want to see here
+participating_horses = ["Barred Enchantment"] # put horses you already want to see here
 
 # customize the game here ---------------------------------------------------------------------------------------------- #
 
