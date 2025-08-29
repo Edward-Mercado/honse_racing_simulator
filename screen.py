@@ -3,6 +3,7 @@ from horse_logic import Horse
 from collision_logic import handle_horse_collision, handle_wall_collision, get_opposite_direction
 from map_logic import Map
 from shape_logic import get_circle_hitboxes, get_line_hitboxes
+from sounds import play_sound, play_music, transition_music, pause_music, unpause_music
 
 pygame.init()
 
@@ -82,7 +83,7 @@ class Screen:
                 location_y = None
                 image_url = horse["image_url"]
                 win_image_url = horse["win_image_url"]
-                win_song_url = horse["win_song_url"]
+                win_song_url = os.path.join("music", horse["win_song_url"])
                 grave_color = horse["grave_color"]
                 # initalize the horse and append it to our horse_objects list
                 horse_objects.append(Horse(name, speed, width, height, location_x, location_y, image_url, win_image_url, win_song_url, grave_color))
@@ -258,6 +259,9 @@ class Screen:
         
         two_horses_remain = False
         frames_since_two_horses = 0
+        
+        play_music("smart_race.mp3", True)
+        
         while running: # most comments here will be similar to/short versions of the starting while loop comments
             # set max_fps
             if two_horses_remain == True:
@@ -692,6 +696,7 @@ class Screen:
             
             pygame.display.update()
             
+        play_music("gaster_theme.mp3", True) 
             
         while running:
             # this will increment the frame counter
