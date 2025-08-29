@@ -14,7 +14,6 @@ participating_horses = ["Barred Enchantment"] # put horses you already want to s
 
 play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps, map_choice)
 
-
 all_horses = [
     "Aquamarine Gambit", 
     "Barred Enchantment",
