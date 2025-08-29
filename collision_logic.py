@@ -107,7 +107,7 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                 # if the horse dies then it's width and height are set to zero
                 # recoil count multiplies the amount the horses are launced away post collision
                 if horse.holding_knife == True or (honseday == True and horse.name == "Hopeless Endeavor"):
-                    play_sound("stab.wav")
+
                     other_horse.frames_since_last_stab = 0
                     
                     other_horse.speed /= 4
@@ -133,7 +133,7 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                         other_horse.height = 0   
                         
                 elif other_horse.holding_knife == True or (honseday == True and other_horse.name == "Hopeless Endeavor"): 
-                    play_sound("stab.wav")
+
                     horse.frames_since_last_stab = 0 
                     horse.lives_remaining -= 1
                     
@@ -156,7 +156,7 @@ def handle_horse_collision(horse, horses, direction, knife, honseday):
                         horse.width = 0
                         horse.height = 0    
                 else:
-                    play_sound("honse.wav")
+                    pass
                 
                 # same collision logic as the walls except the other horse moves away    
                 # if the horses were already going towards each other then both are flipped, if not then just the horse

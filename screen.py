@@ -344,6 +344,7 @@ class Screen:
             for horse in horse_objects:
                 if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(pygame.Rect(map.goal_x, map.goal_y, 20, 20)):
                     game_done = True
+                    play_sound("victory.wav")
                     winning_horse = horse
                     for horse in horse_objects:
                         horse.base_speed /= 10
@@ -368,6 +369,7 @@ class Screen:
                     counter_10 += 1
                     map.background_color = (80, 0, 0)
                     map.field_color = (30, 0, 0)
+                    transition_music("critical_health.mp3", True, 200)
                     
                     map.goal_x = goal_x
                     map.goal_y = goal_y
@@ -481,6 +483,10 @@ class Screen:
                 if counter_1 <= 48: # for the first two in game seconds move at very slow speed
                     for horse in horse_objects:
                         horse.horse_move(field_hitboxes, horse_objects, map, knife, map.circle_fields)
+                        
+                if counter_1 == 48:
+                    transition_music(winning_horse.win_song_url, True, 200)
+                
                 if counter_1 > 48: # then blit the winning image
                     win_file_path = os.path.join("images", winning_horse.win_image_url)
                     win_image = pygame.image.load(win_file_path)
@@ -498,6 +504,7 @@ class Screen:
                     for horse in horse_objects: 
                         if horse.width > 0:
                             winning_horse = horse
+                            
                 # ---
                 
                 for horse in horse_objects: # this will move the horses
@@ -757,6 +764,9 @@ class Screen:
                     hopeless_endeavor.speed *= 4
                     hopeless_endeavor.fit_movement_vectors()
                     
+                    
+                    transition_music("critical_health.mp3", True, 200)
+                    
                     # change colors to red
                     map.background_color = (80, 00, 00)
                     map.field_color = (30, 0, 0)
@@ -901,6 +911,9 @@ class Screen:
                         horse.horse_move(field_hitboxes, horse_objects, map, knife, map.circle_fields)
                 
                 # after two frame seconds then draw the winning horse
+                if counter_1 == 48:
+                    transition_music(winning_horse.win_song_url, True, 200)
+                    
                 if counter_1 > 48:
                     win_file_path = os.path.join("images", winning_horse.win_image_url)
                     win_image = pygame.image.load(win_file_path)
@@ -918,7 +931,7 @@ class Screen:
                         # if a horse touches the goal then that horse wins and the game is done
                         if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect((map.goal_x, map.goal_y, 20, 20)):
                             game_done = True
-                            
+                            play_sound("victory.wav")
                             # move the horse closer to the goal
                             if horse.vector_up["vector_measurement"] != 0: 
                                 horse.location_y -= 10
