@@ -342,7 +342,7 @@ class Screen:
             screen.blit(scaled_image, (map.goal_x, map.goal_y)) 
             
             for horse in horse_objects:
-                if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(pygame.Rect(map.goal_x, map.goal_y, 20, 20)):
+                if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect(pygame.Rect(map.goal_x, map.goal_y, 20, 20)) and horse.holding_knife == False:
                     game_done = True
                     play_sound("victory.wav")
                     winning_horse = horse
@@ -369,7 +369,8 @@ class Screen:
                     counter_10 += 1
                     map.background_color = (80, 0, 0)
                     map.field_color = (30, 0, 0)
-                    transition_music("critical_health.mp3", True, 200)
+                    critical_health_music = os.path.join("music", "critical_health.mp3")
+                    transition_music(critical_health_music, True, 200)
                     
                     map.goal_x = goal_x
                     map.goal_y = goal_y
@@ -518,7 +519,7 @@ class Screen:
                         horse.fix_vector_pair("vertical", horse.vector_up["vector_measurement"], horse.vector_down["vector_measurement"])         
                         
                         # if a horse hits the goal then they win yay
-                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect((map.goal_x, map.goal_y, 20, 20)):
+                        if pygame.Rect(horse.location_x, horse.location_y, horse.width, horse.height).colliderect((map.goal_x, map.goal_y, 20, 20)) and horse.holding_knife == False:
                             game_done = True
                             
                             # this moves the winning horse closer to the goal
@@ -548,6 +549,7 @@ class Screen:
     def honseday_the_thirteenth(participating_horses, map_name, max_fps): # a lot of copied code from regular game but yk
         # same assigning variables
         map = Screen.map_init(map_name)
+        winning_horse = Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None, None)
         pygame.display.set_caption(f'Honse Racing Simulator: {map_name}')
         running = True
         game_done = False
@@ -764,8 +766,8 @@ class Screen:
                     hopeless_endeavor.speed *= 4
                     hopeless_endeavor.fit_movement_vectors()
                     
-                    
-                    transition_music("critical_health.mp3", True, 200)
+                    critical_health_music = os.path.join("music", "critical_health.mp3")
+                    transition_music(critical_health_music, True, 200)
                     
                     # change colors to red
                     map.background_color = (80, 00, 00)
@@ -781,6 +783,7 @@ class Screen:
                 # double hopeless' speed
                 hopeless_endeavor.speed *= 2
                 hopeless_endeavor.fit_movement_vectors()
+                play_sound("angry.wav")
             
             # set max fps
             clock = pygame.time.Clock()
