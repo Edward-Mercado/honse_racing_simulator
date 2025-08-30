@@ -2,7 +2,7 @@ from the_game import play_the_game
 
 # customize the game here ---------------------------------------------------------------------------------------------- #
 random_on = True        # random horses
-gambling = True          # gamble with users from users.json
+gambling = False          # gamble with users from users.json
 max_fps = 120             # change game speed
 
 map_chosen = True        # skip map selection 
