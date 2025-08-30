@@ -6,6 +6,7 @@ from shape_logic import get_circle_hitboxes, get_line_hitboxes
 from sounds import play_sound, play_music, transition_music, pause_music, unpause_music
 
 pygame.init()
+pygame.mixer.set_num_channels(32)
 
 screen = pygame.display.set_mode((1470, 820))
 

@@ -2,6 +2,7 @@ import pygame, os, random
 from pygame import mixer
 pygame.init()
 mixer.init()
+pygame.mixer.set_num_channels(32)
 
 def play_sound(file_name):
     sfx_path = os.path.join("sfx", file_name)
