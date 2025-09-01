@@ -94,6 +94,9 @@ def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps
             winning_horse = horse
             break
 
+    
+    winning_horse["documented_wins"] += 1
+    
     if gambling == True:
         users_post_game = []
         print("")
@@ -123,3 +126,6 @@ def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps
             
         with open("users.json", "w") as file:
             json.dump(users_post_game, file, indent=4)
+            
+    with open("horses.json", "w") as file:
+        json.dump(json_horses, file, indent=4)

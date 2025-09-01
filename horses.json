@@ -1,192 +1,287 @@
-[   {
-            "name" : "Missing No.",
-            "speed" : 10010000,
-            "width" : 10,
-            "height" : 10,
-            "image_url" : "NONE",
-            "win_image_url" : "NONE",
-            "win_song_url": "NONE",
-            "grave_color": [0, 0, 0]
+[
+    {
+        "name": "Missing No.",
+        "speed": 10010000,
+        "width": 10,
+        "height": 10,
+        "image_url": "NONE",
+        "win_image_url": "NONE",
+        "win_song_url": "NONE",
+        "grave_color": [
+            0,
+            0,
+            0
+        ],
+        "documented_wins": 0
     },
     {
-            "name" : "Aquamarine Gambit",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "aquamarine_gambit.png",
-            "win_image_url" : "aquamarine_gambit.win.png",
-            "win_song_url": "aquamarine_gambit.mp3",
-            "grave_color": [30, 210, 255]
+        "name": "Aquamarine Gambit",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "aquamarine_gambit.png",
+        "win_image_url": "aquamarine_gambit.win.png",
+        "win_song_url": "aquamarine_gambit.mp3",
+        "grave_color": [
+            30,
+            210,
+            255
+        ],
+        "documented_wins": 0
     },
     {
-            "name" : "Barred Enchantment",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "barred_enchantment.png",
-            "win_image_url" : "barred_enchantment.win.png",
-            "win_song_url": "barred_enchantment.mp3",
-            "grave_color": [30, 210, 255]
+        "name": "Barred Enchantment",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "barred_enchantment.png",
+        "win_image_url": "barred_enchantment.win.png",
+        "win_song_url": "barred_enchantment.mp3",
+        "grave_color": [
+            30,
+            210,
+            255
+        ],
+        "documented_wins": 0
     },
     {
-            "name" : "Cherry Jubilee",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "cherry_jubilee.png",
-            "win_image_url" : "cherry_jubilee.win.png",
-            "win_song_url": "cherry_jubilee.mp3",
-            "grave_color": [255, 2, 4]
-    }, 
-    {
-            "name" : "Christ Almighty",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "christ_almighty.png",
-            "win_image_url" : "christ_almighty.win.png",
-            "win_song_url": "christ_almighty.mp3",
-            "grave_color": [100, 30, 0]
-    }, 
-    {
-            "name" : "Crybaby Sundae",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "crybaby_sundae.png",
-            "win_image_url" : "crybaby_sundae.win.png",
-            "win_song_url": "crybaby_sundae.mp3",
-            "grave_color": [50, 230, 255]
-    }, 
-    {
-            "name" : "Dabloon Matey",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "dabloon_matey.png",
-            "win_image_url" : "dabloon_matey.win.png",
-            "win_song_url": "dabloon_matey.mp3",
-            "grave_color": [255, 230, 0]
+        "name": "Cherry Jubilee",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "cherry_jubilee.png",
+        "win_image_url": "cherry_jubilee.win.png",
+        "win_song_url": "cherry_jubilee.mp3",
+        "grave_color": [
+            255,
+            2,
+            4
+        ],
+        "documented_wins": 0
     },
     {
-            "name" : "Ellsee Reins",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "ellsee_reins.png",
-            "win_image_url" : "ellsee_reins.win.png",
-            "win_song_url": "ellsee_reins.mp3",
-            "grave_color": [200, 200, 200]
-    }, 
-    {
-            "name" : "Finneas Cutlass",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "finneas_cutlass.png",
-            "win_image_url" : "finneas_cutlass.win.png",
-            "win_song_url": "finneas_cutlass.mp3",
-            "grave_color": [50, 5, 75]
-    }, 
-    {
-            "name" : "Hopeless Endeavor",
-            "speed" : 0.5,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "hopeless_endeavor.png",
-            "win_image_url" : "hopeless_endeavor.win.png",
-            "win_song_url": "hopeless_endeavor.mp3",
-            "grave_color": [40, 40, 40]
-    }, 
-    {
-            "name" : "Imperial Grace",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "imperial_grace.png",
-            "win_image_url" : "imperial_grace.win.png",
-            "win_song_url": "imperial_grace.mp3",
-            "grave_color": [20, 0, 40]
-            
+        "name": "Christ Almighty",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "christ_almighty.png",
+        "win_image_url": "christ_almighty.win.png",
+        "win_song_url": "christ_almighty.mp3",
+        "grave_color": [
+            100,
+            30,
+            0
+        ],
+        "documented_wins": 0
     },
     {
-            "name" : "Jane Silksong",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "jane_silksong.png",
-            "win_image_url" : "jane_silksong.win.png",
-            "win_song_url": "jane_silksong.mp3",
-            "grave_color": [100, 10, 0]
-    }, 
+        "name": "Crybaby Sundae",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "crybaby_sundae.png",
+        "win_image_url": "crybaby_sundae.win.png",
+        "win_song_url": "crybaby_sundae.mp3",
+        "grave_color": [
+            50,
+            230,
+            255
+        ],
+        "documented_wins": 0
+    },
     {
-            "name" : "John Horse",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "john_horse.png",
-            "win_image_url" : "john_horse.win.png",
-            "win_song_url": "john_horse.mp3",
-            "grave_color": [90, 40, 0]
-    }, 
+        "name": "Dabloon Matey",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "dabloon_matey.png",
+        "win_image_url": "dabloon_matey.win.png",
+        "win_song_url": "dabloon_matey.mp3",
+        "grave_color": [
+            255,
+            230,
+            0
+        ],
+        "documented_wins": 0
+    },
     {
-            "name" : "Jovial Merryment",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "jovial_merryment.png",
-            "win_image_url" : "jovial_merryment.win.png",
-            "win_song_url": "jovial_merryment.mp3",
-            "grave_color": [255, 140, 0]
-    }, 
+        "name": "Ellsee Reins",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "ellsee_reins.png",
+        "win_image_url": "ellsee_reins.win.png",
+        "win_song_url": "ellsee_reins.mp3",
+        "grave_color": [
+            200,
+            200,
+            200
+        ],
+        "documented_wins": 0
+    },
     {
-            "name" : "Lightning Strikes Thrice",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "lightning_strikes_thrice.png",
-            "win_image_url" : "lightning_strikes_thrice.win.png",
-            "win_song_url": "lightning_strikes_thrice.mp3",
-            "grave_color": [245, 255, 10]
-    }, 
+        "name": "Finneas Cutlass",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "finneas_cutlass.png",
+        "win_image_url": "finneas_cutlass.win.png",
+        "win_song_url": "finneas_cutlass.mp3",
+        "grave_color": [
+            50,
+            5,
+            75
+        ],
+        "documented_wins": 0
+    },
     {
-            "name" : "Maiden O'Luck",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "maiden_oluck.png",
-            "win_image_url" : "maiden_oluck.win.png",
-            "win_song_url": "maiden_oluck.mp3",
-            "grave_color": [0, 180, 0]
-    }, 
+        "name": "Hopeless Endeavor",
+        "speed": 0.5,
+        "width": 40,
+        "height": 40,
+        "image_url": "hopeless_endeavor.png",
+        "win_image_url": "hopeless_endeavor.win.png",
+        "win_song_url": "hopeless_endeavor.mp3",
+        "grave_color": [
+            40,
+            40,
+            40
+        ],
+        "documented_wins": 1
+    },
     {
-            "name" : "Marshmallow Fluff",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "marshmallow_fluff.png",
-            "win_image_url" : "marshmallow_fluff.win.png",
-            "win_song_url": "marshmallow_fluff.mp3",
-            "grave_color": [252, 252, 255]
-    }, 
+        "name": "Imperial Grace",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "imperial_grace.png",
+        "win_image_url": "imperial_grace.win.png",
+        "win_song_url": "imperial_grace.mp3",
+        "grave_color": [
+            20,
+            0,
+            40
+        ],
+        "documented_wins": 0
+    },
     {
-            "name" : "Slow 'n' Steady",
-            "speed" : 0.666,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "slow_n_steady.png",
-            "win_image_url" : "slow_n_steady.win.png",
-            "win_song_url": "slow_n_steady.mp3",
-            "grave_color": [0, 20, 60]
-    }, 
+        "name": "Jane Silksong",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "jane_silksong.png",
+        "win_image_url": "jane_silksong.win.png",
+        "win_song_url": "jane_silksong.mp3",
+        "grave_color": [
+            100,
+            10,
+            0
+        ],
+        "documented_wins": 0
+    },
     {
-            "name" : "The Sweetest Treat",
-            "speed" : 1,
-            "width" : 40,
-            "height" : 40,
-            "image_url" : "the_sweetest_treat.png",
-            "win_image_url" : "the_sweetest_treat.win.png",
-            "win_song_url": "the_sweetest_treat.mp3",
-            "grave_color": [255, 220, 255]
+        "name": "John Horse",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "john_horse.png",
+        "win_image_url": "john_horse.win.png",
+        "win_song_url": "john_horse.mp3",
+        "grave_color": [
+            90,
+            40,
+            0
+        ],
+        "documented_wins": 0
+    },
+    {
+        "name": "Jovial Merryment",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "jovial_merryment.png",
+        "win_image_url": "jovial_merryment.win.png",
+        "win_song_url": "jovial_merryment.mp3",
+        "grave_color": [
+            255,
+            140,
+            0
+        ],
+        "documented_wins": 0
+    },
+    {
+        "name": "Lightning Strikes Thrice",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "lightning_strikes_thrice.png",
+        "win_image_url": "lightning_strikes_thrice.win.png",
+        "win_song_url": "lightning_strikes_thrice.mp3",
+        "grave_color": [
+            245,
+            255,
+            10
+        ],
+        "documented_wins": 0
+    },
+    {
+        "name": "Maiden O'Luck",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "maiden_oluck.png",
+        "win_image_url": "maiden_oluck.win.png",
+        "win_song_url": "maiden_oluck.mp3",
+        "grave_color": [
+            0,
+            180,
+            0
+        ],
+        "documented_wins": 0
+    },
+    {
+        "name": "Marshmallow Fluff",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "marshmallow_fluff.png",
+        "win_image_url": "marshmallow_fluff.win.png",
+        "win_song_url": "marshmallow_fluff.mp3",
+        "grave_color": [
+            252,
+            252,
+            255
+        ],
+        "documented_wins": 0
+    },
+    {
+        "name": "Slow 'n' Steady",
+        "speed": 0.666,
+        "width": 40,
+        "height": 40,
+        "image_url": "slow_n_steady.png",
+        "win_image_url": "slow_n_steady.win.png",
+        "win_song_url": "slow_n_steady.mp3",
+        "grave_color": [
+            0,
+            20,
+            60
+        ],
+        "documented_wins": 0
+    },
+    {
+        "name": "The Sweetest Treat",
+        "speed": 1,
+        "width": 40,
+        "height": 40,
+        "image_url": "the_sweetest_treat.png",
+        "win_image_url": "the_sweetest_treat.win.png",
+        "win_song_url": "the_sweetest_treat.mp3",
+        "grave_color": [
+            255,
+            220,
+            255
+        ],
+        "documented_wins": 0
     }
 ]
