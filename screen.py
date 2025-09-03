@@ -150,6 +150,7 @@ class Screen:
             for event in events:
                 if event.type == pygame.QUIT:
                     current_time += 10
+                    pygame.mixer.music.stop()
                     return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None, None)
             
             for hitbox in field_hitboxes: # draw all the fields for the horses 
@@ -281,6 +282,7 @@ class Screen:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    pygame.mixer.music.stop()
                     running = False
             
             # draws the various hitboxes for the field        
@@ -595,6 +597,7 @@ class Screen:
             screen.fill(map.background_color) 
             for event in events:
                 if event.type == pygame.QUIT:
+                    pygame.mixer.music.stop()
                     current_time += 10
                     return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
             
@@ -794,6 +797,7 @@ class Screen:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    pygame.mixer.music.stop()
                     running = False
                   
             # draw hitboxes  
