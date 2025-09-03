@@ -599,7 +599,7 @@ class Screen:
                 if event.type == pygame.QUIT:
                     pygame.mixer.music.stop()
                     current_time += 10
-                    return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None)
+                    return Horse("Missing No.", 10010000, 10, 10, 0, 0, None, None, None, None)
             
             # draw hitboxes
             for hitbox in field_hitboxes:

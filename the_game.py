@@ -33,10 +33,7 @@ def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps
 
 
     if map_chosen == False:
-        try:
-            map_choice = all_maps[int(input("Select Map #: "))]
-        except:
-            map_choice = "Blank Field"
+        map_choice = all_maps[random.randint(0, len(all_maps)-1)]
 
     for json_map in json_maps: # find the map chosen by the user
         if json_map["name"] == map_choice:
@@ -48,25 +45,7 @@ def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps
         all_horses.remove("Hopeless Endeavor")
         print("This is a special gamemode.")
 
-    print("")
-
-    if random_on == False: # you can make random_on true at the top if you want the game to pick horses for you (typically done in testing)
-        for horse in all_horses: # same sort of logic as the map input
-            horse_index = all_horses.index(horse)
-            print(f"{horse_index}: {horse}")
-
-        print("")
-        print(f"Select up to {chosen_map["max_horses"]} horses. Enter an invalid ID to start prematurely.")    
-        print("")
-
-        while chosen_map["max_horses"] > len(participating_horses):
-            input_horse = input("Select A Horse ID: ")
-            try:
-                horse_name = all_horses[int(input_horse)]
-                participating_horses.append(horse_name)
-            except: # invalid values break the loop and then start the game
-                break
-    else:
+    if random_on == True:
         for horse in participating_horses:
             all_horses.remove(horse)
         
@@ -74,7 +53,6 @@ def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps
             chosen_horse = random.choice(all_horses)
             participating_horses.append(chosen_horse)  
             all_horses.remove(chosen_horse)
-    print("")
 
 
     if gambling == True:
@@ -99,7 +77,7 @@ def play_the_game(random_on, map_chosen, participating_horses, gambling, max_fps
     
     if gambling == True:
         users_post_game = []
-        print("")
+
         for user_with_bet in users_with_bets:
             users_post_game.append(user_with_bet[0])
             if user_with_bet[2] == winning_horse["name"]:

@@ -1,0 +1,49 @@
+[{
+    "map_name": "Blank Field",
+    "x": 40,
+    "y": 200
+},{
+    "map_name": "Bouncy Town",
+    "x": 280,
+    "y": 200
+},{
+    "map_name": "The Wall-y West",
+    "x": 520,
+    "y": 200
+},{
+    "map_name": "Mover Maze",
+    "x": 760,
+    "y": 200
+},{
+    "map_name": "The Stanky Leg",
+    "x": 1000,
+    "y": 200
+},{
+    "map_name": "Plinko Paradise",
+    "x": 1240,
+    "y": 200
+},{
+    "map_name": "Teleporting Mess",
+    "x": 40,
+    "y": 320
+},{
+    "map_name": "Plinko Purgatory",
+    "x": 280,
+    "y": 320
+},{
+    "map_name": "Knife Battlegrounds",
+    "x": 520,
+    "y": 320
+},{
+    "map_name": "Raceday The Thirteenth",
+    "x": 760,
+    "y": 320
+},{
+    "map_name": "Honseday The Thirteenth",
+    "x": 1000,
+    "y": 320
+},{
+    "map_name": "Knifeday The Thirteenth",
+    "x": 1240,
+    "y": 320
+}]

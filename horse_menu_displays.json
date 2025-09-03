@@ -1,0 +1,134 @@
+[{
+    "name": "Missing No.",
+    "width": 0,
+    "height": 0,
+    "x": 0,
+    "y": 0,
+    "image_url": "knife.png"
+},{
+    "name": "Aquamarine Gambit",
+    "width": 50,
+    "height": 50,
+    "x": 35,
+    "y": 610,
+    "image_url": "aquamarine_gambit.png"
+},{
+    "name": "Barred Enchantment",
+    "width": 50,
+    "height": 50,
+    "x": 155,
+    "y": 610,
+    "image_url": "barred_enchantment.png"
+},{
+    "name": "Cherry Jubilee",
+    "width": 50,
+    "height": 50,
+    "x": 275,
+    "y": 610,
+    "image_url": "cherry_jubilee.png"
+},{
+    "name": "Christ Almighty",
+    "width": 50,
+    "height": 50,
+    "x": 395,
+    "y": 610,
+    "image_url": "christ_almighty.png"
+},{
+    "name": "Crybaby Sundae",
+    "width": 50,
+    "height": 50,
+    "x": 515,
+    "y": 610,
+    "image_url": "crybaby_sundae.png"
+},{
+    "name": "Dabloon Matey",
+    "width": 50,
+    "height": 50,
+    "x": 635,
+    "y": 610,
+    "image_url": "dabloon_matey.png"
+},{
+    "name": "Ellsee Reins",
+    "width": 50,
+    "height": 50,
+    "x": 755,
+    "y": 610,
+    "image_url": "ellsee_reins.png"
+},{
+    "name": "Finneas Cutlass",
+    "width": 50,
+    "height": 50,
+    "x": 875,
+    "y": 610,
+    "image_url": "finneas_cutlass.png"
+},{
+    "name": "Hopeless Endeavor",
+    "width": 50,
+    "height": 50,
+    "x": 995,
+    "y": 610,
+    "image_url": "hopeless_endeavor.png"
+},{
+    "name": "Imperial Grace",
+    "width": 50,
+    "height": 50,
+    "x": 1115,
+    "y": 610,
+    "image_url": "imperial_grace.png"
+},{
+    "name": "Jane Silksong",
+    "width": 50,
+    "height": 50,
+    "x": 35,
+    "y": 670,
+    "image_url": "jane_silksong.png"
+},{
+    "name": "John Horse",
+    "width": 50,
+    "height": 50,
+    "x": 155,
+    "y": 670,
+    "image_url": "john_horse.png"
+},{
+    "name": "Jovial Merryment",
+    "width": 50,
+    "height": 50,
+    "x": 275,
+    "y": 670,
+    "image_url": "jovial_merryment.png"
+},{
+    "name": "Lightning Strikes Thrice",
+    "width": 50,
+    "height": 50,
+    "x": 395,
+    "y": 670,
+    "image_url": "lightning_strikes_thrice.png"
+},{
+    "name": "Maiden O'Luck",
+    "width": 50,
+    "height": 50,
+    "x": 515,
+    "y": 670,
+    "image_url": "maiden_oluck.png"
+},{
+    "name": "Marshmallow Fluff",
+    "width": 50,
+    "height": 50,
+    "x": 635,
+    "y": 670,
+    "image_url": "marshmallow_fluff.png"
+},{
+    "name": "Slow 'n' Steady",
+    "width": 50,
+    "height": 50,
+    "x": 755,
+    "y": 670,
+    "image_url": "slow_n_steady.png"
+},{
+    "name": "The Sweetest Treat",
+    "width": 50,
+    "height": 50,
+    "x": 875,
+    "y": 670,
+    "image_url": "the_sweetest_treat.png"
+}]
