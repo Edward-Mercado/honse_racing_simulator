@@ -20,7 +20,7 @@ def get_circle_hitboxes(center, radius):
             derivation:
             circle formula = r^2 = x^2 + y^2 (** is the operand for exponentiation)
             where x is the horizontal distance from the center, and y is the vertical distance (pythagorean theorem)
-            i is the integration amount, therefore that is our horizontal distance
+            i is the iteration amount, therefore that is our horizontal distance
             and we need to find the vertical distance
             quickly substitute
             move the rect_height to the left side and the radius to the right
